@@ -4,8 +4,26 @@ google dorks :
   site:website.comintitle:/admin 
   site:website.cominurl:admin
   intitle:admin intext:admin
+  index of / site: /etc/certs + "index of /" */* site:example.com
   
   administrator | debug | login | root | wp-login | master | superuser
+  example.com/wp-content/uploads/2021/      >> wordpress 
+  example.com/wp-inc/       >> for wp-db files
+  
+  allintext:username filetype:log     >> find log files 
+  ext:sql intext:"-- phpMyAdmin SQL Dump"
+  
+  
+  1) go get -u http://github.com/lc/gau
+2) echo "http://drive.google.com" | gau
+3) Read all the secrets
+  
+  
+  
+  
+  
+  
+  
   
   
   httpx -l hosts.txt -paths /root/login.txt -threads 50 -random-agent -x GET, POST -tech-detect -status-code -follow-redirects -title -content-lengthhttpx -l hosts.txt -ports 80,443,8009,8080,8081,8090,8180,8443 -paths /root/login.txt -threads 50 -random-agent -x GET, POST -tech-detect -status-code -follow-redirects -title -content-length
