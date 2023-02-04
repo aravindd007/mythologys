@@ -30,7 +30,16 @@ Wait a few hours
 
 cat nmap_scan.txt | grep open http://pic.example.com
 
+AAAA')/**/or/**/(select/**/1)=1%23
 
+
+
+
+
+Directory listing::
+        try every dir in debuging folders 
+              http://example.com/assets
+              https://example.com/app
 
   
   
