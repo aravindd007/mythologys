@@ -34,6 +34,13 @@ AAAA')/**/or/**/(select/**/1)=1%23
 
 
 
+amass <<
+    amass enum -ip -src -brute -df domains
+    
+
+
+
+
 
 
 Directory listing::
