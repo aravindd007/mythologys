@@ -47,6 +47,12 @@ amass <<
 
 
 
+------------------------------------------------------------
+IDOR :: 
+  GO to my account and intercept data then change id 
+  go to comments and intercept and change the id 
+  go to my cart and intercept and change the id 
+
 
 
 
