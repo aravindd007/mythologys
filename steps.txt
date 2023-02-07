@@ -15,6 +15,16 @@ google dorks :
   
   
   
+  
+  ----------------------------------------------------------------------------------------------
+  extentions :: 
+        1- co2 >> sqli
+        2- retire.js >> jquery and javascript files
+        3- carbonator   >> automate targeting , spidering , and scanning vulns
+        
+  
+  
+  
   ----------------------------------------------------------------------------------------------
                     JSON EXPLOIT
   
@@ -29,7 +39,13 @@ google dorks :
 
   
   
-  
+
+
+--------------------------------------------------------------------------------------------
+                                    CSRF
+  1- try to remove the token and see if the same response
+  2- try to make poc by burpsuite and if there is current password try to remove it 
+  3- 
   
  
  
