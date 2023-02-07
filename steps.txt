@@ -17,6 +17,7 @@ google dorks :
   
   
   ----------------------------------------------------------------------------------------------
+  https://app.pluralsight.com/course-player?clipId=fc4ed0ad-2778-4318-8b97-9f2010471064
                       BURPSUITE   
   extentions :: 
         1- co2 >> sqli
