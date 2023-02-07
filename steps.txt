@@ -39,6 +39,13 @@ amass <<
     
 
 
+---------------------------------------------------------
+            (((XSS))
+  <script>alert(\"hossam\")</script>        // add \ before " to escape filter
+
+
+
+
 
 
 
