@@ -54,7 +54,7 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   3- 
   
  
- 
+ inrul:login;jsessionid=    >> to see squestoinal session id 
  ----------------------------------------------------------------------------------------------
 1) go get -u http://github.com/lc/gau
 2) echo "http://drive.google.com" | gau
