@@ -17,11 +17,14 @@ google dorks :
   
   
   ----------------------------------------------------------------------------------------------
+                      BURPSUITE   
   extentions :: 
         1- co2 >> sqli
         2- retire.js >> jquery and javascript files
         3- carbonator   >> automate targeting , spidering , and scanning vulns
         
+        
+  file upload or download :: file.php%2500.pdf    >> this will ignore .pdf in server but pass filter
   
   
   
