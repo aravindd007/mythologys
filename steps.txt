@@ -24,6 +24,7 @@ google dorks :
   
   if json is only in respone take it and modify and then 
   PUT /file.txt
+  content-type: application/json
   {"description":"<script>alert(\"hossam\")"}
 
   
