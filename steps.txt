@@ -1,3 +1,12 @@
+                  Logic and tokens
+ try to login with two users and see tokens from  inspect -> application and compare them  
+
+
+
+
+
+
+
 google dorks : 
   
   site:target.com inurl:adminintitle:login 
