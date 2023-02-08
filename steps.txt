@@ -48,9 +48,9 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   try to change the method from get to put to inject database
   
   if json is only in respone take it and modify and then 
-  PUT /file.txt
+  PUT /file.txt           or you can use POST without any parameters in link
   content-type: application/json
-  {"description":"<script>alert(\"hossam\")"}
+  {"description":"<script>alert(\"hossam\");</script>"}
 
   
   
