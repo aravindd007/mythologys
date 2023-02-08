@@ -207,7 +207,18 @@ Directory listing::
        
        
        
-       
+       ---------------------------------------------------------------------------------------------------------------
+                                              nuclei
+nuclei -u "http://example.com" -t nuclei-templates  -tags xss 		>> to use all xss tags  	
+nuclei -u "http://example.com" -t nuclei-templates  -author hossam 	>> for templates of hossam
+nuclei -u "http://example.com" -t nuclei-templates -severity low,medium
+rate limit :: requests per second 
+bulk-size :: requests parallel
+c templates concurrent 
+nuclei -header "User-Agent:Mozilla(Hacktify_Hacker)"
+
+            
+ 
        
        
        
