@@ -1,6 +1,7 @@
                   Logic and tokens
- try to login with two users and see tokens from  inspect -> application and compare them  
-you can login and copy token and logout and try to put token back see if you can access
+1-  try to login with two users and see tokens from  inspect -> application and compare them  
+2-  you can login and copy token and logout and try to put token back see if you can access
+3-  try to forget password and send code then in the same session add any link to internal profile and see if you can access account data ex: example.com/myaccount  ... you can verfiy if you got session id from >> inspect > applicatoin 
 
 
 
