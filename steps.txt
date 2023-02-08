@@ -1,6 +1,6 @@
                   Logic and tokens
  try to login with two users and see tokens from  inspect -> application and compare them  
-
+you can login and copy token and logout and try to put token back see if you can access
 
 
 
