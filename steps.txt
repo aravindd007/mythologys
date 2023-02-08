@@ -3,7 +3,7 @@
 2-  you can login and copy token and logout and try to put token back see if you can access   
 3-  try to forget password and send code then in the same session add any link to internal profile and see if you can access account data ex: /myaccount (don't reload)  ... you can verfiy if you got session id from >> inspect > applicatoin 
 4- try to register as admin then you will get inavalible username >> in the same session go to /myaccount  (don't reload) 
-
+5- if transaction of money from hossam to ali then ?from=hossam&to=ali  can make http polution by &from=ali&from=hossam&to=hossam&to=ali
 
 
 
