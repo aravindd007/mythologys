@@ -217,7 +217,8 @@ bulk-size :: requests parallel
 c templates concurrent 
 nuclei -header "User-Agent:Mozilla(Hacktify_Hacker)"
 
-            
+cat subdmains | nuclei -t nuclei-templates
+
  
        
        
