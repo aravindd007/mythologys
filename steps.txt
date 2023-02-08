@@ -218,9 +218,16 @@ c templates concurrent
 nuclei -header "User-Agent:Mozilla(Hacktify_Hacker)"
 
 cat subdmains | nuclei -t nuclei-templates
+nuclei -update
 
- 
-       
+{{BaseURL}}	https://www.example.com:4444/test/example.txt
+{{RootURL}}	https://www.example.com:4444
+{{Hostname}}	www.example.com:4444
+{{Host}}		www.example.com
+{{Port}}		4444	
+{{Path}}		/test
+{{File}}		/example.txt
+{{Scheme}}	Https      
        
        
        
