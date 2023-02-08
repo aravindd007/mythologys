@@ -212,14 +212,15 @@ Directory listing::
 nuclei -u "http://example.com" -t nuclei-templates  -tags xss 		>> to use all xss tags  	
 nuclei -u "http://example.com" -t nuclei-templates  -author hossam 	>> for templates of hossam
 nuclei -u "http://example.com" -t nuclei-templates -severity low,medium
-rate limit :: requests per second 
-bulk-size :: requests parallel
-c templates concurrent 
+nuclei -u "http://example.com" -t nuclei-templates -p http://127.0.0.1:8080     >> to send the request to burpsuite
 nuclei -header "User-Agent:Mozilla(Hacktify_Hacker)"
 
 cat subdmains | nuclei -t nuclei-templates
 nuclei -update
 
+rate limit :: requests per second 
+bulk-size :: requests parallel
+c templates concurrent 
 {{BaseURL}}	https://www.example.com:4444/test/example.txt
 {{RootURL}}	https://www.example.com:4444
 {{Hostname}}	www.example.com:4444
@@ -229,6 +230,7 @@ nuclei -update
 {{File}}		/example.txt
 {{Scheme}}	Https      
        
+
        
        
        
