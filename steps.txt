@@ -78,11 +78,16 @@ document.cookie="SESSIONID=12345;%20path=/;
 
 
 ----------------------------------------------------------------------------------------------
+                                    BRUTE FORCE 
+   
+   try to login with invalid password 10 times and then go with valid password if your account was not locked the you can do brute force attack 
  
  
  
  
  
+ ----------------------------------------------------------------------------------------------
+
  
 1) go get -u http://github.com/lc/gau
 2) echo "http://drive.google.com" | gau
