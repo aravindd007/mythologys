@@ -177,3 +177,46 @@ Directory listing::
  Censys:: 
        (services.tls.certificates.leaf_data.issuer.common_name: website.com) AND services.http.response.html_title: admin
        (services.tls.certificates.leaf_data.issuer.common_name: website.com) AND services.http.response.body: admin
+       
+       
+       ---------------------------------------------------------------------------------------------------------
+       
+                                    NMAP
+           
+           nmap --script http-methods 192.168.1.1         >> to check the allowable methods 
+           
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
