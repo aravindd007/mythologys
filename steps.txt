@@ -6,7 +6,7 @@
 5- if transaction of money from hossam to ali then ?from=hossam&to=ali  can make http polution by &from=ali&from=hossam&to=hossam&to=ali
 6- login and go to myacount and change the name or id 
 7- if found example.com/?lang=en   in link try to find /?lang=database.yml or any senstive files  
-
+8- try to change the email and observe if there is roleid in response if found change it and put it in the request 
 
 
 
