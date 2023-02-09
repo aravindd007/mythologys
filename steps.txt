@@ -10,8 +10,8 @@
 9- try to change the id in url in /myaccount if id unpredictable tr to find post of this person and put id in /myaccount
 10- if there is downloadable file try to change the name of request file to download and anaylise it 
 11- if need to access /admin and can't then remove it from GET and put X-Original-URL: /admin and if there is any parameters put them in GET /?username=admin put if any direcotry put it in X-Original-URL: /admin/changeusername
- 12- when trying to make action and non authurized try to change method 
-
+12- when trying to make action and non authurized try to change method 
+13- try to go to /api and change the method to post then put {} in the body to make response json
 
 
 
