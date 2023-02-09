@@ -7,6 +7,7 @@
 6- login and go to myacount and change the name or id 
 7- if found example.com/?lang=en   in link try to find /?lang=database.yml or any senstive files  
 8- try to change the email and observe if there is roleid in response if found change it and put it in the request 
+9- try to change the id in url in /myaccount if id unpredictable tr to find post of this person and put id in /myaccount
 
 
 
