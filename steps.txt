@@ -14,6 +14,17 @@
 13- try to go to /api and change the method to post then put {} in the body to make response json
 14- login to page and reset password put 150 chars and reset if applied then put 2500 chars then server will crash 
 15- verify that reset and register and change email links are not valid for ever try send them and change account email or password many times and verfiy that if the first link is valid or not 
+16- when found param ?ref= or ssid= in link try to fill it with ?ref=,,,,,,,,,,,,,,,, as you can as it's gonna make system crash 
+
+
+
+
+
+
+
+
+
+
 
 google dorks : 
   
