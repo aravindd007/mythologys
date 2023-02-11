@@ -99,6 +99,7 @@ apache 2.4.3 has open redirect in server /login >> https://hackerone.com/reports
 
 http://example.com?redirect_url=javascript://%250Aalert(1)  >> xss via redirect (rxss)
 
+ https://smartreports.mtncameroon.net//hacker.com/..;/css      after // that redirect you to hacker.com
 
 
 
