@@ -121,7 +121,8 @@ try to put similar domain as the original like
 - šemrush.com   >> https://hackerone.com/reports/861940
 https://oauth.semrush.com/oauth2/authorize?redirect_uri=https://oauth.šemrush.com/oauth2/success
 
-
+if failed to redirect to hackersite directly can create personal domain which will automatically redirect hacker to hacker.com
+https://victim.com/?url=https://hackersite1.com/?redirecturl=https://hacker.com and make content of hackersite1 to redirect automatically 
 
 
 
