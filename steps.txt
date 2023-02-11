@@ -77,6 +77,13 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
  
  
  ----------------------------------------------------------------------------------------------
+                                open redirect
+ https://example.com_https@google.com
+ 
+ 
+ 
+ 
+ ----------------------------------------------------------------------------------------------
             Combining Session Fixation With Http Request Splitting 
             
 http://host/loging\r\nSet-Cookie: SESSIONID=12345\r\nDummy-Header:
