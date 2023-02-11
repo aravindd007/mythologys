@@ -101,9 +101,13 @@ http://example.com?redirect_url=javascript://%250Aalert(1)  >> xss via redirect 
 
 https://smartreports.mtncameroon.net//hacker.com/..;/css      after // that redirect you to hacker.com
 https://www.affirm.com///google.com/?www.affirm.com/?category=interview&page=2    >>redirct it to google 
-
 https://rinkerboats.vanillacommunities.com/home/leaving?Target=http://www.ɡооɡⅼе.ϲоⅿ\:@%20
-
+try to put similar domain as the original like 
+- sémrush.com
+- sêmrush.com
+- sèmrûsh.com
+- šemrush.com   >> https://hackerone.com/reports/861940
+https://oauth.semrush.com/oauth2/authorize?redirect_uri=https://oauth.šemrush.com/oauth2/success
 
 
 
