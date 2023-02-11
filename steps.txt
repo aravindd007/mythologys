@@ -79,6 +79,7 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
  ----------------------------------------------------------------------------------------------
                                 open redirect
  https://example.com_https@google.com
+ https://victim.com/login/?next=https://your_domain.com
  
  
  
