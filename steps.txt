@@ -51,13 +51,14 @@ google dorks :
         1- co2 >> sqli
         2- retire.js >> jquery and javascript files
         3- carbonator   >> automate targeting , spidering , and scanning vulns
+        4- discover content >> in sitemaps and engagment tools > discover content to discover all urls and directories 
         install carbonator in burpsuite pro and run in termainal  ./burpsuite is location of the burp
 java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmple.com 80 / 
         
         
   file upload or download :: file.php%2500.pdf    >> this will ignore .pdf in server but pass filter
   
-  
+  go to 
   
   ----------------------------------------------------------------------------------------------
                     JSON EXPLOIT
