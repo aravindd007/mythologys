@@ -13,7 +13,7 @@
 12- when trying to make action and non authurized try to change method 
 13- try to go to /api and change the method to post then put {} in the body to make response json
 14- login to page and reset password put 150 chars and reset if applied then put 2500 chars then server will crash 
-
+15- verify that reset and register and change email links are not valid for ever try send them and change account email or password many times and verfiy that if the first link is valid or not 
 
 google dorks : 
   
