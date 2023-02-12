@@ -1,4 +1,5 @@
                   Logic and tokens
+0 - validate token after use , email change , password  change , the second token requested 
 1-  try to login with two users and see tokens from  inspect -> application and compare them  
 2-  you can login and copy token and logout and try to put token back see if you can access   
 3-  try to forget password and send code then in the same session add any link to internal profile and see if you can access account data ex: /myaccount (don't reload)  ... you can verfiy if you got session id from >> inspect > applicatoin 
