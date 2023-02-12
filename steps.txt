@@ -83,6 +83,8 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
 &xxe;
 </productId><storeId>1</storeId></stockCheck>
 
+can put http://ip_of_the_server and follow directories that appear in response 
+
   
   
 
