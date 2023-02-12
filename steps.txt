@@ -73,6 +73,10 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   {"description":"<script>alert(\"hossam\");</script>"}
 
 
+                                      JWT
+   jwt editor extension for burpsute
+   Autorize for burpsuite 
+
 -------------------------------------------------------------------------------------------
                                     XXE
     
