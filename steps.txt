@@ -356,7 +356,8 @@ c templates concurrent
   8- gau
   9- waybackurl 
   10- nuclei
-  11- 
+  11- aquatone    >> for checking live and responsive sites 
+  
        
        
        
