@@ -357,7 +357,10 @@ c templates concurrent
   9- waybackurl 
   10- nuclei
   11- aquatone    >> for checking live and responsive sites 
-  
+  12- subjack 
+  13- can i takeover xyz
+  14- amass
+  15- masdns 
        
        
        
