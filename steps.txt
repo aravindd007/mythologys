@@ -3,6 +3,7 @@
 2-  you can login and copy token and logout and try to put token back see if you can access   
 3-  try to forget password and send code then in the same session add any link to internal profile and see if you can access account data ex: /myaccount (don't reload)  ... you can verfiy if you got session id from >> inspect > applicatoin 
 3- try to reset password while more than one device is loged in and reset the password then you can use two sessions in the same time one (which changed the password ) and the other which (is previously loged in and didn't loged out )
+3- open firefox and chrome for the same site and login in both change password in chrome and observe firefox still work 
 4- try to register as admin then you will get inavalible username >> in the same session go to /myaccount  (don't reload) 
 5- if transaction of money from hossam to ali then ?from=hossam&to=ali  can make http polution by &from=ali&from=hossam&to=hossam&to=ali
 6- login and go to myacount and change the name or id 
