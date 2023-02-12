@@ -341,7 +341,22 @@ c templates concurrent
 {{Scheme}}	Https      
        
 
-       
+  
+  
+  
+  ----------------------------------------------------------------------------------------------------------------------
+                          TOOLS
+  1- http secret and debug finder >> https://github.com/redhuntlabs/httploot                        
+  2- httpx 
+  3- subfinder 
+  4- subbrute
+  5- gobuster
+  6- dirb
+  7- dirsearch
+  8- gau
+  9- waybackurl 
+  10- nuclei
+  11- 
        
        
        
