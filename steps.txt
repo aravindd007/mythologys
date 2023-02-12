@@ -361,7 +361,7 @@ c templates concurrent
   13- can i takeover xyz
   14- amass
   15- masdns 
-       
+  16- dnsgen    ==> for providing hidden subdomains     
        
        
        
