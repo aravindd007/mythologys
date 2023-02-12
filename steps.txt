@@ -76,6 +76,9 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
                                       JWT
    jwt editor extension for burpsute
    Autorize for burpsuite 
+   1- change user role or id in jwt 
+   2- change user role and alg to "none" and remove signature and leave . after payload 
+   3- 
 
 -------------------------------------------------------------------------------------------
                                     XXE
