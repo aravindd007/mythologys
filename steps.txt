@@ -138,7 +138,9 @@ exmaple.com/./admin/./  ==>200
 ---------------------
 https://example.com/admin   ==>302
 https://exmale.com/admin..;
-
+-------------------
+when file upload => /?file=file.php   blocked
+                   /?file===file.php   passed
  
  ----------------------------------------------------------------------------------------------
                                 open redirect
