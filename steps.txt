@@ -19,6 +19,7 @@
 15- verify that reset and register and change email links are not valid for ever try send them and change account email or password many times and verfiy that if the first link is valid or not 
 16- when found param ?ref= or ssid= in link try to fill it with ?ref=,,,,,,,,,,,,,,,, as you can as it's gonna make system crash 
 17- when buying something with coupons  try to put the coupon more than one time or put two coupons alternativily one after one if accepted continue this until finish
+18- try to register with registed account before but add "hossam@gmial.com\n" and see if it will register again 
 
 
 
