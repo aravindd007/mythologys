@@ -362,7 +362,7 @@ c templates concurrent
   14- amass
   15- masdns 
   16- dnsgen    ==> for providing hidden subdomains     
-       
+  17- mksub ==> mksub -d exmaple.com -w wordlist.txt -1 2  >> great 
        
        
        
