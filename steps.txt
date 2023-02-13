@@ -363,8 +363,8 @@ c templates concurrent
   15- masdns 
   16- dnsgen    ==> for providing hidden subdomains     
   17- mksub ==> mksub -d exmaple.com -w wordlist.txt -1 2  >> great 
-       
-       
+  18- hunter.how ==> site for searching site ==> via shodan 
+  19- subfinder online ==> alternative for subfinder tool 
        
        
        
