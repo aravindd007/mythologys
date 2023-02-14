@@ -258,7 +258,20 @@ login
    
 
 
----------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------
+                                    CSRF
+   1- if there is no csrftoken try to make poc with burpsuite and put it in server 
+   2- if there is token : - try to change request method from post to get and remove csrftoken and see if worked
+
+
+ 
+
+
+
+
+--------------------------------------------------------------------------------------------------
             (((XSS))
   <script>alert(\"hossam\")</script>        // add \ before " to escape filter
 cloudflare bypass 
