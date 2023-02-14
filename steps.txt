@@ -258,9 +258,9 @@ login
    1- if there is no csrftoken try to make poc with burpsuite and put it in server 
    2- if there is token : - try to change request method from post to get and remove csrftoken and see if worked
    3- try to remove the csrftoken and see if the same response
-   4- try to make csrftoken in any live account and drop the request to be unused  csrf token and try to use it 
+   4- try to make csrftoken in any live account and drop the request to be unused  csrf token and try to use it (one time use)
          - open firefox and try to change email , intercept it and take token and drop the request and then make csrf poc
-   
+   5- 
    
    4- try to make poc by burpsuite and if there is current password try to remove it 
    
