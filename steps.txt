@@ -105,8 +105,9 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
 
 
 --------------------------------------------------------------------------------------------
-   
- 
+                                       information disclosure
+    1- /en-US/splunkd/__raw/services/server/info/server-info?output_mode=json >>https://hackerone.com/reports/1860905
+                                          
  -------------------------------------------------------------------------------------------
                                       403 PYPASS
                                       GET /admin HTTP/1.1
