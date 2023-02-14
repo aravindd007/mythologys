@@ -20,7 +20,7 @@
 16- when found param ?ref= or ssid= in link try to fill it with ?ref=,,,,,,,,,,,,,,,, as you can as it's gonna make system crash 
 17- when buying something with coupons  try to put the coupon more than one time or put two coupons alternativily one after one if accepted continue this until finish
 18- try to register with registed account before but add "hossam@gmial.com\n" and see if it will register again 
-
+19- try to reset password and use host header (it's common for developers to use host header in reset password ) and put http://collaborator.com/ and see if there was dns in burpcollaborator
 
 
 
