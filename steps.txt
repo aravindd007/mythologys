@@ -140,6 +140,19 @@ https://exmale.com/admin..;
 -------------------
 when file upload => /?file=file.php   blocked
                    /?file===file.php   passed
+                   
+                   
+Bypass matching on host contain growanz.hubspot.com
+    growanz.hubspot.com.mydomain.com
+Weak regex by using dot on regex without bypassing it e.g ”^growanz.hubspot.com$|^example.virtual.host$”
+    growanzXhubspot.com
+Bypass matching on the end at growanz.hubspot.com
+    mydomain.com/growanz.hubspot.com
+Bypass white list validation
+    mydomain.com%23@growanz.hubspot.com
+    mydomain.com%25%32%33@growanz.hubspot.com                   
+                   
+
  
  ----------------------------------------------------------------------------------------------
                                 open redirect
