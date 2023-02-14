@@ -105,14 +105,7 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
 
 
 --------------------------------------------------------------------------------------------
-                                    CSRF
-  1- try to remove the token and see if the same response
-  2- try to make poc by burpsuite and if there is current password try to remove it 
-  3- 
-  
- 
- inrul:login;jsessionid=    >> to see squestoinal session id 
- 
+   
  
  -------------------------------------------------------------------------------------------
                                       403 PYPASS
@@ -264,8 +257,15 @@ login
                                     CSRF
    1- if there is no csrftoken try to make poc with burpsuite and put it in server 
    2- if there is token : - try to change request method from post to get and remove csrftoken and see if worked
-
-
+   3- try to remove the csrftoken and see if the same response
+   4- try to make poc by burpsuite and if there is current password try to remove it 
+ 
+  
+ 
+ 
+ inrul:login;jsessionid=    >> to see squestoinal session id 
+ 
+  
  
 
 
