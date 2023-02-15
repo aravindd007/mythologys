@@ -25,7 +25,7 @@
 21- try to change host header to anything and see the response if ok 200 put localhost or 127.0.0.1 to get unauthrized admin
 22- try to put 2 hosts and see if the second host of hacker appear in response if it then make file.js and alert(1)
 23- try tp change the host if ok then try to put ip 192.168.0.0 and send to intruder,change last $0$ and try 1-255 see response
-
+24- try to put  GET http://example.com HTTP/1.1 and put host anything see if accepted then use collaborator in host
 
 
 
