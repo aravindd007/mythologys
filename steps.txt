@@ -22,7 +22,7 @@
 18- try to register with registed account before but add "hossam@gmial.com\n" and see if it will register again 
 19- try to reset password and use Host header (it's common for developers to use host header in reset password ) and put http://collaborator.com/ and see if there was dns in burpcollaborator oe you can go to your email and sea the link
 20- smtp header injection can be found in contact us forms 
-
+21- try to change host header to anything and see the response if ok 200 put localhost or 127.0.0.1 to get unauthrized admin
 
 
 
