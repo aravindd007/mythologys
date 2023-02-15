@@ -44,8 +44,11 @@ google dorks :
   
   allintext:username filetype:log     >> find log files 
   ext:sql intext:"-- phpMyAdmin SQL Dump"
-  
-  
+  ----------------------------------------------------------------------------
+  Debug.log lead to information Disclosure 
+
+Tips : https://target[.]com/wp-content/debug.log
+
   
   
   ----------------------------------------------------------------------------------------------
