@@ -26,7 +26,7 @@
 22- try to put 2 hosts and see if the second host of hacker appear in response if it then make file.js and alert(1)
 23- try tp change the host if ok then try to put ip 192.168.0.0 and send to intruder,change last $0$ and try 1-255 see response
 24- try to put  GET http://example.com HTTP/1.1 and put host anything see if accepted then use collaborator in host
-
+25- try to sent to paramminer to see if origin: hossamshady.com or null and the injection found in portswigger labs  
 
 
 
