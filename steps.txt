@@ -82,9 +82,9 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   PUT /file.txt           or you can use POST without any parameters in link
   content-type: application/json
   {"description":"<script>alert(\"hossam\");</script>"}
-
+  
 can inject json with sleep >> "username":"hsosamshady;sleep(111)"
-
+or you can inject >> <scrip> data{"name"-alert(1)-"hossam"}</script> that is if only script tag appeared not only in json
                                       JWT
    jwt editor extension for burpsute
    Autorize for burpsuite 
