@@ -28,7 +28,7 @@
 24- try to put  GET http://example.com HTTP/1.1 and put host anything see if accepted then use collaborator in host
 25- try to sent to paramminer to see if origin: hossamshady.com or null and the injection found in portswigger labs  
 26- try to put TRACE instead of GET and see if X-Custom-IP-Authorization header appeared then go to match and replace and leave match field blank and put in replace X-Custom-IP-Authorization: 127.0.0.1 it will give you access for unauthorized places/admin
-
+27- try /.git and if found wget -r the link and analysis it with (git cola tool ) 
 
 google dorks : 
   
