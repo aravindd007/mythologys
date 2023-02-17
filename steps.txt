@@ -30,7 +30,7 @@
 26- try to put TRACE instead of GET and see if X-Custom-IP-Authorization header appeared then go to match and replace and leave match field blank and put in replace X-Custom-IP-Authorization: 127.0.0.1 it will give you access for unauthorized places/admin
 27- try /.git and if found wget -r the link and analysis it with (git cola tool ) 
 28- if anything is reflected in page and see x-cache if found then use reflected xss and poison it 
-
+29- Yandex search engine for more data in search
 
 
 
