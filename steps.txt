@@ -31,7 +31,8 @@
 27- try /.git and if found wget -r the link and analysis it with (git cola tool ) 
 28- if anything is reflected in page and see x-cache if found then use reflected xss and poison it 
 29- Yandex search engine for more data in search
-
+30- try fuzzing /api/v1/ and see what files there 
+31- when responsing of missing header put it and put any value then try to change the method request 
 
 
 google dorks : 
