@@ -346,6 +346,16 @@ IDOR ::
   GO to my account and intercept data then change id 
   go to comments and intercept and change the id 
   go to my cart and intercept and change the id 
+  
+  
+  DELETE /v1/api_tokens/hogamo-oamig-aojekm-fimao
+  if you  can't find api token then go to 
+  GET / v1/api_tokens/
+
+
+
+
+
 
 
 ----------------------------------------------------------------------------------------------
