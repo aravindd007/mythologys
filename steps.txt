@@ -345,6 +345,25 @@ svg version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="2560.000000pt" height="1600.000000pt" viewBox="0 0 2560.000000 1600.000000"
  preserveAspectRatio="xMidYMid meet" onload="alert(document.cookie)">
 
+#file with autorun script
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <h1>This script will auto-run when you open this file</h1>
+    <script>
+      // () {
+        alert("lol");
+      }
+      window.onload = autoRun;
+    </script>
+  </body>
+</html>
+
+
 
 
 ------------------------------------------------------------
