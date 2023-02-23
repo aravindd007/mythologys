@@ -54,6 +54,12 @@ google dorks :
 
 Tips : https://target[.]com/wp-content/debug.log
 
+1- gather all wayback and katana urls  
+2- filter all js files 
+3- cat allurls | httpx -content-type | grep 'application/javascript
+4-  nuclei -t /root/nuclei-templates/exposures/
+
+
   
   
   ----------------------------------------------------------------------------------------------
