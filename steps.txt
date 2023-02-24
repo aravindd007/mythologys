@@ -365,7 +365,7 @@ svg version="1.0" xmlns="http://www.w3.org/2000/svg"
 .................
 [Bypass Cloudflare] Open Redirect to XSS 
 Open Redirect
-/login?redirectUrl=//evil,org --> redirect to evil,org
+/login?redirectUrl=//evil.org --> redirect to evil,org
 Escalate to XSS
 /login?redirectUrl=javascript:alert(1) --> blocked by WAF
 [1/2]
