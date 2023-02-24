@@ -422,7 +422,7 @@ Directory listing::
                                     NMAP
            
            nmap --script http-methods 192.168.1.1         >> to check the allowable methods 
-           
+           nmap --script http-enum 192.168.1.1        => enum important directoeies
        
        
        
