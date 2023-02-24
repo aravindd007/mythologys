@@ -167,7 +167,8 @@ Bypass matching on the end at growanz.hubspot.com
 Bypass white list validation
     mydomain.com%23@growanz.hubspot.com
     mydomain.com%25%32%33@growanz.hubspot.com                   
-                   
+ 
+ pypass 401 folder with davtest tool with credrentials => davtest hossam:123456 -url http://example.com/folder
 
  
  ----------------------------------------------------------------------------------------------
