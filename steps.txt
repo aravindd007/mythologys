@@ -33,7 +33,7 @@
 29- Yandex search engine for more data in search
 30- try fuzzing /api/v1/ and see what files there 
 31- when responsing of missing header put it and put any value then try to change the method request 
-
+32- when directory fails 401 unauthorized then use tool (davtest)
 
 google dorks : 
   
