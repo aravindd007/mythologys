@@ -34,9 +34,9 @@
 30- try fuzzing /api/v1/ and see what files there 
 31- when responsing of missing header put it and put any value then try to change the method request 
 32- when directory fails 401 unauthorized then use tool (davtest)
+33- en-US/splunkd/_raw/services/server/info/server-info?output_mode=json ==> for splunk information disclosure
 
-google dorks : 
-  
+google dorks :   
   site:target.com inurl:adminintitle:login 
   site:website.comintitle:/admin 
   site:website.cominurl:admin
@@ -49,10 +49,12 @@ google dorks :
   
   allintext:username filetype:log     >> find log files 
   ext:sql intext:"-- phpMyAdmin SQL Dump"
-  ----------------------------------------------------------------------------
+  in github => project_name filename:env and then search for jera.domain.tld
+ ----------------------------------------------------------------------------
   Debug.log lead to information Disclosure 
 
 Tips : https://target[.]com/wp-content/debug.log
+
 
 1- gather all wayback and katana urls  
 2- filter all js files 
