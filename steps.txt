@@ -36,7 +36,10 @@
 32- when directory fails 401 unauthorized then use tool (davtest)
 33- en-US/splunkd/_raw/services/server/info/server-info?output_mode=json ==> for splunk information disclosure
 34- if found feedback email put hossam||ping+burpcollaborator+||  ==> if there is any interaction then => Blind OS command injection with out-of-band interaction
-35- 
+35- if found /?jwt=token  try to inject token => xss via jwt= 
+                    1. Make a jwt token and insert a xss paylaod. ==> inject the name or the "role":"<script>alert(document.cookie)</script>"
+                    2. The final url is like url/dest?jwt=vulnerable-jwt-token. 
+                    (jwt= paramter was decoding the provided jwt token and show's it into the page). 
 
 
 google dorks :   
