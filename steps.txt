@@ -78,6 +78,12 @@ Tips : https://target[.]com/wp-content/debug.log
 
 
 
+to pypass host unauthorized >> Host: localhost
+
+
+
+
+
 
 
   
