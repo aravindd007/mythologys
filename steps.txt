@@ -489,7 +489,7 @@ nuclei -u "http://example.com" -t nuclei-templates  -author hossam 	>> for templ
 nuclei -u "http://example.com" -t nuclei-templates -severity low,medium
 nuclei -u "http://example.com" -t nuclei-templates -p http://127.0.0.1:8080     >> to send the request to burpsuite
 nuclei -header "User-Agent:Mozilla(Hacktify_Hacker)"
-
+nuclei -l subdomains.txt -t detect-all-takeovers.yaml     ==> https://gitcode.net/mirrors/projectdiscovery/nuclei-templates/-/blob/v7.0.2/subdomain-takeover/detect-all-takeovers.yaml
 cat subdmains | nuclei -t nuclei-templates
 nuclei -update
 
@@ -504,7 +504,7 @@ c templates concurrent
 {{Path}}		/test
 {{File}}		/example.txt
 {{Scheme}}	Https      
-       
+  
 
   
   
