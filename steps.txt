@@ -56,6 +56,12 @@ google dorks :
   allintext:username filetype:log     >> find log files 
   ext:sql intext:"-- phpMyAdmin SQL Dump"
   in github => project_name filename:env and then search for jera.domain.tld
+  
+  𝐔𝐬𝐢𝐧𝐠 "𝐠𝐫𝐞𝐩" 𝐭𝐨 𝗘𝘅𝘁𝗿𝗮𝗰𝘁 𝗨𝗥𝗟'𝘀 𝗳𝗿𝗼𝗺 𝗷𝘂𝗻𝗸 𝗱𝗮𝘁𝗮.
+
+#cat file | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*"*
+
+#curl http://host.xx/file.js | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*"* 
  ----------------------------------------------------------------------------
   Debug.log lead to information Disclosure 
 
