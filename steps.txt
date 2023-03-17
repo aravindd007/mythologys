@@ -40,7 +40,7 @@
                     1. Make a jwt token and insert a xss paylaod. ==> inject the name or the "role":"<script>alert(document.cookie)</script>"
                     2. The final url is like url/dest?jwt=vulnerable-jwt-token. 
                     (jwt= paramter was decoding the provided jwt token and show's it into the page). 
-
+36- always use TRACE instead of GET to know the way of request and hidden headers and if found X-Custom-Ip-Authorization: put 127.0.0.1
 
 google dorks :   
   site:target.com inurl:adminintitle:login 
