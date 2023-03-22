@@ -182,7 +182,8 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
 --------------------------------------------------------------------------------------------
                                        information disclosure
     1- /en-US/splunkd/__raw/services/server/info/server-info?output_mode=json >>https://hackerone.com/reports/1860905
-    2- http://example.com/.gitlab-ci.yml                                      
+    2- http://example.com/.gitlab-ci.yml 
+    3- http://google.com/direcotry/direcotry/file=/proc/version ==> add dircrotyies fuzzing to see if any of them accept parameter file lfi and try to add more and more 
     2
  -------------------------------------------------------------------------------------------
                                       403 PYPASS
