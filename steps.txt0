@@ -73,6 +73,8 @@ google dorks :
 #cat file | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*"*
 
 #curl http://host.xx/file.js | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*"* 
+to find kubernetes ::: 
+shodan search org:"google" product:"Kubernetes" | awk '{print $3}' | httpx -path /pods -content-length -status-code -title
  ----------------------------------------------------------------------------
   Debug.log lead to information Disclosure 
 
