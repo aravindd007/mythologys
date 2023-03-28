@@ -190,6 +190,9 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
     2- files access_token.json
       jsapi_ticket.json
       docker-compose.yml
+      
+    4-put  /"sk-[a-zA-Z0-9]{20,50}"/ language:python  in github to get chatgpt apis for free leak 
+    
  -------------------------------------------------------------------------------------------
                                       403 PYPASS
                                       GET /admin HTTP/1.1
