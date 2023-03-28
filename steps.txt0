@@ -569,7 +569,7 @@ c templates concurrent
   11- aquatone    >> for checking live and responsive sites 
   12- subjack 
   13- can i takeover xyz
-  14- amass     amass enum -ip -src -brute -df domains
+  14- amass     amass enum -ip -src -brute -df domains -config config.ini
   15- masdns 
   16- dnsgen    ==> for providing hidden subdomains     
   17- mksub ==> mksub -d exmaple.com -w wordlist.txt -1 2  >> great 
