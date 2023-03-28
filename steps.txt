@@ -123,7 +123,8 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
         
   file upload or download :: file.php%2500.pdf    >> this will ignore .pdf in server but pass filter
   
-  go to 
+  go to
+  to find endpoint of redirect request filter in proxy hisotry : put in filter => Request.Query CONTAINS "=https" => find xss , open redirect , rxss 
   
   ----------------------------------------------------------------------------------------------
   jira exploit 
