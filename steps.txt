@@ -211,6 +211,13 @@ GET /delete?user=ali    HTTP/1.1    =>unahtorized
 /admin/monitor/     ==>200
 then 
 /admin/monitor/;panel      ==>200
+
+arget[.]com/phpmyadmin/setup/index.php
+==> 301 to login page
+
+target[.]com/phpMyAdmin/setup/index.php
+==> 200 to phpmyadmin setup
+
 -----------------
 GET /delete?user=ali    HTTP/1.1
 X-Custom-IP-Authorization: 127.0.0.1    ==>302 done
