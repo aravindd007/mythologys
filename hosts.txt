@@ -1,0 +1,14 @@
+ - Replace Host Header → Host: attacker.com [Report](https://hackerone.com/reports/226659)
+    - Add Commons Header:
+        - X-Forwarded-Host: attacker.com [Report](https://hackerone.com/reports/182670)
+        - X-Forwarded-For: attacker.com
+        - X-Forwarded-Proto: attacker.com
+        - X-Host: attacker.com
+        - X-Forwarded-Server: attacker.com
+        - X-HTTP-Host-Override: attacker.com
+        - Forwarded: attacker.com
+        - X-Forwarded: attacker.com
+    - Change Origin → Origin: attacker.com
+    - Change Referer → Referer: attacker.com [Report](https://hackerone.com/reports/229498)
+    - Redirect X-Forwarded-Host (whitelist) → X-Forwarded-Host: attacker.com/.site.com [Report](https://hackerone.com/reports/698416)
+    - Change Path URI → GET https://attacker.com/forget-pass [Report](https://hackerone.com/reports/158482)
