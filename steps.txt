@@ -602,8 +602,8 @@ c templates concurrent
   18- hunter.how ==> site for searching site ==> via shodan 
   19- subfinder online ==> alternative for subfinder tool 
   20- ghauri ==> as sqlmap but more advanced techique 
-       
-       
+  21- wfuzz -c -z file,/home/hosssam/file.txt --sc 200 "http://example.com/FUZZ"    
+    
        
        
        
