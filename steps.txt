@@ -605,8 +605,9 @@ c templates concurrent
   21- wfuzz -c -z file,/home/hosssam/file.txt --sc 200 "http://example.com/FUZZ" 
   22- to crack secret of jwt token::: => # hashcat  -a 0 -m 16500 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ   rockyou.txt --show
 
-   23- apt install seclists => all lists of passwords
-       
+  23- apt install seclists => all lists of passwords
+  24- put the request in file.txt and remove the place of password with FUZZ and =>
+  #fuff -request file.txt -request-proto http -w /usr/share/seclists/password.txt ( -fc 403,401 ) or can filter the size -fs 8589
        
        
        
