@@ -609,7 +609,7 @@ c templates concurrent
   24- put the request in file.txt and remove the place of password with FUZZ and =>
   #fuff -request file.txt -request-proto http -w /usr/share/seclists/password.txt ( -fc 403,401 ) or can filter the size -fs 8589
        
-       
+  25- sqlmap -r request.txt --ignore-code 401
        
        
        
