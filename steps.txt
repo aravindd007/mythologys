@@ -611,7 +611,7 @@ c templates concurrent
        
   25- sqlmap -r request.txt --ignore-code 401
   26- jwt_too -C -d rockyou.txt "jwtokennnnnnnnnnnnn.nnnnn.nnnn"
-       
+  27- ffuf -u https://example.com/v1/FUZZ -w /usr/share/wordlists/dirb/big.txt -e .php -recusrion 
        
        
        
