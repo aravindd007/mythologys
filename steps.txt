@@ -610,6 +610,7 @@ c templates concurrent
   #fuff -request file.txt -request-proto http -w /usr/share/seclists/password.txt ( -fc 403,401 ) or can filter the size -fs 8589
        
   25- sqlmap -r request.txt --ignore-code 401
+  26- jwt_too -C -d rockyou.txt "jwtokennnnnnnnnnnnn.nnnnn.nnnn"
        
        
        
