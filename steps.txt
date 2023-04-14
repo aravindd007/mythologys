@@ -630,6 +630,10 @@ c templates concurrent
   27- ffuf -u https://example.com/v1/FUZZ -w /usr/share/wordlists/dirb/big.txt -e .php -recusrion 
   28- open burpsuite and send to intruder and $GET$ then select payloads from library => http verbs
        
+  29 - gf patterns ==> git clone https://github.com/1ndianl33t/Gf-Patterns
+            mkdir .gf
+            mv ~/Gf-Patterns/*.json ~/.gf
+  29- katana -d 10 -list httpxfile -silent  | gf xss 
    
        
        
