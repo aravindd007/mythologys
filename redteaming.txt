@@ -20,3 +20,4 @@ nmap --script smb-enum* --script-args smbusername=IEUSER,smbpass=PA$$WORD! -p445
 
 
 redirect=http%3a//google.com///attacker.com
+
