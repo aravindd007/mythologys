@@ -94,6 +94,16 @@ cat test.txt| grep -aEo 'https?://[^ ]+' | sed 's/]$//' | sort -u| grep -aEi "\.
 2- filter all js files 
 3- cat allurls | httpx -content-type | grep 'application/javascript
 4-  nuclei -t /root/nuclei-templates/exposures/
+
+--use gospider and katana , anyother js gather
+gospider -S list.txt -a -w -r -o output
+after finishing reconnisance put below command to filter js
+cat test.txt| grep -aEo 'https?://[^ ]+' | sed 's/]$//' | sort -u| grep -aEi "\.(js)"
+nuclei -l js.txt -t nuclei-temlates/exposures/tokens/generic
+after gathering tokens use  ( token-spray ) template 
+nuclei -t nuclei-templates/token-spray -var token=goanmginaonim
+or can use file of tokens in token=token_file
+
 -----------------------------------------------------------------------------------------------------------
                                             password reset 
                                             {"email":"victim@gmail.com\nattacker@gmail.com"}
