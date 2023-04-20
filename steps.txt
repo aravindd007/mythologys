@@ -89,6 +89,7 @@ shodan search org:"google" product:"Kubernetes" | awk '{print $3}' | httpx -path
 Tips : https://target[.]com/wp-content/debug.log
 
 
+cat test.txt| grep -aEo 'https?://[^ ]+' | sed 's/]$//' | sort -u| grep -aEi "\.(js)"
 1- gather all wayback and katana urls  
 2- filter all js files 
 3- cat allurls | httpx -content-type | grep 'application/javascript
