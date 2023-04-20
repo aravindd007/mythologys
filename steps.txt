@@ -52,8 +52,8 @@
 41- edit email and see if happened without verification p4 vulnerablity 
 42- edit Origin : domain[.]com[.]attacker[.]com ==> if accepted then cors misconfigration 
 43- if found cms tech upload file and put the name of the file "../../../../../../../../../../../../../../tmp/hossam.js" and try to get this file and make rce as https://blog.assetnote.io/2022/05/03/hacking-a-bank-using-dotcms-rce/
-
-
+44- try to put GET http://localhost:22 HTTP/1.1 and connection close that make SSRF
+ 
 
 google dorks :   
   site:target.com inurl:adminintitle:login 
