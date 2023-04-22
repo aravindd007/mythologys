@@ -552,7 +552,10 @@ IDOR ::
   if you  can't find api token then go to 
   GET / v1/api_tokens/
 
+Apache Traffic Server
 
+ /#/../?r=javascript:alert(1)
+/#/../?r=javascript:alert(1)
 
 
 
