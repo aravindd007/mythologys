@@ -592,7 +592,7 @@ Apache Traffic Server
 /#/../?r=javascript:alert(1)
 
 
-
+exploit api keys >>>>>>    https://github.com/streaak/keyhacks#Algolia-API-key
 
 
 ----------------------------------------------------------------------------------------------
