@@ -415,6 +415,9 @@ Wait a few hours
 cat nmap_scan.txt | grep open http://pic.example.com
 
 
+This is the scrip if you wish to scan your target using nmap: 
+``nmap -p80 --script http-dombased-xss.nse``
+
 ----------------------------------------------------------------------------------------------
                         SQLI 
           
