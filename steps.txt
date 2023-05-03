@@ -600,6 +600,8 @@ Apache Traffic Server
 
 exploit api keys >>>>>>    https://github.com/streaak/keyhacks#Algolia-API-key
 
+https://maps.googleapis.com/maps/api/geocode/json?latlng=40,30&key=fiojamiofmaofi   => to verify the google key => https://hackerone.com/reports/1065041
+
 
 ----------------------------------------------------------------------------------------------
 
