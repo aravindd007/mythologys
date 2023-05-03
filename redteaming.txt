@@ -34,3 +34,5 @@ linenum
 linpeas
 linux-exploit-suggester
 
+
+sherlock github :  Hunt down social media accounts by username across social networks  ((great osint))
