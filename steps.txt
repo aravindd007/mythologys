@@ -708,6 +708,8 @@ c templates concurrent
 {{File}}		/example.txt
 {{Scheme}}	Https      
   
+  
+  nuclei -t cve2023cpanelxss -l doamins => https://github.com/KingOfBugbounty/KingOfBugBountyTips/blob/master/OFJAAAH-cpanelXSS.yaml
 
   
   
