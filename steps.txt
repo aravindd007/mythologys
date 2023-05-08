@@ -456,6 +456,7 @@ Directory Traversal
 
 ../../../../../../../../../etc/passwd => can url encode the ../../
 ../../../../etc/passwd
+ /root/etc/passwd 
 ../../.htaccess
 \..\WINDOWS\win.ini
 \..\..\WINDOWS\win.ini
