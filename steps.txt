@@ -278,6 +278,11 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
     2- files access_token.json
       jsapi_ticket.json
       docker-compose.yml
+      - /app_dev.php
+- /app_dev.php/_profiler/phpinfo
+- /app_dev.php/_profiler
+- Look for "profiler token" in phpinfo()
+
       
     4-put  /"sk-[a-zA-Z0-9]{20,50}"/ language:python  in github to get chatgpt apis for free leak 
     
