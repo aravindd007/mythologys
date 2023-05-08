@@ -529,6 +529,7 @@ target,com/path1/path2/" => 301
 target,com/path1/path2/%22 => 301 with SQL error
 
 
+site:target.com intext:"sql syntax near"| intext:"syntax error has occurred" | intext:"incorrect syntax near" | intext:"unexpected end of SQL command" | intext:"Warning: mysql_connect()" | intext:"Warning: mysql_connect()" | intext:"Warning: pg_connect()"
 
 
 
