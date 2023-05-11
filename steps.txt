@@ -55,6 +55,16 @@
 44- try to put GET http://localhost:22 HTTP/1.1 and connection close that make SSRF
 45- hossam@gmail.com  => ho.ss.am@gmail.com 
 
+Find Password reset token leakage via Referer.
+1) Request for Password Reset and open the Email.
+2) Open reset link  and Click on any social media link.
+3) Capture the request.
+4) And you can see the Reset Password token in Referer.
+
+
+
+
+
 google dorks :   
   site:target.com inurl:adminintitle:login 
   site:website.comintitle:/admin 
