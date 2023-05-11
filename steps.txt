@@ -251,6 +251,9 @@ http://[::]:22/ SSH
 
 ["');alert('XSS');//"]@xyz.xxx	json pypass
 
+BLOCKED: "><a href=javascript:alert(1)>accept</a>
+
+ALLOWED: xyz"/ng-click="constructor.constructor('alert(1)')()
  
 
 -------------------------------------------------------------------------------------------
