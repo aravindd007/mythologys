@@ -54,12 +54,18 @@
 43- if found cms tech upload file and put the name of the file "../../../../../../../../../../../../../../tmp/hossam.js" and try to get this file and make rce as https://blog.assetnote.io/2022/05/03/hacking-a-bank-using-dotcms-rce/
 44- try to put GET http://localhost:22 HTTP/1.1 and connection close that make SSRF
 45- hossam@gmail.com  => ho.ss.am@gmail.com 
+46- Find Password reset token leakage via Referer.
+    1) Request for Password Reset and open the Email.
+    2) Open reset link  and Click on any social media link.
+    3) Capture the request.
+    4) And you can see the Reset Password token in Referer.
+47-
+      1-upload a profile image to the website
+      2-attempt to delete the profile image and capture request 
+      3-replace the profile image url with website background image url 
+      4-forward the modified request and wait for a response 
+      5-the website's images can now be deleted without requiring admin access
 
-Find Password reset token leakage via Referer.
-1) Request for Password Reset and open the Email.
-2) Open reset link  and Click on any social media link.
-3) Capture the request.
-4) And you can see the Reset Password token in Referer.
 
 
 
@@ -553,6 +559,11 @@ target,com/path1/path2/%22 => 301 with SQL error
 
 site:target.com intext:"sql syntax near"| intext:"syntax error has occurred" | intext:"incorrect syntax near" | intext:"unexpected end of SQL command" | intext:"Warning: mysql_connect()" | intext:"Warning: mysql_connect()" | intext:"Warning: pg_connect()"
 
+
+POST /forgetpassword.asp HTTP/1.1
+...
+
+email=ali@gmail.com';%20waitfor%20delay%20'0:0:8'%20--%20
 
 
 
