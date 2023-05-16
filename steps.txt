@@ -93,6 +93,12 @@ google dorks :
   in github => project_name filename:env and then search for jera.domain.tld
   
   
+  Github leak for Aws,jira,okta etc :📓
+```
+1. Org:”target” pwd/pass/passwd/password
+2. “target. atlassian” pwd/pass/passwd/password
+3. “target. okta” pwd/pass/passwd/password
+4. “Jira. target” pwd/pass/passwd/password
   
   𝐔𝐬𝐢𝐧𝐠 "𝐠𝐫𝐞𝐩" 𝐭𝐨 𝗘𝘅𝘁𝗿𝗮𝗰𝘁 𝗨𝗥𝗟'𝘀 𝗳𝗿𝗼𝗺 𝗷𝘂𝗻𝗸 𝗱𝗮𝘁𝗮.
 
