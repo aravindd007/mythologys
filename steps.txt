@@ -764,6 +764,37 @@ exploit api keys >>>>>>    https://github.com/streaak/keyhacks#Algolia-API-key
 https://maps.googleapis.com/maps/api/geocode/json?latlng=40,30&key=fiojamiofmaofi   => to verify the google key => https://hackerone.com/reports/1065041
 
 
+inurl:"/wp-json/wp/v2/users"Finds all publicly available
+WordPress API user directories
+intitle:"index.of" intext:"api.txt"Finds publicly available API
+key files
+inurl:"/includes/api/" intext:"index of /"Finds potentially interesting API
+directories
+ext:php inurl:"api.php?action="Finds all sites with a XenAPI SQL
+injection vulnerability (This query
+was posted in 2016; four years
+later, there were 141,000 results.)
+intitle:"index of" api_key OR "api key" OR
+apiKey -pool
+
+kierunner for api descover
+$ kr scan http://192.168.195.132:8090 -w ~/api/wordlists/data/kiterunner/routes-large.kite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ----------------------------------------------------------------------------------------------
 
 Directory listing::
