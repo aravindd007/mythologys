@@ -330,6 +330,9 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
       /wp-content/uploads/wp-file-manager-pro/fm_backup/    FOR WORDPRESS
     4-put  /"sk-[a-zA-Z0-9]{20,50}"/ language:python  in github to get chatgpt apis for free leak 
     
+    
+    
+    
  -------------------------------------------------------------------------------------------
                                       403 PYPASS
                                       GET /admin HTTP/1.1
@@ -808,7 +811,23 @@ search on shodan.io
 search on waybackmachine
 	
 
+inurl:"/api/v1" site:ex.com
+intitle:"/api"
+intitle:json
 
+search on github
+	api key exposed => and search in issues tab
+	
+	extension:json nasa
+	shodan_api_key
+	"authorization:Bearer"
+	filename:swagger.json
+
+search on shodan.io
+	"content-type: application/json"
+	"wp-json"
+
+search on waybackmachine
 
 
 
