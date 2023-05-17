@@ -743,7 +743,7 @@ https://seckrd.com/google-hacking.php
 
 
 ------------------------------------------------------------
-IDOR :: 
+IDOR ::   API
   GO to my account and intercept data then change id 
   go to comments and intercept and change the id 
   go to my cart and intercept and change the id 
@@ -782,7 +782,7 @@ $ kr scan http://192.168.195.132:8090 -w ~/api/wordlists/data/kiterunner/routes-
 
 
 
-
+https://github.com/hAPI-hacker/Hacking-APIs     ==> all api wordlist 
 
 
 
