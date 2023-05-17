@@ -789,6 +789,24 @@ json' -z file,/home/hapihacker/rockyou.txt http://192.168.195.130:8888/api/v2/au
 
 https://github.com/hAPI-hacker/Hacking-APIs
 
+inurl:"/api/v1" site:ex.com
+intitle:"/api"
+intitle:json
+
+search on github
+	api key exposed => and search in issues tab
+	
+	extension:json nasa
+	shodan_api_key
+	"authorization:Bearer"
+	filename:swagger.json
+
+search on shodan.io
+	"content-type: application/json"
+	"wp-json"
+
+search on waybackmachine
+	
 
 
 
