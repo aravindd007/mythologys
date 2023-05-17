@@ -1,0 +1,6 @@
+ssh root@segfault.net
+password: segfault
+to set server with python 
+setsid python -m http.server 8080
+to make public domain for server like ngrok 
+cloudflared tunnel --url http://localhost:8080 --no-autoupdate
