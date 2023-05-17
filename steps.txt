@@ -327,7 +327,7 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
 - /app_dev.php/_profiler
 - Look for "profiler token" in phpinfo()
 
-      
+      /wp-content/uploads/wp-file-manager-pro/fm_backup/    FOR WORDPRESS
     4-put  /"sk-[a-zA-Z0-9]{20,50}"/ language:python  in github to get chatgpt apis for free leak 
     
  -------------------------------------------------------------------------------------------
