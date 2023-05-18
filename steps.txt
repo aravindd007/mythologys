@@ -1,4 +1,25 @@
-                  Logic and tokens
+No more noise in your logs🎧
+
+Burp Suite > Proxy > Options > TLS Pass Through.
+Add these:
+*.google\.com
+.*.gstatic).com
+*.mozilla\.com
+.*\.googleapis\.com
+*.pkil.goog
+
+
+
+
+
+
+
+Logic and tokens
+
+
+
+
+
 0 - validate token after use , email change , password  change , the second token requested 
 1-  try to login with two users and see tokens from  inspect -> application and compare them  
 2-  you can login and copy token and logout and try to put token back see if you can access   
