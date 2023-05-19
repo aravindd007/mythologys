@@ -673,7 +673,8 @@ site:*.com inurl:&#8221;index.php?cat=
 site:*.com intext:"error in your SQL syntax"
 
 
-
+Use this keyword:
+site:test.com intext:”sql syntax near” | intext:”syntax error has occurred” | intext:”incorrect syntax near” | intext:”unexpected end of SQL command” | intext:”Warning: mysql_connect()” | intext:”Warning: mysql_query()” | intext:”Warning: pg_connect()”
 
 
 
