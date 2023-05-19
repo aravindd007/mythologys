@@ -9,6 +9,17 @@ Add these:
 *.pkil.goog
 
 
+sudo apt install tor
+edit 
+nano /etc/tor/torrc
+SocksPort 9050
+SocksPolicy accept *
+
+then install tmux 
+apt install tmux 
+tmux new -s tor 
+ffuf -x socks://127.0.0.1:9050
+
 
 
 
