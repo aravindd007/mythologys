@@ -703,10 +703,18 @@ site:*.com intext:"error in your SQL syntax"
    6- if you found key in cookies csrfkey search for anything reflected in response header and put in the place of autosubmit button of burpsuite csrf poc >> <img src="site.com/?parameterWhichIsRelfectingHeader=hossamshady%0D%0ASet-Cookie: csrfKey=yourCsrfWhichIsNotUsed%3b SameSite=None" onerror="document.forms[0].submit()"> this will submit poc and send csrfkey
 
   7- if csrftoekn and csrfkey are the same try to put fake csrf for both csrfkey and csrftoken if worked then make above attack with any csrftoken but same
-   
-   
-   
-   4- try to make poc by burpsuite and if there is current password try to remove it 
+   8- try to make poc by burpsuite and if there is current password try to remove it 
+   00
+1- delete csrf token and leave it blank 
+2- delete csrf parameter with token 
+3- use live token from another account 
+4- use unused token 
+5- change the token with the same length 
+6- change the post to get 
+7- change the post to get and delete token parameter 
+8- use clickjacking to bypass csrf protection with clickbandit burpsuite
+9- delete referer 
+10- Referer: https://attacker.com/https://victim.com
    
   
  
