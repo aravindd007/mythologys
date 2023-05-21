@@ -929,6 +929,18 @@ search on shodan.io
 	"wp-json"
 
 search on waybackmachine
+1️⃣ Manually search for URLs, API endpoints, paths, and secrets in JS files. Automated tools struggle with obfuscated/minified JS code.
+
+2️⃣ Extract Javascript sourcemaps and look for API endpoints, hardcoded API keys & secrets.
+
+$ cat urls.txt | jsmap
+$ gospider -q -s "https://google com" | jsmap -o srcmaps_google.com
+$ cat domains.txt | waybackurls | jsmap
+$ gau http://google.com | jsmap
+
+3️⃣ Utilize Burp Suite's Param Miner extension to discover parameters in API endpoints.
+
+4️⃣ Found a response containing sensitive information? Profit! 💰💸
 
 
 
