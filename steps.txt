@@ -102,6 +102,15 @@ Logic and tokens
       4-forward the modified request and wait for a response 
       5-the website's images can now be deleted without requiring admin access
 
+48-
+	unicode normalization issue 
+authoriztion issue 
+resuing reset token 
+pre account takeover 
+cors misconfigration accound takeover 
+csrf to account takeover 
+host header injeciton 
+response manipulation
 
 
 
