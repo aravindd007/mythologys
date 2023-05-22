@@ -396,7 +396,13 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
       /wp-content/uploads/wp-file-manager-pro/fm_backup/    FOR WORDPRESS
     4-put  /"sk-[a-zA-Z0-9]{20,50}"/ language:python  in github to get chatgpt apis for free leak 
     
-    
+    Memory dump and env disclosure
+
+shodan search org: "Target" http.favicon.hash:116323821
+-fields ip_str,port--separator
+"| awk '{print $1".:"$2)'
+while read host do ;do ffuf -u http:/ /$host/FUZZ -mc
+200 -w spring-boot.txt ;done
     
     
  -------------------------------------------------------------------------------------------
