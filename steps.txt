@@ -304,7 +304,6 @@ or you can inject >> <scrip> data{"name"-alert(1)-"hossam"}</script> that is if 
 
 Payload: Parameter=randomtext%' OR SLEEP (5) #
 
-Vulnerability :- time-based blind on SignUp form
 
 
 
@@ -580,7 +579,8 @@ if output is 49 then vulnerable and vice versa
 2) echo "http://drive.google.com" | gau
 3) Read all the secrets
 
-
+Found an admin dashboard in Shodan.
+- path https://ip/admins/sign_in ==> https://ip/admins/sign_up
 
 ----------------------------------------------------------------------------------------------
   
