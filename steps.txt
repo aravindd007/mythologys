@@ -707,8 +707,39 @@ site:test.com intext:”sql syntax near” | intext:”syntax error has occurred
               SSRF
    /api?id=http://127.0.0.1
   if aws service is on use 169.254.169.254
-   
-
+  
+  put all params in file called params.txt and run 
+  put https://www.toptal.com/developers instead of {target} and use httpx 
+  httpx -path params.txt -u httpdomains.txt --screenshot -o ssrf.txt
+  or can use gowitness to take screenshots 
+  gowitness file -f ssrf.txt
+ 
+Top 25 Server-Side Request Forgery (SSRF) Parameters for @trbughunters
+?dest={target}
+?redirect={target}
+?uri={target}
+?path={target}
+?continue={target}
+?url={target}
+?window={target}
+?next={target}
+?data={target}
+?reference={target}
+?site={target}
+?html={target}
+?val={target}
+?validate={target}
+?domain={target}
+?callback={target}
+?return={target}
+?page={target}
+?feed={target}
+?host={target}
+?port={target}
+?to={target}
+?out={target}
+?view={target}
+?dir={target}
 
 
 
