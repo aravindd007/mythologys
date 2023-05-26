@@ -891,6 +891,9 @@ https://seckrd.com/google-hacking.php
 sitekey=";alert(0)//
 
 
+for url in 200_url.txt ; do (python3 paramspider.py -d "${url}");done
+cat filtered_url.txt | kxss	
+
 
 ------------------------------------------------------------
 IDOR ::   API
