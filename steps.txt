@@ -567,7 +567,9 @@ document.cookie="SESSIONID=12345;%20path=/;
 /email/optout?username={{7*'7'}}
 
 if output is 49 then vulnerable and vice versa
-
+-----------------------------------------------------------------------------------------------
+			CACHE POISONING ATTACK
+https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner
  
  
  
