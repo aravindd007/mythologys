@@ -403,7 +403,7 @@ shodan search org: "Target" http.favicon.hash:116323821
 while read host do ;do ffuf -u http:/ /$host/FUZZ -mc
 200 -w spring-boot.txt ;done
     
-    
+    Boooommmm!!!!!, The username=tomcat and password=s3cret worked and the Tomcat Application Manager Console was accessible.
  -------------------------------------------------------------------------------------------
                                       403 PYPASS
                                       GET /admin HTTP/1.1
