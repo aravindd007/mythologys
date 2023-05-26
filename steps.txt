@@ -1271,7 +1271,7 @@ xfreerdp /u:offsec /d:win2012 /pth:HASH /v:IP
 gather all links with katana , gospider , waybackurl , gau 
 use anew to remove all dubpicates and put new line for every url 
        
-       
+       https://github.com/michenriksen/gitrob		==> to find senstive data in repositories github
        
        
        
