@@ -797,7 +797,13 @@ SSRF through Curl
  
   
  
-
+-----------------------------------------------
+		OSRF
+go change password of mine and then take the url in get request as following
+GET /change_password?newpassword=123
+and go to upload photo and then put filename="anyname" and see if the "anyname" in <img src="anyname"> can put 
+the image name as "../change_password?newpassword=123" and that will apear as <img src="../change_password?newpassword=123">
+and anyone enter my profile his password changes to 123 => source> https://github.com/daffainfo/AllAboutBugBounty/blob/master/On%20Site%20Request%20Forgery.md
 
 
 
