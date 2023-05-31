@@ -268,6 +268,8 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
   to find endpoint of redirect request filter in proxy hisotry : put in filter => Request.Query CONTAINS "=https" => find xss , open redirect , rxss 
   
   
+ url redierct 
+cat httpx.txt | waybackurls | tee wayback.txt ; cat wayback.txt | sort -u | grep "\?">> open.txt;nuclei -t Url-Redirection-Catcher.yaml -l openredirect.txt
   
   
   ----------------------------------------------------------------------------------------------
