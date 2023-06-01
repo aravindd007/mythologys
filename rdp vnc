@@ -1,0 +1,19 @@
+sudo apt install xfce4 xfce4-goodies
+sudo apt install tightvncserver
+sudo apt install dbus-x11
+vncserver	=> put password
+vncserver -kill :1
+mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+nano ~/.vnc/xstartup
+	#!/bin/bash
+	xrdb $HOME/.Xresources
+	startxfce4 &
+
+chmod +x ~/.vnc/xstartup
+vncserver -localhost
+
+to connect to it => from my pc 
+ssh -L 59000:localhost:5901 -C -N -i private_key.pem -l azureuser <ip>
+keep the command open and terminal open and open Remmina
+put <ip>:59000
+that's it 
