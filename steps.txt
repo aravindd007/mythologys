@@ -218,6 +218,7 @@ v3/users_data/1234 --> 403 Forbidden
 to pypass host unauthorized >> Host: localhost
 ---------------------------------------------------------------------------------------------------------
 				WORDPRESS
+				FUZZ 404
 wp-admin.php   
 wp-config.php
 wp-content/uploads
@@ -373,6 +374,10 @@ ALLOWED: xyz"/ng-click="constructor.constructor('alert(1)')()
 Payload: %7B%7Bconstructor.constructor(%27alert(1337)%27)()%7D%7D
 
 
+1- found a subdomain and create acc&login 
+2- profile image extention's limited to jpg,png,jpeg
+3- in upload image Request i changed file type test.jpg to test.php&test.php%00.jpg,... not bypassed
+4- changed to test.svg and work
 
 
 -------------------------------------------------------------------------------------------
