@@ -271,7 +271,9 @@ java -jar -Xmx512M -Djava.awt.headless=true ./burpsuite_pro_v1.8.8.jar http exmp
  url redierct 
 cat httpx.txt | waybackurls | tee wayback.txt ; cat wayback.txt | sort -u | grep "\?">> open.txt;nuclei -t Url-Redirection-Catcher.yaml -l openredirect.txt
   
-  
+  One liner :- 
+
+httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 
   ----------------------------------------------------------------------------------------------
   jira exploit 
   cve 2020-14179	=> jira
