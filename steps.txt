@@ -1123,7 +1123,7 @@ c templates concurrent
   nuclei -t cve2023cpanelxss -l doamins => https://github.com/KingOfBugbounty/KingOfBugBountyTips/blob/master/OFJAAAH-cpanelXSS.yaml
 
   
-  
+  plugin ‘InQL — Introspection GraphQL Scanner’ and found interesting queries like users query
   
   ----------------------------------------------------------------------------------------------------------------------
                           TOOLS
