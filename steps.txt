@@ -732,6 +732,17 @@ Recon, Content Discovery process has megs of lines recon.txt
 ✔️cat sssti | parallel -j50 -q curl -g | grep "ssti81" > ssti2_poc
 
 
+gather all javascript files .map and use https://github.com/denandz/sourcemapper to search for any api key
+
+
+
+---------------------------------------------------------------------------------------------
+SERVER SIDE POLLUTION
+1- add any header with any value ==> response 304
+2- add in body {"cache-control":"no-cache"}
+3- send request in step one if recived 200 then site is vulnerable
+4- sent in body {"content-type":"application/json;name=hossam"} and see response if reflected then vulnerable
+
 
 ----------------------------------------------------------------------------------------------
               SSRF
