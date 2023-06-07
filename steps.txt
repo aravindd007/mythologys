@@ -540,6 +540,10 @@ cat urls | grep "=" | qsreplace <your interactsh-client> >redirect.txt
 cat redirect.txt | httpx -fr
 4)Check the interactsh-client terminal.
 
+to get open redirect
+waybackurls test.com | grep -a -i \=http | qsreplace 'https://hossamshady.me' | while read host do ;do curl -s -L $host -I| grep "hossamshady.me" && echo "$host \033[0;31mVulnerable\n";done
+
+
 
 ...................................................................................
 apache 2.4.3 has open redirect in server /login >> https://hackerone.com/reports/1782514
