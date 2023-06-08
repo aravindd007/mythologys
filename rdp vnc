@@ -17,3 +17,9 @@ ssh -L 59000:localhost:5901 -C -N -i private_key.pem -l azureuser <ip>
 keep the command open and terminal open and open Remmina
 put <ip>:59000
 that's it 
+----------------------------------------------------------------
+first connect to your vps using ssh 
+second put 
+#startxvnc 
+third take the command that appeared and put it in your terminal not in vps 
+and the last thing open remminia and put 127.0.0.1:5900 or the port that appeared in the command 
