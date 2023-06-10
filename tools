@@ -19,6 +19,10 @@ fuzzing
 gobuster dir -u https://example.com -w wordlist 
 
 
+dig www.google.com
+
+whatweb https://www.google.com
+nikto https://www.google.com
 
 
 
