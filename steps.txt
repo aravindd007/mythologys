@@ -469,7 +469,8 @@ Cloudflare bypass
 "-alert(0)-"   :  ❌
 "-top['al\x65rt']('sailay')-"   : ✅                 
                  
-                 
+ /adminURL    => 403
+/adminURL.PTSWARM => 200              
                  
                  
                  
