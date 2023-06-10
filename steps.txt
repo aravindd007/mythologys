@@ -611,6 +611,12 @@ https://github.com/Hackmanit/Web-Cache-Vulnerability-Scanner
 Found an admin dashboard in Shodan.
 - path https://ip/admins/sign_in ==> https://ip/admins/sign_up
 
+
+
+1- site:*.target.com ext:php
+2- echo https://sub.target.com | waybckurls | grep "\?" | uro | httpx -silent > parameters.txt 
+3- nuclei -l parameters.txt -t fuzzing-templates
+4- You may find xss,sqli,ssrf,open redirect...ext
 ----------------------------------------------------------------------------------------------
   
   Path traversal to LFI 
