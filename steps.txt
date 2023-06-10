@@ -216,6 +216,7 @@ v3/users_data/1234 --> 403 Forbidden
 
 
 to pypass host unauthorized >> Host: localhost
+
 ---------------------------------------------------------------------------------------------------------
 				WORDPRESS
 				FUZZ 404
@@ -438,6 +439,7 @@ GET /delete?user=ali    HTTP/1.1    =>unahtorized
 -------------------
 /admin/panel        ==>403 forbidden
 /admin/monitor/     ==>200
+example.com/;/admin/
 then 
 /admin/monitor/;panel      ==>200
 
