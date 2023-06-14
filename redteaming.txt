@@ -36,3 +36,14 @@ linux-exploit-suggester
 
 openfuck github tool for exploting ip addresses
 sherlock github :  Hunt down social media accounts by username across social networks  ((great osint))
+
+
+crunch 6 6 -t pass%% ==> to indicate that two chars instead of %% and all chars are 6 
+crunch 9 9 -t welcome%% ==> %% for numbers 
+crunch 9 9 -t welcome@@ ==> for chars 
+crunch 9 9 -t welcome,, ==> for capaital chars
+
+cracking zip password
+zip2jhon file.zip > hash.txt
+john --wordlist=/home/hossam/rockyou.txt hash.txt
+ 
