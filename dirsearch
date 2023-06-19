@@ -1,4 +1,4 @@
-
+dirsearch.zip url ==> 
 unzip the dirsearch.zip insite /usr/lib/python3/dist-packages/dirsearch if not found create dirsearch/
 after that #python3 setup.py install 
 
