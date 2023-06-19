@@ -1,0 +1,17 @@
+
+unzip the dirsearch.zip insite /usr/lib/python3/dist-packages/dirsearch if not found create dirsearch/
+after that #python3 setup.py install 
+
+in /usr/bin 
+create dirsearch file and put that contenct insite it
+
+#!/bin/sh
+
+cd /usr/lib/python3/dist-packages/dirsearch
+exec python3 dirsearch.py "$@"
+
+
+
+
+             
+ 
