@@ -9,7 +9,7 @@ Add these:
 *.pkil.goog
 
 for nuclei => 
-export SHODAN_API_KEY=
+export SHODAN_API_KEY=WjVrhB9Z1CMKnFIHrq59RA6F1hm69Hbi
 export CENSYS_API_ID=68f9d608-7aa9-466c-a25d-ccc32b138b1e
 export CENSYS_API_SECRET=QYoRldviTlTfnckY5Z7Zitdy9qlH5dy8
 export FOFA_EMAIL=1c45b0d1a7064602462aba63ad15ad36
