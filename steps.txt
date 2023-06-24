@@ -242,8 +242,23 @@ wp-trackback.php
 wp-signup.php
 /_wpeprivate/config.json
 
+wordpress attack : username enumeration 
+/wp-json/wp/v2/users
+/wp-json/wp/v2/users/n	
+/wp-json/?rest_route=/wp/v2/users/
+/wp-json/?rest_route=/wp/v2/users/n
+/?author=n
+after knowing the name go to /wp-login.php
+and fuzz the password 
 
-
+config file 
+/wp-config.php
+/wp-config,txt
+/wp-config.zip
+/wp-config.md
+/wp-config.php_orig
+/wp-config.bak
+/debug.log
 
 
 
