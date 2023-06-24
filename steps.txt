@@ -12,11 +12,11 @@ for nuclei =>
 export SHODAN_API_KEY=
 export CENSYS_API_ID=68f9d608-7aa9-466c-a25d-ccc32b138b1e
 export CENSYS_API_SECRET=QYoRldviTlTfnckY5Z7Zitdy9qlH5dy8
-export FOFA_EMAIL=xxx
-export FOFA_KEY=xxx
+export FOFA_EMAIL=1c45b0d1a7064602462aba63ad15ad36
+export FOFA_KEY=1c45b0d1a7064602462aba63ad15ad36
 export QUAKE_TOKEN=xxx
-export HUNTER_API_KEY=xxx
-export ZOOMEYE_API_KEY=xxx
+export HUNTER_API_KEY=a657e05ee29b3494de10405b94a1df876d4b29c2
+export ZOOMEYE_API_KEY=5DF5AA2F-9e8b-cb9eb-8034-82b060c1d78
 
 sudo apt install tor
 edit 
