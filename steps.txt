@@ -1197,10 +1197,13 @@ c templates concurrent
   11- aquatone    >> for checking live and responsive sites 
   12- subjack 
   13- can i takeover xyz
+
+
  to search and list all links in wayback   => https://web.archive.org/cdx/search/cdx?url=*.h1.hilton.com&fI=orignal&collapse=urlkey
-  14- amass     amass enum -ip -src -brute -df domains -config config.ini
+			SUBDOMAIN RECON
+
+14- amass     amass enum -ip -src -brute -df domains -config config.ini
   14- echo 173.0.84.0/24 | dnsx -silent -resp-only -ptr		==> to see all subdomains accossiated to ips
-  14- https://github.com/Micro0x00/CRTER 		==> for recon subdomains with cert.sh
 #curl -s "https://crt.sh/?q=${TARGET}&output=json" | jq -r '.[] | "\(.name_value)\n\(.common_name)"' | sort -u > "${TARGET}_crt.sh.txt"
 
 
