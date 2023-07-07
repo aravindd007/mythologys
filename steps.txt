@@ -1203,8 +1203,27 @@ c templates concurrent
 			SUBDOMAIN RECON
 
 14- amass     amass enum -ip -src -brute -df domains -config config.ini
-  14- echo 173.0.84.0/24 | dnsx -silent -resp-only -ptr		==> to see all subdomains accossiated to ips
-#curl -s "https://crt.sh/?q=${TARGET}&output=json" | jq -r '.[] | "\(.name_value)\n\(.common_name)"' | sort -u > "${TARGET}_crt.sh.txt"
+14- echo 173.0.84.0/24 | dnsx -silent -resp-only -ptr		==> to see all subdomains accossiated to ips
+15- #curl -s "https://crt.sh/?q=${TARGET}&output=json" | jq -r '.[] | "\(.name_value)\n\(.common_name)"' | sort -u > "${TARGET}_crt.sh.txt"
+
+15- Harvester sources:- 
+		baidu
+		bufferoverun
+		crtsh
+		hackertarget
+		otx
+		projecdiscovery
+		rapiddns
+		sublist3r
+		threatcrowd
+		trello
+		urlscan
+		vhost
+		virustotal
+		zoomeye
+		$ cat sources.txt | while read source; do theHarvester -d "${TARGET}" -b $source -f "output";done
+		$ cat *.json | jq -r '.hosts[]' 2>/dev/null | cut -d':' -f 1 | sort -u > "${TARGET}_theHarvester.txt"
+
 
 
 
