@@ -1195,6 +1195,10 @@ c templates concurrent
   9- waybackurl 
   10- nuclei
   11- aquatone    >> for checking live and responsive sites 
+		$ sudo apt install golang chromium-driver
+		$ go get github.com/michenriksen/aquatone
+		$ export PATH="$PATH":"$HOME/go/bin"
+
   12- subjack 
   13- can i takeover xyz
 
