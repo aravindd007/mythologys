@@ -125,6 +125,14 @@ response manipulation
 
 
 
+---------------------------------------------------
+headers injection
+host: victim.com
+host: @hacker.com
+ host: hacker.com
+
+
+
 
 google dorks :   
   site:target.com inurl:adminintitle:login 
