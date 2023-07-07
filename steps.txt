@@ -1198,6 +1198,7 @@ c templates concurrent
 		$ sudo apt install golang chromium-driver
 		$ go get github.com/michenriksen/aquatone
 		$ export PATH="$PATH":"$HOME/go/bin"
+		$ cat facebook_aquatone.txt | aquatone -out ./aquatone -screenshot-timeout 1000
 
   12- subjack 
   13- can i takeover xyz
