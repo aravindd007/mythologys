@@ -1340,8 +1340,8 @@ c templates concurrent
   12- subjack 
   13- can i takeover xyz
 
-
- to search and list all links in wayback   => https://web.archive.org/cdx/search/cdx?url=*.h1.hilton.com&fI=orignal&collapse=urlkey
+						
+ to search and list all links in wayback   => https://web.archive.org/cdx/search/cdx?url=*.aa.com&fl=original&collapse=urlkey
 			SUBDOMAIN RECON
 
 14- amass     amass enum -ip -src -brute -df domains -config config.ini
