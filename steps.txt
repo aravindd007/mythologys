@@ -135,6 +135,7 @@ host: @hacker.com
 
 
 google dorks :   
+site:http://docs.google.com/spreadsheets "company_name"	==> for google sheets 
   site:target.com inurl:adminintitle:login 
   site:website.comintitle:/admin 
   site:website.cominurl:admin
