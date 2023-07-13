@@ -1,5 +1,5 @@
 No more noise in your logs🎧
-
+https://www.boxentriq.com/code-breaking/cipher-identifier	==> for identifing the encoding 
 Burp Suite > Proxy > Options > TLS Pass Through.
 Add these:
 *.google\.com
