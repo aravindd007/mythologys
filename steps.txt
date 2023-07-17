@@ -222,7 +222,8 @@ v3/users_data/1234 --> 403 Forbidden
 {“id”:[111]} --> 200 OK
 {“id”:111} --> 401 Unauthriozied
 {“id”:{“id”:111}} --> 200 OK
-
+PUT /shell.php ==> 403 
+GET /shell.php -H "X-Method-Override: PUT" ==> 200
 
 
 
