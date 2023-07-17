@@ -1,0 +1,21 @@
+              account takeover 
+1- no rate limit in login or reset password or otp 
+2- sent otp to mobile and leave otp code null as 
+number=0121010109&otp=
+3- header poisoning via reset password page 
+Host: example.com
+Host: attacker.com
+- use put space before Host 
+Host: example.com
+ Host: hacker.com 
+ - put headers as 
+ X-Forwarded-For: hacker.com
+ Referrer: https://hacker.com
+ 
+               Auth bypass 
+ 1- enter wrong password 
+ 2- capture the response and change paramerters 
+ {"code":"invalid_password" } => {"code":"valid_password"}
+ {"verify":"false"} => {"verify": "true"}
+ 
+ 
