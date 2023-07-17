@@ -1553,6 +1553,7 @@ use anew to remove all dubpicates and put new line for every url
 							WORDLISTS
 seclists => https://github.com/danielmiessler/SecLists
 api lists => https://wordlists.assetnote.io/
+api lists => https://github.com/Net-hunter121/API-Wordlist
        
        
        
