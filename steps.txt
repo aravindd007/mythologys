@@ -310,7 +310,8 @@ cat httpx.txt | waybackurls | tee wayback.txt ; cat wayback.txt | sort -u | grep
 
 
 
-httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 
+httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 		or ////eveil.com
+echo subdomains.txt | httpx --silent | nuclei -t php8-dev-rce.yaml
   ----------------------------------------------------------------------------------------------
   jira exploit 
   cve 2020-14179	=> jira
