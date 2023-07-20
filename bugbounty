@@ -282,6 +282,7 @@ Bypass Method 1:
 
 Bypass Method 2:
 /api\\users -> 200 OK
+to pypass host unauthorized >> Host: localhost
 
 ------------------------------------------------------------------------------------------------------
 WAF Bypass 
