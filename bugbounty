@@ -391,6 +391,8 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 
 9- %27%22%3E%3Ch1%3Etest%3C%2Fh1%3E{{7777*7777}}JyI%2bPGgxPnRlc3Q8L2gxPgo=		==> html , ssti , xss injection 	==>| httpx -mr "<h1>akira</h1>|60481729"
 
+10-     {"description":"<script>alert(\"hossam\")"}
+	{"description":"<script>alert(\"hossam\");</script>"}
 
 
 
