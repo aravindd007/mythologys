@@ -815,6 +815,8 @@ SQLI
 
 8- sqlmap --list-tamper
 
+9- can inject json with sleep >> "username":"hsosamshady;sleep(111)"
+
 
 
 
