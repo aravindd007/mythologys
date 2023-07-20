@@ -178,6 +178,18 @@ Directory Enumeration
 	-	Pixi: https://github.com/DevSlop/Pixi
 
 9- # ffuf -w Seclists/Discovery/Wp-content/common-api-endpoint-mazen160.txt -u http://example.com/api/FUZZ
+		API RECON
+Step 1 : Capture the request into Burp, Send the request to repeater and intruder tab.
+Step 2 : Add the endpoint into the intruder tab and add the payload from the word-list.
+Step 3 : First use dictionary attack with SecLists (https://github.com/danielmiessler/SecLists) on the Endpoint.	
+			seclists => https://github.com/danielmiessler/SecLists
+			api lists => https://wordlists.assetnote.io/
+			api lists => https://github.com/Net-hunter121/API-Wordlist
+Step 4 : Either use your customized list or use the ones which I have provided in the above step.
+Step 5 : Then simply start the attack, start checking for 200 status.
+Step 7 : Once there is HTTP 200 OK status, start the recursive scan on the same endpoint for juicy information like swagger doc and so on.
+step 8 : Other method is to change the API version and try bruteforcing the same endpoint
+Eg: Redacted.com/api/v1/{Endpoint} ----- Redacted.com/api/v2/{Endpoint}
 
 ----------------------------------------------------------------------------------------------------
 Js Analaysis 
