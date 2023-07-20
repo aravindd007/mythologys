@@ -1,0 +1,35 @@
+/?author=n
+/_wpeprivate/config.json
+/debug.log
+/wp-config,txt
+/wp-config.bak
+/wp-config.md
+/wp-config.php
+/wp-config.php_orig
+/wp-config.zip
+/wp-json/?rest_route=/wp/v2/users/
+/wp-json/?rest_route=/wp/v2/users/n
+/wp-json/wp/v2/users
+/wp-json/wp/v2/users/n	
+Wp-json
+Wp-load
+after knowing the name go to /wp-login.php
+and fuzz the password 
+config file 
+index.php
+wordpress attack : username enumeration 
+wp-activate.php
+wp-admin.php   
+wp-blog-header.php
+wp-config.php
+wp-content/uploads
+wp-cron.php
+wp-includes [directory]
+wp-links-opml.php
+wp-links.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
