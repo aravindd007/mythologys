@@ -102,6 +102,13 @@ passive enumeration
 	\r\n
 	will find in response <?php phpinfo()?>
 
+4- /heapdump 
+	/env 
+	/actuator/heapdump
+	/actuator/env
+
+
+
 -----------------------------------------------------------------------------------------------------
 Nmap 
 Nmap
