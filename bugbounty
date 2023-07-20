@@ -316,6 +316,7 @@ Check
 site.com/secret	=> 403
 site.com/secret/*	=> 200
 site.com/secret/./	=> 200
+change HTTP/1.1	TO HTTP/1.0
 
 site.com/secret.txt	=> 403
 site.com/secret.txt/	=> 200
@@ -1020,6 +1021,7 @@ Burpsuite
 1-search for =>  Request.Query CONTAINS "=https"	==> for open redirect 
 2- Using Autorize 
 3- open burpsuite and send to intruder and $GET$ then select payloads from library => http verbs
+4- 
 
 --------------------------------------------------------------------------------------------------
 JWT
