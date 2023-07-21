@@ -1,3 +1,6 @@
+$ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc
+
+
 Prerequesics: 	
 	install go lang
   1) sudo apt install -y golang
