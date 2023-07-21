@@ -108,3 +108,5 @@ nano /etc/network/interfaces
 Remove the last two lines egarding eth0. 
 Reboot
 
+sudo python -m pyftpdlib -p 21 			==> make ftp server and connect to it by ftp://ip
+impacket-smbserver -smb2support share $(pwd)			==> make smb server and connect to it by //ip
