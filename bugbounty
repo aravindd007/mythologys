@@ -366,6 +366,19 @@ http://localtest.me
 STORY OF [::]
 http://[::]:22/ SSH
 
+403 bypass
+/hossam => 403
+/hossam/ => 200
+/hossam%20	=> 200 ok
+/hosssam%09	=> 200
+/hossam?	=> 200
+/hossam..;/	=> 200
+/hossam.html	=> 200
+/hossam.json	=> 200
+/hossam/?anything	=> 200
+/hossam#	=> 200
+/%2e/hossam
+
 ------------------------------------------------------------------------------------------------------
 WAF Bypass 
 	  X-Forwarded-Host
@@ -1047,6 +1060,8 @@ Burpsuite
 	Request header		True-Client-IP: 127.0.0.1	
 	Request header		Client-IP: 127.0.0.1	
 	Request header		Origin: null
+Response body => isAdmin: false => isAdmin: true
+
 
 --------------------------------------------------------------------------------------------------
 JWT
