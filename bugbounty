@@ -1376,7 +1376,7 @@ printf "$host \033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n"
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Default Credinals 
-1 - use hydra to make default credentials as #hydra -C /home/hossam/Seclists/Passwords/Default_Credentials/ftp_default.txt  example.com http-get /login
+1 - use hydra to make default credentials as #hydra -C /home/hossam/Seclists/Passwords/Default_Credentials/ftp_default.txt  example.com -s <port> http-get /login
 
 2- search for third party credentials on google => critix => wordpress = > ..
 
@@ -1385,7 +1385,7 @@ Default Credinals
 4-    curl -u admin:admin 	http://example.com
   curl http://admin:admin@example.com
  
- 5- #hydra -C /opt/useful/SecLists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt 178.211.23.155 -s 31099 http-get /
+ 5- #hydra -C /opt/useful/SecLists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt 178.211.23.155 -s <port> http-get /
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
