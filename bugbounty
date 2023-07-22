@@ -1376,6 +1376,7 @@ printf "$host \033[0;31mVulnerable\n"||printf "$host \033[0;32mNot Vulnerable\n"
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Default Credinals 
+	-- check page title and search for proper wordlist for it 
 1 - use hydra to make default credentials as #hydra -C /home/hossam/Seclists/Passwords/Default_Credentials/ftp_default.txt  example.com -s <port> http-get /login
 
 2- search for third party credentials on google => critix => wordpress = > ..
