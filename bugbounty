@@ -89,12 +89,17 @@ Automatic scanners
 Subdomain takeover 
 1- use Subjack => https://github.com/haccer/subjack
 2- use SubOver => https://github.com/Ice3man543/SubOver
-3- Use Can i takeover xyz => https://github.com/EdOverflow/can-i-take-over-xyz
-4- use  aquatone => https://github.com/michenriksen/aquatone => cat targets.txt | aquatone
-5-  use dig , nslookup 
-6- 	use httpie => 
+3- Subzy => https://github.com/LukaSikic/subzy
+	-- subzy run --targets live-subs.txt
+	- subzy run --target test.google.com
+	- subzy run --target test.google.com,https://test.yahoo.com
+4- Use Can i takeover xyz => https://github.com/EdOverflow/can-i-take-over-xyz
+5- use  aquatone => https://github.com/michenriksen/aquatone => cat targets.txt | aquatone
+6-  use dig , nslookup 
+7- 	use httpie => 
 	http -b GET http://{SOURCE DOMAIN NAME} | grep -E -q '<Code>NoSuchBucket</Code>|<li>Code: NoSuchBucket</li>' && echo "Subdomain takeover may be possible" || echo "Subdomain takeover is not possible"
-7- read => https://0xpatrik.com/takeover-proofs/
+8- read => https://0xpatrik.com/takeover-proofs/
+
 ----------------------------------------------------------------------------------------------------
 passive enumeration
 1- shodan dorks for api 
