@@ -253,6 +253,7 @@ Step 1 : Capture the request into Burp, Send the request to repeater and intrude
 Step 2 : Add the endpoint into the intruder tab and add the payload from the word-list.
 Step 3 : First use dictionary attack with SecLists (https://github.com/danielmiessler/SecLists) on the Endpoint.	
 			seclists => https://github.com/danielmiessler/SecLists
+			orwawordlists => https://github.com/orwagodfather/My-WordLISTs
 			api lists => https://wordlists.assetnote.io/
 			api lists => https://github.com/Net-hunter121/API-Wordlist
 Step 4 : Either use your customized list or use the ones which I have provided in the above step.
