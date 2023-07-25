@@ -1055,17 +1055,18 @@ https://hahwul.xss.ht
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 SQLI 
-1- collect all urls with waybackurl , gau , hackcrawler in urls.txt
-	- gf sqli urls.txt >> allsqli.txt	=> gf patterns => https://github.com/1ndianl33t/Gf-Patterns	gf patterns ==> git clone https://github.com/1ndianl33t/Gf-Patterns
-            mkdir .gf
-            mv ~/Gf-Patterns/*.json ~/.gf
-		gf tool => https://github.com/1ndianl33t/Gf-Patterns
-	- sqlmap -m allsqli.txt --dbs --batch 
+- gf tool => https://github.com/1ndianl33t/Gf-Patterns
+- gf patterns ==> git clone https://github.com/1ndianl33t/Gf-Patterns
+	# mkdir .gf
+       	# mv ~/Gf-Patterns/*.json ~/.gf
 
-2- collect all urls with waybackurl , gau , hackcrawler  in urls.txt
-	-use Arjun to get hidden params => allparams.txt	==> use ( --urls ) to inclue all urls 
-	- use sqlmap -m allparams.txt --dbs --batch --level 5 --risk 3 
-	- can check the params from arjun as => https://example.com?hidden_param=value
+1- collect all urls with waybackurl , gau , hackcrawler, paramspider ,  arjun , 
+	- cat subdomains.txt | waybackurls | grep "\?" | uro | httpx -silent >> waybackurl
+	- cat subdomains.txt | hackcrawler | grep "\?" | uro | httpx --silent >> hackcrawler	... and so on for paramspider , arjun
+	- cat waybackurl  paramspider arjun hackcrwler gau >> allparams.txt
+
+	- gf sqli allparam.txt >> allsqli.txt	
+	- sqlmap -m allsqli.txt --dbs --batch --crawl=2 --forms  --random-agent --level 3 --risk 2 | tee sqlmap.txt
 	
 3- use ghauri => as sqlmap but more advanced 
 
