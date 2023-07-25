@@ -224,6 +224,12 @@ Eg: Redacted.com/api/v1/{Endpoint} ----- Redacted.com/api/v2/{Endpoint}
 ----------------------------------------------------------------------------------------------------
 Js Analaysis 
 1- use nicejs site 
+2- echo target.com | gau | grep ".js" | httpx -content-type | grep 'application/javascript'" | awk '{print $1}' | nuclei -t
+/root/nuclei-templates/exposures/ -silent > secrets.txt
+3- 2- echo uber.com | gau | grep '\.js$' | httpx -status-code -mc 200 -content-type | grep 'application/javascript'
+4- Using JSScanner
+	- echo "invisionapp.com" | waybackurls | grep -iE '\.js'|grep -ivE '\.json'|sort -u > j.txt
+	- python3 JSScanner.py
 2- search for password , token , jwt , cookie , passwd, path , 
 3-   | xmllint  --format -		==> prettify xml
 4- cat test.txt| grep -aEo 'https?://[^ ]+' | sed 's/]$//' | sort -u| grep -aEi "\.(js)"
