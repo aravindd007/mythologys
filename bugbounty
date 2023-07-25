@@ -14,10 +14,13 @@ Prerequesics:
 ------------------------------------------------------------------------------------------------------------------------------------
 Subdomain Enumeration
 1- amass enum -active -d hackerone.com -src -dir h1_amass -o output_h1_active.txt -rf 50resolvers.txt -config /home/.config/amass/config.ini
-	-amass enum -passive -norecursive -noalts -df domains.txt -o amass.txt
+   amass enum -passive -norecursive -noalts -df domains.txt -o amass.txt
 2- subdomain finder => subdomainfinder.c99.nl/
-	-ffuf -u 'https://example.com'	-H 'Host: FUZZ.example.com' -w Seclists/Discovery/DNS/top-1million-11.txt -fs xxx
-	after finding results but them in /etc/hosts on the same ip of example.com and try to get in it 
+3- ffuf -u 'https://example.com'	-H 'Host: FUZZ.example.com' -w Seclists/Discovery/DNS/top-1million-11.txt -fs xxx
+4- virtual Host scanner =>  https://github.com/jobertabma/virtual-host-discovery	
+	- ruby scan.rb --ip=151.101.194.133 --host=cisco.com --wordlist subs.txt
+after finding results but them in /etc/hosts on the same ip of example.com and try to get in it 
+
 3- #curl -s "https://crt.sh/?q=${TARGET}&output=json" | jq -r '.[] | "\(.name_value)\n\(.common_name)"' | sort -u > "${TARGET}_crt.sh.txt"
 4- site:*.ibm.com -site:www.ibm.com
 5- cat amass.txt subfinder.txt gobuster_subs.txt other.txt | anew all-subs.txt
