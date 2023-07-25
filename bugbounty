@@ -111,8 +111,29 @@ passive enumeration
 	- "content-type: application/xml"
 	- "200 OK"
 	- "wp-json"
+	- ssl.cert.subject.CN:"gevme.com*" 200
+	- ssl.cert.subject.CN:"*.target.com" "230 login successful" port:"21"
+	- ssl.cert.subject.CN:"*.target.com"+200 http.title:"Admin"
+	- Set-Cookie:"mongo-express=" "200 OK"
+	- ssl:"invisionapp.com" http.title:"index of / "
+	- ssl:"arubanetworks.com" 200 http.title:"dashboard"
+	- net:192.168.43/24, 192.168.40/24
+
+- AEM Login panel :- git clone https://github.com/0ang3el/aem-hacker.git
+User:anonymous
+Pass:anonymous
+
+## Collect all interisting ips from Shodan and save them in ips.txt
+- cat ips.txt | httpx > live-ips.txt
+- cat live_ips.txt | dirsearch --stdin
+
 
 2- github dorks
+	- git-Grabber :-
+	- python3 gitGraber.py -k wordlists/keywords.txt -q "yahoo" -s
+	- python3 gitGraber.py -k wordlists/keywords.txt -q \"yahoo.com\" -s
+	- python3 gitGraber.py -k keywordsfile.txt -q \"yahoo.com\" -s -w mywordlist.txt
+	- GitHound
 	filename:prod.secret.exs
 	filename:configuration.php JConfig password
 	filename:.sh_history
@@ -142,6 +163,17 @@ passive enumeration
 	/actuator/heapdump
 	/actuator/env
 
+## Google dorking :-
+- site:*.gapinc.com inurl:”*admin | login” | inurl:.php | .asp
+- intext:"index of /.git"
+- site:*.*.edu intext:"sql syntax near" | intext:"syntax error has occurred" | intext:"incorrect syntax near" |
+intext:"unexpected end of SQL command" | intext:"Warning: mysql_connect()" | intext:"Warning: mysql_query()" |
+intext:"Warning: pg_connect()"
+- site:*.mil link:www.facebook.com | link:www.instagram.com | link:www.twitter.com | link:www.youtube.com |
+link:www.telegram.com |
+link:www.hackerone.com | link:www.slack.com | link:www.github.com
+- inurl:/geoserver/web/ (intext:2.21.4 | intext:2.22.2)
+- inurl:/geoserver/ows?service=wfs
 
 
 -----------------------------------------------------------------------------------------------------
