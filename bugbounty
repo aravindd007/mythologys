@@ -1,17 +1,8 @@
 $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc
-https://api.c99.nl/subdomainfinder?key=CYUOX-L783E-82BEA-3WNAQ&domain=c99.nl
-"https://api.c99.nl/randomperson?key=ZIIL1-Y88DX-HLD89-DVCYB&gender=all&json";
-var api_url = "https://api.c99.nl/phonelookup?key=ZIIL1-Y88DX-HLD89-DVCYB&number=" + phone + "&json";
-var api_url = "https://api.c99.nl/createscreenshot?key=ZIIL1-Y88DX-HLD89-DVCYB&url=" + url + "&json"
-var api_url = "https://api.c99.nl/randomperson?key=ZIIL1-Y88DX-HLD89-DVCYB&gender=all&json";
-var api_url = "https://api.c99.nl/phonelookup?key=ZIIL1-Y88DX-HLD89-DVCYB&number=" + phone + "&json";
-var api_url = "https://api.c99.nl/createscreenshot?key=ZIIL1-Y88DX-HLD89-DVCYB&url=" + url + "&json"
-HttpWebRequest.Create("http://api.c99.nl/geoip.php?key=b1o2o3t4e5r67i8n9&host=" & list(1))
-HttpWebRequest.Create("http://api.c99.nl/skyperesolver.php?key=b1o2o3t4e5r67i8n9&username=" & list(1))
+
+
 needle.get(`https://api.ipgeolocation.io/ipgeo?apiKey=2bcdcb179e8a43759c03cd4bb10ff1ec&ip=${args[1]}`
-this.http.get('http://api.c99.nl/portscanner.php?key=RBQD8-T5WEE-4KM7Q-WZ7I8&host=' + _ip, {responseType: 'text…
-console.log('http://api.c99.nl/portscanner.php?key=RBQD8-T5WEE-4KM7Q-WZ7I8&host=' + _sp_ip + '&port=' + _po…
-this.http.get('http://api.c99.nl/portscanner.php?key=RBQD8-T5WEE-4KM7Q-WZ7I8&host=' + _sp_ip + '&port=' + _…
+
 
 Prerequesics: 	
 	install go lang
