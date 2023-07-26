@@ -29,6 +29,7 @@ Subdomain Enumeration
 1- amass enum -active -d hackerone.com -src -dir h1_amass -o output_h1_active.txt -rf 50resolvers.txt -config /home/.config/amass/config.ini
    amass enum -passive -norecursive -noalts -df domains.txt -o amass.txt
 2- subdomain finder => subdomainfinder.c99.nl/
+3- for i in $(cat mars.txt); do   ffuf -u "https://${i}" -H "Host: FUZZ.${i}" -w "/snap/seclists/current/Discovery/DNS/n0kovo_subdomains.txt" -s  -mc 200  -o "test/site${i}.txt"; done
 3- ffuf -u 'https://example.com'	-H 'Host: FUZZ.example.com' -w Seclists/Discovery/DNS/top-1million-11.txt -fs xxx
 3- #curl -s "https://crt.sh/?q=${TARGET}&output=json" | jq -r '.[] | "\(.name_value)\n\(.common_name)"' | sort -u > "${TARGET}_crt.sh.txt"
 
