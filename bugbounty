@@ -576,6 +576,8 @@ Open Redirect
 2- cat httpx.txt | waybackurls | tee wayback.txt ; cat wayback.txt | sort -u | grep "\?">> open.txt;nuclei -t Url-Redirection-Catcher.yaml -l openredirect.txt
 3- waybackurls tesorion.nl | grep -a -i \=http | qsreplace 'evil.com' | while read host do;do curl -s -L $host -I| grep "evil.com" && echo "$host \033[0;31mVulnerable\n" ;done
 4- httpx -l all-alive-subs.txt -path "///evil.com" -status-code -mc 302 		or ////eveil.com
+5- GET http://target.com/index.php?content=xx HTTP/1.1
+	- Host: attacker.com
 
 --------------------------------------------------------------------------------------------------
 LFI
