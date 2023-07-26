@@ -18,6 +18,9 @@ export QUAKE_TOKEN=xxx
 export HUNTER_API_KEY=a657e05ee29b3494de10405b94a1df876d4b29c2
 export ZOOMEYE_API_KEY=5DF5AA2F-9e8b-cb9eb-8034-82b060c1d78
 
+curl -X POST -d @param.json https://target.com/dev
+param.json is file containing all post data (payload)
+
 sudo apt install tor
 edit 
 nano /etc/tor/torrc
