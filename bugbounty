@@ -2,6 +2,7 @@ $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaD
 https://api.c99.nl/subdomainfinder?key=CYUOX-L783E-82BEA-3WNAQ&domain=c99.nl
 "https://api.c99.nl/randomperson?key=ZIIL1-Y88DX-HLD89-DVCYB&gender=all&json";
 var api_url = "https://api.c99.nl/phonelookup?key=ZIIL1-Y88DX-HLD89-DVCYB&number=" + phone + "&json";
+        var api_url = "https://api.c99.nl/createscreenshot?key=ZIIL1-Y88DX-HLD89-DVCYB&url=" + url + "&json"
 
 
 
