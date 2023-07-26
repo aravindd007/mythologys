@@ -18,6 +18,7 @@ explore api endpoints with kiterunner
 	$ cd kiterunner
 	$ make build
 	$ sudo ln -s $(pwd)/dist/kr /usr/local/bin/kr
+	- after finding api => test => https://rapidapi.com and https://apis.guru/browse-apis
 wordlists 
 1- curl https://wordlists-cdn.assetnote.io/data/automated/httparchive_apiroutes_2021_06_28.txt >
 latest_api_wordlist.txt
