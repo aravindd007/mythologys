@@ -17,7 +17,8 @@ export FOFA_KEY=1c45b0d1a7064602462aba63ad15ad36
 export QUAKE_TOKEN=xxx
 export HUNTER_API_KEY=a657e05ee29b3494de10405b94a1df876d4b29c2
 export ZOOMEYE_API_KEY=5DF5AA2F-9e8b-cb9eb-8034-82b060c1d78
-
+https://www.mongodb.com/students => 50$ and certificate
+GITHUBSTUDENT50-ELXXNS
 curl -X POST -d @param.json https://target.com/dev
 param.json is file containing all post data (payload)
 
