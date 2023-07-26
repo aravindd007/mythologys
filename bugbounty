@@ -35,6 +35,11 @@ Scan for S3 buckets
 3- exploit it with => https://bugbountypoc.com/s3-bucket-misconfiguration-from-basics-to-pawn/ 
 4- Robin Wood ruby tool to brute force on Adobe and find about 17 buckets
 
+5- open terminal and export all keys appeared in burpsuite responseexport AWS_SESSION=...
+	- export AWS_SECRET_ACCESS_KEY=...
+	- aws s3 ls s3://example.com
+	- aws s3 cp s3://example.com
+
 -------------------------------------------------------------------------------------------------------------------------------------
 Wordpress
 1- Wpscan --url https://site.com/wordpress -e at -e ap -e u
