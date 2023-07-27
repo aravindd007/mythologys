@@ -100,6 +100,8 @@ site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27locat
 5- User Enumeration 
 	visit : site.com/wp-json/wp/v2/users/
 	can exploit user and brute force it in xmlrpc.php
+6- search for wp-content/mu-plugins/auto-login.php
+	- login with any valid user and anypassword => there is no validation for the password
 
 -----------------------------------------------------------------------------------------------------
 Automatic scanners 
