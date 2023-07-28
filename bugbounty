@@ -8,11 +8,12 @@ connect to google shell =># gcloud auth login
 
 Prerequesics: 	
 	install go lang
-	  1) sudo apt install -y golang
-	  2) export GOROOT=/usr/lib/go
-	  3) export GOPATH=$HOME/go
-	  4) export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-	  5) source .bashrc
+	wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+	#nano ~/.profile
+	put => export PATH=$PATH:/usr/local/go/bin
+	source ~/.profile
+	done...
+	
 download postman
 	$ sudo wget https://dl.pstmn.io/download/latest/linux64 -O postman-linux-x64.tar.gz
 	$ sudo tar -xvzf postman-linux-x64.tar.gz -C /opt
