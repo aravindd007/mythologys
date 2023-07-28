@@ -29,7 +29,8 @@ wordlists
 1- curl https://wordlists-cdn.assetnote.io/data/automated/httparchive_apiroutes_2021_06_28.txt >
 latest_api_wordlist.txt
 2- wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH
-3- 
+3- seclists 
+4- n0kovo_subdomains.txt
 ------------------------------------------------------------------------------------------------------------------------------------
 Subdomain Enumeration
 1- amass enum -active -d hackerone.com -src -dir h1_amass -o output_h1_active.txt -rf 50resolvers.txt -config /home/.config/amass/config.ini
