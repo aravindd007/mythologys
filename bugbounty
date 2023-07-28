@@ -8,7 +8,7 @@ connect to google shell =># gcloud auth login
 
 Prerequesics: 	
 	install go lang
-	wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+	wget -c https://go.dev/dl/go1.20.6.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 	#nano ~/.profile
 	put => export PATH=$PATH:/usr/local/go/bin
 	source ~/.profile
