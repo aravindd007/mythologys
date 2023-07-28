@@ -3,6 +3,8 @@ https://github.com/jonaslejon/malicious-pdf	=> Malicious pdf generator
 
 needle.get(`https://api.ipgeolocation.io/ipgeo?apiKey=2bcdcb179e8a43759c03cd4bb10ff1ec&ip=${args[1]}`
 
+connect to google shell =># gcloud auth login 
+#gcloud alpha cloud-shell ssh 
 
 Prerequesics: 	
 	install go lang
