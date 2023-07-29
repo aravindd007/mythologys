@@ -999,6 +999,17 @@ reset password
 11- resonse manipulation for data {"message":"unsuccessful"} => {"message":"successful"}
 12- send many reset tokens and search on google and github and facebook for any of these tokens {token leak}
 
+13- The reset code is not expired after changing the password
+    Create a courier account or use existing one.
+    Confirm Your email address.
+    Now log out from your account and request for password reset code for your account .
+    Don't use the code that has been sent to your email address.
+    In new tab or new browser log in back to your account.
+    Go to account setting and change your password .
+    Now go to email and check the password reset code that we requested in step 3.
+    Change Your password using that reset password code .
+    You can see that your password has been changed.
+
 
 
 
