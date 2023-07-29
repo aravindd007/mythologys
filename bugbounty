@@ -1,4 +1,5 @@
 $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc
+						fUbnO3O6ia9QZDTESDeFcbLsUYwEpKMihrxfINqX7co
 https://github.com/jonaslejon/malicious-pdf	=> Malicious pdf generator 
 
 needle.get(`https://api.ipgeolocation.io/ipgeo?apiKey=2bcdcb179e8a43759c03cd4bb10ff1ec&ip=${args[1]}`
