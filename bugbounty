@@ -146,6 +146,7 @@ Subdomain takeover
 	http -b GET http://{SOURCE DOMAIN NAME} | grep -E -q '<Code>NoSuchBucket</Code>|<li>Code: NoSuchBucket</li>' && echo "Subdomain takeover may be possible" || echo "Subdomain takeover is not possible"
 8- read => https://0xpatrik.com/takeover-proofs/
 9- cat livesubdomains.txt | nuclei -v -o output.txt -t /nuclei-templates-directory/subdomain-takeover
+			==> nuclei template for takeover => https://gitcode.net/mirrors/projectdiscovery/nuclei-templates/-/blob/v7.0.2/subdomain-takeover/detect-all-takeovers.yaml
 ----------------------------------------------------------------------------------------------------
 passive enumeration
 1- shodan dorks for api 
