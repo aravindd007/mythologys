@@ -753,6 +753,7 @@ cat waybackruls | egrep -iv ".(jpg|jpeg|js|css|gif|tif|tiff|png|woff|woff2|ico|p
 Blind XSS 
 1- site:opsgenie.com inurl:"contact" | inurl:"contact-us" | inurl:"contactus" | inurl:"contcat_us" | inurl:"contact_form" |
 inurl:"contact-form"
+-  for i in $(cat domains.txt); do echo "site:${i} inurl:\"contact\" | inurl:\"contact-us\" | inurl:\"contactus\" | inurl:\"contcat_us\" | inurl:\"contact_form\" | inurl:\"contact-form\""; done
 	## Go to xss.report website and create an account to test for blind xss Vulnerbilitites
 2- Tips : X-Forwarded-For: 0'XOR(if(now()=sysdate(),sleep(10),0))XOR'Z
 
