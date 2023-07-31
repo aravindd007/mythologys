@@ -532,8 +532,12 @@ site.com/secret.json
 /%ef%bc%8fsecret
 //secret
 /SECRET
-
 change HTTP/1.1	TO HTTP/1.0
+
+GET / HTTP/1.1
+Host: example.com
+X-Original-URL: /admin
+
 
 site.com/secret.txt	=> 403
 site.com/secret.txt/	=> 200
