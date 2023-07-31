@@ -1,3 +1,4 @@
+Use firefox Container , autorize , autorepeater
 $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc
 						fUbnO3O6ia9QZDTESDeFcbLsUYwEpKMihrxfINqX7co
 https://github.com/jonaslejon/malicious-pdf	=> Malicious pdf generator 
