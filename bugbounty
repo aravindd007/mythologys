@@ -1,3 +1,4 @@
+The text editors in linux create a backup or temp files and give the backup file the name of the original file plus a tilde ~ as file.php~
 Use firefox Container , autorize , autorepeater
 $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc
 						fUbnO3O6ia9QZDTESDeFcbLsUYwEpKMihrxfINqX7co
