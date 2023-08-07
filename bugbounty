@@ -238,6 +238,20 @@ python3 dirsearch.py -e php,html,js -u https://geeksforgeeks.org –proxy 127.0.
 	/actuator/env
 
 ## Google dorks :-
+site:docs.google.com inurl:"/d/" "example.com"
+site:onedrive.live.com "example.com"
+site:dropbox.com/s "example.com"
+site:box.com/s "example.com"
+site:dev.azure.com "example.com"
+site:http://sharepoint.com "example.com"
+site:digitaloceanspaces.com "example.com"
+site:firebaseio.com "example"
+site:jfrog.io "example"
+site:http://s3-external-1.amazonaws.com "example.com"
+site:http://s3.dualstack.us-east-1.amazonaws.com "example.com"
+
+
+
 site:*.target.com inurl:search= | inurl:s= | inurl:message= | inurl:q=		==> for xss
 - site:*.gapinc.com inurl:”*admin | login” | inurl:.php | .asp
 - intitle:"index.of" intext:"api.txt"  ==> find api key files
