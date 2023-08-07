@@ -57,6 +57,8 @@ after finding results but them in /etc/hosts on the same ip of example.com and t
 6- cat all-subs.txt | httpx -o live-subs.txt
 7- cat live-subs.txt | dirsearch --stdin
 8- ffuf -u https://www.workramp.com/FUZZ -w wordlist.txt -mc 200,403,301,302 -c true -v -o output.txt
+9- ./feroxbuster -u http://127.1 --depth 2 --wordlist extensions.txt	=> gather all extension in one file and go on
+
 cat allsubdomains | httpx -title -fr 
 ------------------------------------------------------------------------------------------------------------------------------------
 Scan for S3 buckets 
