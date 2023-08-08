@@ -62,6 +62,7 @@ cat allsubdomains | httpx -path '/common/config.php.new'
 cat allsubdomains | httpx -title -fr 
 ------------------------------------------------------------------------------------------------------------------------------------
 Scan for S3 buckets 
+https://buckets.grayhatwarfare.com/
 1- Using https://github.com/sa7mon/S3Scanner
 2- Using lazys3 => https://github.com/nahamsec/lazys3
 3- exploit it with => https://bugbountypoc.com/s3-bucket-misconfiguration-from-basics-to-pawn/ 
