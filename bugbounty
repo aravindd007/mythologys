@@ -1,5 +1,8 @@
 The text editors in linux create a backup or temp files and give the backup file the name of the original file plus a tilde ~ as file.php~
 Use " firefox Container extension", autorize , autorepeater
+put regex in loger++ or proxy history =>  to get IDORS 
+(?i)\b\w*id\b(?!\w)\s*=\s*("[^"]*"|'[^']*'|[^&\s}]*)
+and use autorize to get IDORS OF the above regex
 $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc
 						fUbnO3O6ia9QZDTESDeFcbLsUYwEpKMihrxfINqX7co
 https://github.com/jonaslejon/malicious-pdf	=> Malicious pdf generator 
