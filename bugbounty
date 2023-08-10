@@ -1,5 +1,5 @@
 The text editors in linux create a backup or temp files and give the backup file the name of the original file plus a tilde ~ as file.php~
-Use firefox Container , autorize , autorepeater
+Use " firefox Container extension", autorize , autorepeater
 $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaDUsn3EPuKc
 						fUbnO3O6ia9QZDTESDeFcbLsUYwEpKMihrxfINqX7co
 https://github.com/jonaslejon/malicious-pdf	=> Malicious pdf generator 
@@ -60,6 +60,25 @@ after finding results but them in /etc/hosts on the same ip of example.com and t
 9- ./feroxbuster -u http://127.1 --depth 2 -B --no-state -A -k  -w extensions.txt	=> gather all extension in one file and go on
 cat allsubdomains | httpx -path '/common/config.php.new'
 cat allsubdomains | httpx -title -fr 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+file and dirs: 
+collect all urls with 
+1- katana , waybackurl , gau , hakcrawler, paramspider 
+> https://github.com/ayadim/Nuclei-bug-hunter/
+2- nuclei -l allurls -t nuclei-templates/ayadim-templates/Nuclei-bug-hunter/file-url-analyse/url-extension-inspector.yaml
+3- grep all senstive extensions manually : cat allurls | grep -E "\.txt|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.json|\.gz|\.rar|\.zip|\.config"	 
+
+python3 dirsearch.py -e php -u https://geeksforgeeks.org –prefixes .,admin,_,~
+python3 dirsearch.py -e php -u https://geeksforgeeks.org –suffixes ~,/
+python3 dirsearch.py -u https://uber.com/  -e js,php,bak,txt
+scan subdirectories => python3 dirsearch.py -e php,html,js -u https://geeksforgeeks.org –subdirs admin/,folder/,/
+python3 dirsearch.py -e php,html,js -u https://geeksforgeeks.org –proxy 127.0.0.1:8080
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------------
 Scan for S3 buckets 
 https://buckets.grayhatwarfare.com/
