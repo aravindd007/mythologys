@@ -73,6 +73,7 @@ collect all urls with
 > https://github.com/ayadim/Nuclei-bug-hunter/
 2- nuclei -l allurls -t nuclei-templates/ayadim-templates/Nuclei-bug-hunter/file-url-analyse/url-extension-inspector.yaml
 3- grep all senstive extensions manually : cat allurls | grep -E "\.txt|\.log|\.cache|\.secret|\.db|\.backup|\.yml|\.json|\.gz|\.rar|\.zip|\.config"	 
+4- use gitGraber to search for senstive info => https://github.com/hisxo/gitGraber.git
 
 python3 dirsearch.py -e php -u https://geeksforgeeks.org –prefixes .,admin,_,~
 python3 dirsearch.py -e php -u https://geeksforgeeks.org –suffixes ~,/
